@@ -4,7 +4,7 @@ Repository che contiene il progetto per il corso di Tecnologie Web del CdL di In
 
 ## Sviluppatori
 
-- Osi
-- Dema
-- Vitto
-- Io
+- Francesco De Marchi
+- Daniele Giachetto
+- Antonio Osele
+- Vittorio Schiavon
