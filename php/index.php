@@ -1,23 +1,23 @@
 <?php
     require_once('connessione.php');
+    require_once('debugger.php');
+    //$_POST['ID_Viewer'],$_POST['ID_Recensione']
     $foo = True;
-    echo "ciao";
     $obj_connection = new DBConnection();
     $foo = $obj_connection->create_connection();
     if ($foo) {
-        echo "Nice";
+        new Debugger("Connessione con il DB instaurata");
     }else{
-        echo "Insomma";
+        new Debugger("Connessione con il DB fallita");
     }
-    $pass = "osi"; 
-    //$query ="SELECT * FROM User WHERE PASSWORD = ".$pass;
-    $query ="SELECT * FROM User WHERE 1=1"
+    $query ="SELECT * FROM User WHERE PASSWORD = 'osi'";
     if($query_rist=$obj_connection->connessione->query($query)){
         $array_rist=$obj_connection->queryToArray($query_rist);
-        if(count($array_rist)>0){
-            $query_rist->close();
+        foreach ($array_rist as &$value) {
+            echo $value["EMAIL"];
+            new Debugger($value);
         }
     }else {
-        echo "WHAT";
+        new Debugger("Query fallita");
     }
 ?>
