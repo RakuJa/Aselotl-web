@@ -2,10 +2,10 @@
     require_once('connessione.php');
     require_once('debugger.php');
     //$_POST['ID_Viewer'],$_POST['ID_Recensione']
-    $foo = True;
+    $connection_established = False;
     $obj_connection = new DBConnection();
-    $foo = $obj_connection->create_connection();
-    if ($foo) {
+    $connection_established = $obj_connection->create_connection();
+    if ($connection_established) {
         new Debugger("Connessione con il DB instaurata");
     }else{
         new Debugger("Connessione con il DB fallita");
