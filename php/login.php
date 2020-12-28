@@ -2,7 +2,6 @@
     require_once('connessione.php');
     require_once('debugger.php');
     require_once('sessione.php');
-    //$_POST['ID_Viewer'],$_POST['ID_Recensione']
 
     if($_SESSION['logged']==true){
         new Debugger("User already logged in");
@@ -96,10 +95,7 @@
         }
 
     }else {
-        $error = "nessun dato trovato dentro url";
+        $error = "Nessun dato trovato dentro url";
     }
     new Debugger($error);
-
-    echo $page;
-    echo "kekw";
 ?>
