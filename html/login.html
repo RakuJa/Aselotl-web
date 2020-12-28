@@ -39,21 +39,34 @@
         </div>
 
         <div id="content">
-            %MESSAGGIO%
+            <form method="post" action="../php/login.php" id="login_form" class="vertical_input_form">
+                <fieldset>
+                    <legend xml:lang="en">Login</legend>
+                   
+                    <noscript>
+                        <div class="msg_box warning_box">
+                            ATTENZIONE: <span xml:lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
+                            NON ESSERE DISPONIBILI
+                        </div>
+                    </noscript> 
+                                    
+                    %ERROR%
+                    <label for="email" xml:lang="en">Email:</label>
+                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="30" tabindex="1" class="full_width_input"/>
+
+                    <label for= "pwd" xml:lang="en">Password:</label>
+                    <input type="password" name="pwd" id="pwd" value="osi" maxlength= "15" tabindex="2" class="full_width_input"/>
+                    
+                    <input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
+                    <label for="remember_me">Ricordati di me</label>
+                    
+                    <input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />
+
+                    <a href="registrazione.php" tabindex="3">Non sei ancora registrato? CLICCA QUI</a>  
+                </fieldset>
+           </form>
         </div>
 
-
-        <h2>HTML Forms</h2>
-
-        <form action="../php/login.php" method="post">
-            <label for="email">Inserire email:</label><br>
-            <input type="text" id="email" name="email" value="daniele.giachetto@studenti.unipd.it"><br>
-            <label for="pwd">Inserire password:</label><br>
-            <input type="text" id="pwd" name="pwd" value="osi"><br><br>
-            <input type="submit" value="Submit">
-        </form> 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
     
         <div id="footer">
             <ul>
