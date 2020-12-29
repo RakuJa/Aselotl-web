@@ -1,0 +1,209 @@
+/*
+E'buona norma includere sempre questa regola di stile
+*/
+/*
+Se avessi dato queste regole ad html o a body, avrei potuto riscontrare alcune
+incongruenze di stile con determinati browser (gli altri tag erediterebbero queste
+regole);
+In questo modo, la regola viene applicata a tutti i tag
+*/
+* {
+	padding: 0em;
+	margin: 0em;
+}
+
+
+/*
+Passo 1
+Definire il font
+*/
+html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; /*Definisco i vari font disponibili*/
+	max-width: 1024px; /*Massima larghezza dei contenuti*/
+	margin: auto; /*Imposto il calcolo del margin automatico*/
+	border: 1px solid #ddd; /*Implementazione del bordino grigio a dx e sx*/
+	/*background: #facbcd url(img/logo.png) top left fixed ;  ?????????????????????????*/
+	/*background-image: url(../img/logo.png);*/
+}
+
+a:link {
+	color: #C77B00; /*Colore per i link non visitati*/
+}
+
+a:visited {
+	color: #755AC8; /*Colore per i link visitati*/
+	/*N.B. e'stato scelto un rosso che faccia contrasto sufficiente con i link non visitati*/
+}
+
+
+/*
+Passo 2
+Procediamo con l'header
+N.B. e'un header flessibile
+*/
+
+/*
+===============
+SEZIONE HEADER
+===============
+*/
+
+#header {
+	padding: 1.0em; /*Pensato per adattarsi alla dimensione del carattere*/
+	text-align: center;
+}
+
+#header p {
+	/*padding: 1em; Pensato per adattarsi alla dimensione del carattere*/
+	/*float: right;*/
+	text-align: right;
+	font-size: 1em;
+}
+
+#logo{
+	float: left;/*Posiziona il logo a sinistra*/
+	padding: 5px;
+}
+
+#header h1{/*Indica tutti gli h1 contenuti nei div con id "header"*/
+	color: #c34267;
+	font-size: 2.5em;/*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
+}
+
+#header h2 { /*Indica tutti gli h1 contenuti nei div con id "header"*/
+	color: #c34267;
+	font-size: 1.5em; /*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
+	text-align: center;
+}
+
+
+/*
+Passo 3
+Procedo con la sezione "breadcrumb"
+*/
+
+#breadcrumb{/*Rappresenta la sezione contenente la dicitura 'ti trovi in:nome_pagina'*/
+	background-color: #c34267;/*Sfondo*/
+	color: white;/*Colore del testo*/
+	padding: 0.5em 0em 0.5em 0.5em;/*Aggiungo una leggera spaziatura attorno al testo, ovvero al contenuto del div contenente l'id specificato*/
+	border-top: 5px solid #ddd;/*Implementazione del bordino grigio sopra*/
+	border-bottom: 5px solid #ddd;/*Implementazione del bordino grigio sotto*/
+	font-size: 0.9em; /*Ingrandisco un minimo il font per la scritta bianca per aumentarne il contrasto e la leggibilita'*/
+	font-weight: bold; /*Setto il testo in grassetto per lo stesso motivo citato sopra*/
+}
+
+/*
+Passo 4
+Procedo con la "spalla sx" anche detta "menu"
+*/
+/*
+Prima di tutto setto una serie di regole globali per tutti gli elementi inseriti all'interno
+della classe "menu"
+*/
+
+/*
+======
+MENU
+======
+*/
+#menu {
+	padding: 0.8em;
+	float: left; /*Lo devo mantenere a sx*/
+	width: 20%; /*Lo si sta immaginando per un layout responsive, quindi adattabile*/
+	font-size: 1em;
+	overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
+}
+
+/*
+Do una regola alle liste non ordinate
+*/
+#menu ul{
+	list-style-type: none;/*Nasconde i pallini nelle entry della lista*/
+}
+
+#menu ul li{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+/*
+Passo 5
+Iinizio a considerare il corpo della pagina
+*/
+
+
+/*
+========
+CONTENT
+========
+*/
+
+#content{
+	margin-left: 20%;
+	width: 70%;
+	border-left:1px solid #ddd;
+	font-size: 0.9em;
+	padding-left: 3.5em;
+	padding-top: 2.0em;
+	padding-bottom: 0.8em;
+}
+
+#content p{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#content ul li{
+	margin-left: 2em;
+}
+
+#content h1{
+	margin-bottom: 1em;
+	font-size: 1.1em;
+}
+
+#content img{
+	width:100%;
+}
+
+#content img {
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+/*
+Passo 6
+Prendo in considerazione il footer, o "piede", della pagina
+*/
+
+
+/*
+========
+FOOTER
+========
+*/
+
+#footer {
+	border-top: 2px solid #ddd; /*Aggiungo l'ultimo bordino*/
+	font-style: italic;
+	font-size: 0.9em;
+	padding: 0.2em;
+	text-align: center;
+	list-style-type: none;
+	background-color: #c34267; /*Sfondo*/
+	color: white; /*Colore del testo*/
+}
+
+#footer ul{
+	list-style-type: none;
+}
+
+#footer a{
+	color: white;
+}
+/*
+#footer a:visited{
+	color: gray;
+}
+
+*/
