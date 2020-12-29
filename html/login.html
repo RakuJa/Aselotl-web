@@ -27,16 +27,26 @@
 
     <body>
         <div id="header">
-            %HEADER%
-        </div>
+        <img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl">
+        <h1 xml:lang="en">Axolotl Society</h1>
+        <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
+		<li xml:lang="en" id="currentLink">Login</a></li>
+		<li><a href="register.html">Registrati</a></li>
+		</div>
     
         <div id="breadcrumb">
-            Ti trovi in: %PATH% 
+            <p>Ti trovi in: <span xml:lang="en">Login</span></p>
         </div>
 
         <div id="menu">
-            %MENU%
-        </div>
+        <ul>
+            <li xml:lang="en"><a href="index.html">Home</a></li>
+            <li><a href="famous.html">Personaggi famosi</a></li>
+            <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
+            <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
+			<li><a href="about_us.html">Chi siamo</a></li>
+			<li><a href="rules.html">Regolamento</a></li>
+        </ul>
 
         <div id="content">
             <form method="post" action="../php/login.php" id="login_form" class="vertical_input_form">
@@ -61,7 +71,7 @@
                     
                     <input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />
 
-                    <a href="registrazione.php" tabindex="3">Non sei ancora registrato? CLICCA QUI</a>  
+                    <a href="register.html" tabindex="3">Non sei ancora registrato? CLICCA QUI</a>  
                 </fieldset>
            </form>
         </div>
