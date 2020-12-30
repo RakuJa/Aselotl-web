@@ -131,6 +131,20 @@ MENU
 	border: none;
 }
 
+#menu a{
+	text-decoration: none;
+	text-align: center;
+  	font-size: 1em;
+	color: white;
+	display: block;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	background-color: #c46d85;
+	border: none;
+}
+
 #menu a:visited{
 	text-decoration: none;
 	text-align: center;
