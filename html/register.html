@@ -3,8 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Axolotl Society - Le salamandre più adorabili</title>
-        <meta name="title" content="Axolotl Society - Le salamandre più adorabili" />
+        <title>Registrati - Axolotl Society</title>
+        <meta name="title" content="Registrati - Axolotl Society" />
 
         <meta name="description" content="pagina di base del sito" />
         <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
@@ -27,7 +27,7 @@
 
     <body>
         <div id="header">
-        <img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl">
+        <a href="index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
         <h1 xml:lang="en">Axolotl Society</h1>
         <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
         <p xml:lang="en">
@@ -48,7 +48,7 @@
 			<li><a href="about_us.html">Chi siamo</a></li>
 			<li><a href="rules.html">Regolamento</a></li>
         </ul>
-    </div>
+		</div>
 
         <div id="content">
             <form method="post" action="../php/register.php" id="register_form" class="vertical_input_form">
@@ -64,6 +64,10 @@
                     <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="320" tabindex="1" class="full_width_input"/>
 
                     <label for= "pwd" xml:lang="en">Password:</label>
+					
+					<label for="show_password" style="float: right;">Mostra password</label>
+					<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password" style="float: right;" %CHECKED%/>
+					
                     <input type="password" name="pwd" id="pwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
                     
                     <label for= "pwd" xml:lang="en">Ripeti Password:</label>

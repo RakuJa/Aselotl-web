@@ -3,8 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Axolotl Society - Le salamandre più adorabili</title>
-        <meta name="title" content="Axolotl Society - Le salamandre più adorabili" />
+        <title>Login - Axolotl Society</title>
+        <meta name="title" content="Login - Axolotl Society" />
 
         <meta name="description" content="pagina di base del sito" />
         <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
@@ -27,7 +27,7 @@
 
     <body>
         <div id="header">
-        <img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl">
+        <a href="index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
         <h1 xml:lang="en">Axolotl Society</h1>
         <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
         <p xml:lang="en">
@@ -65,13 +65,18 @@
                     <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="30" tabindex="1" class="full_width_input"/>
 
                     <label for= "pwd" xml:lang="en">Password:</label>
+					
+					<label for="show_password" style="float: right;">Mostra password</label>
+					<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password" style="float: right;" %CHECKED%/>
+					
                     <input type="password" name="pwd" id="pwd" value="osi" maxlength= "15" tabindex="2" class="full_width_input"/>
+					
+					<input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
+                    <label for="remember_me">Ricordati di me</label>
                     
                     <!--<input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />-->
                     <button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4">Login</button>
 
-                    <input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
-                    <label for="remember_me">Ricordati di me</label>
 
                     <a href="register.html" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
                 </fieldset>
