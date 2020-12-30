@@ -82,7 +82,7 @@
     }
     if($no_error){
         $email=$obj_connection->escape_str(trim(htmlentities($email)));
-        $hashed_pwd=hash("sha256",$obj_connection->escape_str(trim($pwd)));
+        $hashed_pwd=hash("sha512",$obj_connection->escape_str(trim($pwd)));
         //check dati inseriti
         $query = "INSERT INTO User (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
         if(!$obj_connection->queryDB($query)){
