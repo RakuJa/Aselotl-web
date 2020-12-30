@@ -203,6 +203,7 @@ CONTENT
 	padding-left: 3.5em;
 	padding-top: 2.0em;
 	padding-bottom: 0.8em;
+	min-height: 20em;
 }
 
 #content p{
