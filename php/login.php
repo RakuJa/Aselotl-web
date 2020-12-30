@@ -51,8 +51,8 @@
         if($connection_established){
             new Debugger("Connessione con il DB instaurata");
             $email=$obj_connection->escape_str(trim($email));
-            //$hashed_pwd=hash("sha256",$obj_connection->escape_str(trim($pwd)));
-            $pwd = $obj_connection->escape_str(trim($pwd));
+            $hashed_pwd=hash("sha256",$obj_connection->escape_str(trim($pwd)));
+            //$pwd = $obj_connection->escape_str(trim($pwd));
             $query = "SELECT * FROM User WHERE EMAIL = '$email' AND PASSWORD = '$pwd'";
             if($query_rist=$obj_connection->connessione->query($query)){
                 $array_rist=$obj_connection->queryToArray($query_rist);

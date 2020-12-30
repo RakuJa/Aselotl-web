@@ -82,10 +82,9 @@
     }
     if($no_error){
         $email=$obj_connection->escape_str(trim(htmlentities($email)));
-        //$hashed_pwd=hash("sha256",$obj_connection->escape_str(trim($pwd)));
-            //check dati inseriti
-        $obj_connection->connessione->query("INSERT INTO `utente` (`ID`, `PWD`, `Mail`) VALUES (NULL,\"$hashed_pwd\", \"$mail\", \"$nome\", \"$cognome\", \"$datan\", \"$id_foto\", \"$rsoc\", \"$piva\", \"$permessi\", \"$sesso\")");  
-        $query = "INSERT INTO User (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$pwd\",1)";
+        $hashed_pwd=hash("sha256",$obj_connection->escape_str(trim($pwd)));
+        //check dati inseriti
+        $query = "INSERT INTO User (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
         if(!$obj_connection->queryDB($query)){
             new Debugger("[Errore nel inserimento dei dati]");
             $error="<div class=\"msg_box error_box\">Errore nell' inserimento dei dati</div>";

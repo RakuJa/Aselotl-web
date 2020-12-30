@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `User` (
   `EMAIL` varchar(320) NOT NULL,
-  `PASSWORD` varchar(16) NOT NULL,
+  `PASSWORD` varchar(64) NOT NULL,
   `PERMISSION` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,10 +38,9 @@ CREATE TABLE `User` (
 --
 
 INSERT INTO `User` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
-('daniele.giachetto@studenti.unipd.it', 'osi', 0),
-('antonio.osele@studenti.unipd.it', 'daniele', 0),
-('prova', 'ciao', 0),
-('daniele@studenti.unipd.it', 'Antonio99', 1);
+('daniele.giachetto@studenti.unipd.it', '75e07ef9bcaa8fd530089f7d81a3da7eda54a1cae0ebf0dbc72d0657deea2ae7', 0),
+('antonio.osele@studenti.unipd.it', '86d0917177d9cf5fb859b81005f650eb9a3be0d5b1a66df60aea9aee416bc03d', 0),
+('daniele@studenti.unipd.it', '4e0740685a1e4a303d21a629b59ce3215d0a461f5210d054a9347b63511768b1', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
