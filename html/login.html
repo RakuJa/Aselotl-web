@@ -30,8 +30,9 @@
         <img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl">
         <h1 xml:lang="en">Axolotl Society</h1>
         <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
-		<li xml:lang="en" id="currentLink">Login</a></li>
-		<li><a href="register.html">Registrati</a></li>
+        <p xml:lang="en">
+            <a >Login</a> <br /> 
+            <a href="register.html">Registrati</a> </p>
 		</div>
     
         <div id="breadcrumb">
@@ -39,19 +40,19 @@
         </div>
 
         <div id="menu">
-        <ul>
-            <li xml:lang="en"><a href="index.html">Home</a></li>
-            <li><a href="famous.html">Personaggi famosi</a></li>
-            <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
-            <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
-			<li><a href="about_us.html">Chi siamo</a></li>
-			<li><a href="rules.html">Regolamento</a></li>
-        </ul>
+            <ul>
+                <li xml:lang="en"><a href="index.html">Home</a></li>
+                <li><a href="famous.html">Personaggi famosi</a></li>
+                <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
+                <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
+                <li><a href="about_us.html">Chi siamo</a></li>
+                <li><a href="rules.html">Regolamento</a></li>
+            </ul>
+        </div>
 
         <div id="content">
             <form method="post" action="../php/login.php" id="login_form" class="vertical_input_form">
                 <fieldset>
-                    <legend xml:lang="en">Login</legend>
                    
                     <noscript>
                         <div class="msg_box warning_box">
@@ -66,12 +67,13 @@
                     <label for= "pwd" xml:lang="en">Password:</label>
                     <input type="password" name="pwd" id="pwd" value="osi" maxlength= "15" tabindex="2" class="full_width_input"/>
                     
+                    <!--<input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />-->
+                    <button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4">Login</button>
+
                     <input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
                     <label for="remember_me">Ricordati di me</label>
-                    
-                    <input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />
 
-                    <a href="register.html" tabindex="3">Non sei ancora registrato? CLICCA QUI</a>  
+                    <a href="register.html" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
                 </fieldset>
            </form>
         </div>

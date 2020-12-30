@@ -192,6 +192,7 @@ FOOTER
 	list-style-type: none;
 	background-color: #c34267; /*Sfondo*/
 	color: white; /*Colore del testo*/
+
 }
 
 #footer ul{
@@ -207,3 +208,42 @@ FOOTER
 }
 
 */
+
+
+/*
+
+======
+BUTTON
+======
+*/
+
+button {
+	background-color: #c34267;
+	color: white;
+	padding: 1em 2em;
+	margin: 1em 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+  }
+
+/*
+==========
+INPUT FORM
+==========
+*/
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 1em 2em;
+	margin: 1em 0;
+	display: inline-block;
+	border: 1px solid #c46d85;
+	box-sizing: border-box;
+  }
+
+fieldset{
+	border:none;
+}
+
+  

@@ -30,8 +30,9 @@
         <img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl">
         <h1 xml:lang="en">Axolotl Society</h1>
         <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
-		<li xml:lang="en"><a href="login.html">Login</a></li>
-		<li id="currentLink">Registrati</a></li>
+        <p xml:lang="en">
+            <a href="login.html">Login</a> <br /> 
+            <a >Registrati</a> </p>
 		</div>
     
         <div id="breadcrumb">
@@ -47,11 +48,11 @@
 			<li><a href="about_us.html">Chi siamo</a></li>
 			<li><a href="rules.html">Regolamento</a></li>
         </ul>
+    </div>
 
         <div id="content">
             <form method="post" action="../php/register.php" id="register_form" class="vertical_input_form">
                 <fieldset>
-                    <legend xml:lang="en">Register</legend>
                    
                     <noscript>
                         <div class="msg_box warning_box">
@@ -68,9 +69,10 @@
                     <label for= "pwd" xml:lang="en">Ripeti Password:</label>
                     <input type="password" name="rpwd" id="rpwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
                     
-                    <input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />
+                    <!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->
+                    <button type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4">Registrati</button>
 
-                    <a href="login.html" tabindex="3">Sei già registrato? CLICCA QUI</a>  
+                    <a href="login.html" tabindex="3" style="float: right;">Sei già registrato? CLICCA QUI</a>  
                 </fieldset>
            </form>
         </div>
