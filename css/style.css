@@ -107,11 +107,41 @@ MENU
 ======
 */
 #menu {
-	padding: 0.8em;
+	padding-top: 0.2em ;
+	padding-bottom: 0.2em;
 	float: left; /*Lo devo mantenere a sx*/
 	width: 20%; /*Lo si sta immaginando per un layout responsive, quindi adattabile*/
 	font-size: 1em;
 	overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
+	text-align: center;
+
+}
+
+#menu a{
+	text-decoration: none;
+	text-align: center;
+  	font-size: 1em;
+	color: white;
+	display: block;
+	border-radius: 4px;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	background-color: #c46d85;
+	border: none;
+}
+
+#menu a:hover{
+	  color: white;
+	display: block;
+	border-radius: 4px;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	background-color: #c34267;
+	border: none;
 }
 
 /*
@@ -184,15 +214,20 @@ FOOTER
 */
 
 #footer {
-	border-top: 2px solid #ddd; /*Aggiungo l'ultimo bordino*/
+	border-top: 5px solid #ddd; /*Aggiungo l'ultimo bordino*/
 	font-style: italic;
 	font-size: 0.9em;
-	padding: 0.2em;
 	text-align: center;
 	list-style-type: none;
 	background-color: #c34267; /*Sfondo*/
 	color: white; /*Colore del testo*/
-
+	padding-top: 1em;
+	padding-bottom: 1em;
+	position: relative;
+	right: 0;bottom:0;left:0;
+	/*max-width: 1024px;*/
+	margin-left: auto;
+    margin-right: auto;
 }
 
 #footer ul{
