@@ -5,7 +5,7 @@
 
     if($_SESSION['logged']==true){
         new Debugger("User already logged in");
-        header('location:index.php');
+        header('location: ../html/index.html');
         exit();
     }
     new Debugger("User not logged in");
@@ -51,9 +51,13 @@
         if($connection_established){
             new Debugger("Connessione con il DB instaurata");
             $email=$obj_connection->escape_str(trim($email));
-            //$hashed_pwd=hash("sha256",$obj_connection->escape_str(trim($pwd)));
+            new debugger("Prima dell'hash");
             $pwd = $obj_connection->escape_str(trim($pwd));
-            $query = "SELECT * FROM User WHERE EMAIL = '$email' AND PASSWORD = '$pwd'";
+            new debugger("Prima dell'hash");
+            $hashed_pwd=hash("sha512",$pwd);
+            new debugger($hashed_pwd);
+            //$pwd = $obj_connection->escape_str(trim($pwd));
+            $query = "SELECT * FROM User WHERE EMAIL = '$email' AND PASSWORD = '$hashed_pwd'";
             if($query_rist=$obj_connection->connessione->query($query)){
                 $array_rist=$obj_connection->queryToArray($query_rist);
                 $count=0;
@@ -81,7 +85,7 @@
 
                     $obj_connection->close_connection();
                 
-                    header('location: index.php');
+                    header('location: ../html/index.html');
                     exit;
                 }
             }else {
