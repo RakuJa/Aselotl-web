@@ -50,7 +50,7 @@ SEZIONE HEADER
 */
 
 #header {
-	padding: 1.0em; /*Pensato per adattarsi alla dimensione del carattere*/
+	padding: 0.5em; /*Pensato per adattarsi alla dimensione del carattere*/
 	/*text-align: center;*/
 	overflow: hidden;
 	border-left: 1px solid #ddd;
