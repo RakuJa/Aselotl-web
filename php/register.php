@@ -55,7 +55,7 @@
 		</div>
 
         <div id="content">
-            <form method="post" action="../php/register.php" id="register_form" class="vertical_input_form">
+            <form method="post" action="../php/register_check.php" id="register_form" class="vertical_input_form">
                 <fieldset>
                    
                     <noscript>
