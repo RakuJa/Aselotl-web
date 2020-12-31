@@ -1,98 +1,97 @@
-<?php 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    require_once("sessione.php");
-    require_once('connessione.php');
-    require_once('debugger.php');
-    require_once("reg_ex.php");
+        <title>Registrati - Axolotl Society</title>
+        <meta name="title" content="Registrati - Axolotl Society" />
 
-    /*Aggiunta header,menu e footer*/
-    //new Debugger("Chiamata ad addToHtml iniziata");
-    //$page= (new addToHtml)->add("../html/register.html",false,false);
-    //new Debugger("Chiamata ad addToHtml terminata");
+        <meta name="description" content="pagina di base del sito" />
+        <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
+        <meta name="author" content="Francesco De Marchi, Daniele Giachetto, Antonio Osele, Vittorio Schiavon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+         
+        <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="../css/stampa.css" media="print"/>  
 
-    if($_SESSION['logged']==true){
-        //header('location:index.php');
-        //exit();
-    }
-    $email='';
-    $pwd='';
-    $pwd2='';
-    $no_error=true;
-    $error="";
-    if(isset($_POST['email'])){
-        $email=$_POST['email'];
-    }
-    if(isset($_POST['pwd'])){
-        $pwd=$_POST['pwd'];
-    }
-    if(isset($_POST['rpwd'])){
-        $pwd2=$_POST['rpwd'];
-    } 
+        <!-- favicon - realfavicongenerator.net - -->
+        <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="../img/favicon/favicon-32x32.png" />
+        <link rel="manifest" href="../img/favicon/site.webmanifest" />
+        <link rel="mask-icon" href="../img/favicon/safari-pinned-tab.svg" />
+        <link rel="shortcut icon" href="../img/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#00aba9" />
+        <meta name="msapplication-config" content="../img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />   
+    </head>
 
-    new Debugger("Email recuperata: ".$email);
-    new Debugger("Password recuperata: ".$pwd);
-    new Debugger("Password2 recuperata: ".$pwd2);
+    <body>
+        <div id="header">
+        <a href="index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
+        <h1 xml:lang="en">Axolotl Society</h1>
+        <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
+        <p xml:lang="en">
+            <a href="login.html">Login</a> <br /> 
+            <a >Registrati</a> </p>
+		</div>
+    
+        <div id="breadcrumb">
+            <p>Ti trovi in: <span xml:lang="en">Registrati</span></p>
+        </div>
 
-    //connessione db
-    $obj_connection = new DBConnection();
-    if(!$obj_connection->create_connection()){
-        new Debugger("[Errore di connessione al database]");
-        $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
-        $no_error=false;
-    }
-    $email=$obj_connection->escape_str(trim($email));
-    $pwd = $obj_connection->escape_str(trim($pwd));
-    //controllo input
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        new Debugger("[La mail inserita non è valida.]");
-        $error=$error."<div class=\"msg_box error_box\">'La mail inserita non è valida.</div>";
-        $no_error=false;
-    }
-    new Debugger("Mail inserita: ".$email);
-    $query = "SELECT * FROM User WHERE EMAIL = '$email'";
-    $query_rist=$obj_connection->connessione->query($query);
-    if($query_rist){
-        $array_rist=$obj_connection->queryToArray($query_rist);
-        var_dump($query_rist);
-        $count=0;
-        foreach ($array_rist as &$value) {
-            $count=$count+1;
-        }
-        new Debugger($count);
-        if($count!=0){
-            new Debugger("[Questa mail è già in uso.]");
-            $error=$error."<div class=\"msg_box error_box\">Questa mail è già in uso.</div>";
-            $no_error=false;
-        }
-    }
-    if(!$query_rist) {
-        new Debugger("[Errore nella esecuzione della query]");
-        $error=$error."<div class=\"msg_box error_box\">Fatal Error. Query non eseguita</div>";
-        $no_error=false;
-    }
-    if($pwd!=$pwd2){
-        new Debugger("[Password e Ripeti Password non coincidono.]");
-        $error=$error."<div class=\"msg_box error_box\">Password e Ripeti Password non coincidono.</div>";
-        $no_error=false;
-    }
-    if(!check_pwd($pwd)){
-        new Debugger("[La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero.] '$pwd'");
-        $error=$error."<div class=\"msg_box error_box\">La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero.</div>";
-        $no_error=false;
-    }
-    if($no_error){
-        $email=$obj_connection->escape_str(trim(htmlentities($email)));
-        $hashed_pwd=hash("sha512",$obj_connection->escape_str(trim($pwd)));
-        //check dati inseriti
-        $query = "INSERT INTO User (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
-        if(!$obj_connection->queryDB($query)){
-            new Debugger("[Errore nel inserimento dei dati]");
-            $error="<div class=\"msg_box error_box\">Errore nell' inserimento dei dati</div>";
-        }else{
-            $obj_connection->close_connection();
-            header('location: login.php');
-            exit;
-        }
-        $obj_connection->close_connection();
-    }
-?>
+        <div id="menu">
+        <ul>
+            <li xml:lang="en"><a href="index.html">Home</a></li>
+            <li><a href="famous.html">Personaggi famosi</a></li>
+            <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
+            <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
+			<li><a href="about_us.html">Chi siamo</a></li>
+			<li><a href="rules.html">Regolamento</a></li>
+        </ul>
+		</div>
+
+        <div id="content">
+            <form method="post" action="../php/register.php" id="register_form" class="vertical_input_form">
+                <fieldset>
+                   
+                    <noscript>
+                        <div class="msg_box warning_box">
+                            ATTENZIONE: <span xml:lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
+                            NON ESSERE DISPONIBILI
+                        </div>
+                    </noscript> 
+                    <label for="mail" xml:lang="en">Email:</label>
+                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="320" tabindex="1" class="full_width_input"/>
+
+                    <label for= "pwd" xml:lang="en">Password:</label>
+					
+					<label for="show_password" style="float: right;">Mostra password</label>
+					<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password" style="float: right;" %CHECKED%/>
+					
+                    <input type="password" name="pwd" id="pwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
+                    
+                    <label for= "pwd" xml:lang="en">Ripeti Password:</label>
+                    <input type="password" name="rpwd" id="rpwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
+                    
+                    <!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->
+                    <button type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4">Registrati</button>
+
+                    <a href="login.html" tabindex="3" style="float: right;">Sei già registrato? CLICCA QUI</a>  
+                </fieldset>
+           </form>
+        </div>
+    
+        <div id="footer">
+            <ul>
+                <li><span xml:lang="en">Axolotl</span> - Le salamandre più adorabili</li>
+                <li xml:lang="en">axolotl4ever@gmail.com</li>
+                <li>049-0000000 - Padova, Via Gattamelata 42</li>
+                <li xml:lang="en">Copyright &copy; 2020-2021 all rights reserved</li>
+            </ul>
+
+            <a id="scrollBtn" class="hide" href="#header">Torna Su</a>
+        </div>
+              
+        <script type="text/javascript" src="../js/script.js"></script>
+    </body>
+</html>

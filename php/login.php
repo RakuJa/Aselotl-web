@@ -1,105 +1,117 @@
 <?php
-    require_once('connessione.php');
-    require_once('debugger.php');
-    require_once('sessione.php');
+    session_start();
+?>
 
-    if($_SESSION['logged']==true){
-        new Debugger("User already logged in");
-        header('location: ../html/index.html');
-        exit();
-    }
-    new Debugger("User not logged in");
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    if(isset($_COOKIE['user_email'])){
-        $email=$_COOKIE['user_email'];
-        $check='checked="checked"';
-    }else{
-        $email='';
-        $check='';
-    }
+        <title>Login - Axolotl Society</title>
+        <meta name="title" content="Login - Axolotl Society" />
 
-    if(isset($_COOKIE['user_pwd'])){
-        $pwd=$_COOKIE['user_pwd'];
-    }else{
-        $pwd='';
-    }
+        <meta name="description" content="pagina di base del sito" />
+        <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
+        <meta name="author" content="Francesco De Marchi, Daniele Giachetto, Antonio Osele, Vittorio Schiavon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+         
+        <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="../css/stampa.css" media="print"/>  
 
-    new Debugger("Cookies checked");
+        <!-- favicon - realfavicongenerator.net - -->
+        <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="../img/favicon/favicon-32x32.png" />
+        <link rel="manifest" href="../img/favicon/site.webmanifest" />
+        <link rel="mask-icon" href="../img/favicon/safari-pinned-tab.svg" />
+        <link rel="shortcut icon" href="../img/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#00aba9" />
+        <meta name="msapplication-config" content="../img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />   
+    </head>
 
-    $error='';
+    <body>
+        <div id="header">
+        <a href="index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
+        <h1 xml:lang="en">Axolotl Society</h1>
+        <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
+        <p xml:lang="en">
+            <a >Login</a> <br /> 
+            <a href="register.html">Registrati</a> </p>
+		</div>
+    
+        <div id="breadcrumb">
+            <p>Ti trovi in: <span xml:lang="en">Login</span></p>
+        </div>
 
-    // se ci sono valori in _POST cerca di fare il login o stampa errore
+        <div id="menu">
+            <ul>
+                <li xml:lang="en"><a href="index.html">Home</a></li>
+                <li><a href="famous.html">Personaggi famosi</a></li>
+                <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
+                <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
+                <li><a href="about_us.html">Chi siamo</a></li>
+                <li><a href="rules.html">Regolamento</a></li>
+            </ul>
+        </div>
 
-    if(isset($_POST['email'])){
-        new Debugger("Found email on post");
-        $email=$_POST['email'];
-        new Debugger("Email is ".$email);
-        if(isset($_POST['pwd'])){
-            $pwd=$_POST['pwd'];
-            new Debugger("Found password on post");
-            new Debugger("Password is ".$pwd);
-        }
-        /*
-        if(isset($_POST['remember_me'])){
-            $check='checked="checked"';
-        }
-        */
-        new Debugger("Trying connection with database...");
-        $connection_established = False;
-        $obj_connection = new DBConnection();
-        $connection_established = $obj_connection->create_connection();
-        if($connection_established){
-            new Debugger("Connessione con il DB instaurata");
-            $email=$obj_connection->escape_str(trim($email));
-            new debugger("Prima dell'hash");
-            $pwd = $obj_connection->escape_str(trim($pwd));
-            new debugger("Prima dell'hash");
-            $hashed_pwd=hash("sha512",$pwd);
-            new debugger($hashed_pwd);
-            //$pwd = $obj_connection->escape_str(trim($pwd));
-            $query = "SELECT * FROM User WHERE EMAIL = '$email' AND PASSWORD = '$hashed_pwd'";
-            if($query_rist=$obj_connection->connessione->query($query)){
-                $array_rist=$obj_connection->queryToArray($query_rist);
-                $count=0;
-                foreach ($array_rist as &$value) {
-                    $count=$count+1;
-                }
-                new Debugger($count);
-                if($count==0){
-                    $error="[Le credenziali inserite non sono corrette]";
-                }else{
-                    $_SESSION['logged']=true;
-                    $_SESSION['EMAIL']=$email;
-                    $_SESSION['ID']=$log_array[0]['ID'];
-                    $_SESSION['PERMISSION']=$log_array[0]['Permessi'];
-                    new Debugger("Logged in!");
-                    if(isset($_POST['remember_me'])){
-                        setcookie("user_email",$email,time()+60*60*24*30);
-                        setcookie("user_pwd",$pwd,time()+60*60*24*30); 
-                        new Debugger("Logged for a long time");   
-                    }else{
-                        setcookie("user_email",$email,time()-3600);
-                        setcookie("user_pwd",$pwd,time()-3600); 
-                        new Debugger("Logged for a short while");
+        <div id="content">
+            <form method="post" action="../php/login_check.php" id="login_form" class="vertical_input_form">
+                <fieldset>
+                   
+                    <noscript>
+                        <div class="msg_box warning_box">
+                            ATTENZIONE: <span xml:lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
+                            NON ESSERE DISPONIBILI
+                        </div>
+                    </noscript> 
+                                    
+                    <label for="email" xml:lang="en">Email:</label>
+                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="30" tabindex="1" class="full_width_input"/>
+
+                    <label for= "pwd" xml:lang="en">Password:</label>
+					
+					<label for="show_password" style="float: right;">Mostra password</label>
+					<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password" style="float: right;" %CHECKED%/>
+					
+                    <input type="password" name="pwd" id="pwd" value="osi" maxlength= "15" tabindex="2" class="full_width_input"/>
+					
+					<input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
+                    <label for="remember_me">Ricordati di me</label>
+                    
+                    <!--<input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />-->
+                    <button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4">Login</button>
+
+
+                    <a href="register.html" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
+                </fieldset>
+
+                <?php
+                    if(isset($_SESSION["error"])){
+                        $error = $_SESSION["error"];
+                        echo "<span>$error</span>";
                     }
+                ?>  
 
-                    $obj_connection->close_connection();
-                
-                    header('location: ../html/index.html');
-                    exit;
-                }
-            }else {
-                $error="[La query non è andata a buon fine]";
-            }
-            $obj_connection->close_connection();
+           </form>
+        </div>
 
-        }else{
-            new Debugger("Connessione con il DB fallita");
-            $error=(new errore('DBConnection'))->printHTMLerror();
-        }
+    
+        <div id="footer">
+            <ul>
+                <li><span xml:lang="en">Axolotl</span> - Le salamandre più adorabili</li>
+                <li xml:lang="en">axolotl4ever@gmail.com</li>
+                <li>049-0000000 - Padova, Via Gattamelata 42</li>
+                <li xml:lang="en">Copyright &copy; 2020-2021 all rights reserved</li>
+            </ul>
 
-    }else {
-        $error = "Nessun dato trovato dentro url";
-    }
-    new Debugger($error);
+            <a id="scrollBtn" class="hide" href="#header">Torna Su</a>
+        </div>
+              
+        <script type="text/javascript" src="../js/script.js"></script>
+    </body>
+</html>
+
+
+<?php
+    unset($_SESSION["error"]);
 ?>
