@@ -46,11 +46,11 @@
         <div id="menu">
         <ul>
             <li xml:lang="en"><a href="../html/index.html">Home</a></li>
-            <li><a href="famous.html">Personaggi famosi</a></li>
-            <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
-            <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
-			<li><a href="about_us.html">Chi siamo</a></li>
-			<li><a href="rules.html">Regolamento</a></li>
+            <li><a href="../html/famous.html">Personaggi famosi</a></li>
+            <li xml:lang="en"><a href="../html/fanart.html">Fan art</a></li>
+            <li xml:lang="en"><a href="../html/fun_facts.html">Fun facts</a></li>
+			<li><a href="../html/about_us.html">Chi siamo</a></li>
+			<li><a href="../html/rules.html">Regolamento</a></li>
         </ul>
 		</div>
 
@@ -80,7 +80,7 @@
                     <!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->
                     <button type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4">Registrati</button>
 
-                    <a href="login.php" tabindex="3" style="float: right;">Sei già registrato? CLICCA QUI</a>  
+                    <a href="../php/login.php" tabindex="3" style="float: right;">Sei già registrato? CLICCA QUI</a>  
                 </fieldset>
                 <?php
                     if(isset($_SESSION["error"])){

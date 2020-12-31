@@ -46,11 +46,11 @@
         <div id="menu">
             <ul>
                 <li xml:lang="en"><a href="../html/index.html">Home</a></li>
-                <li><a href="famous.html">Personaggi famosi</a></li>
-                <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
-                <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
-                <li><a href="about_us.html">Chi siamo</a></li>
-                <li><a href="rules.html">Regolamento</a></li>
+                <li><a href="../html/famous.html">Personaggi famosi</a></li>
+                <li xml:lang="en"><a href="../html/fanart.html">Fan art</a></li>
+                <li xml:lang="en"><a href="../html/fun_facts.html">Fun facts</a></li>
+                <li><a href="../html/about_us.html">Chi siamo</a></li>
+                <li><a href="../html/rules.html">Regolamento</a></li>
             </ul>
         </div>
 
@@ -82,7 +82,7 @@
                     <button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4">Login</button>
 
 
-                    <a href="register.php" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
+                    <a href="../php/register.php" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
                 </fieldset>
 
                 <?php
