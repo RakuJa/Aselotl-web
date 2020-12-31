@@ -206,9 +206,6 @@ MENU
 	color: white;
 	display: block;
 	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
 	background-color: #c46d85;
 	border: none;
 }
@@ -221,7 +218,7 @@ MENU
 	display: block;
 	padding-bottom: 0.5em;
 	padding-top: 0.5em;
-	margin-left: 0.5em;
+	margin-left: 0.4375em;
 	margin-right: 0.5em;
 	background-color: #c34267;
 	border: none;
@@ -233,10 +230,6 @@ MENU
   	font-size: 1em;
 	color: white;
 	display: block;
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
 	background-color: #c46d85;
 	border: none;
 }
@@ -244,10 +237,6 @@ MENU
 #menu a:hover{
 	color: white;
 	display: block;
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
 	background-color: #c34267;
 	border: none;
 }
