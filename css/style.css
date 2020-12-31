@@ -10,6 +10,7 @@ In questo modo, la regola viene applicata a tutti i tag
 * {
 	padding: 0em;
 	margin: 0em;
+	font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -18,7 +19,7 @@ Passo 1
 Definire il font
 */
 html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
-	font-family: Verdana, Arial, Helvetica, sans-serif; /*Definisco i vari font disponibili*/
+	font-family: 'Open Sans', sans-serif; /*Definisco i vari font disponibili*/
 	max-width: 1024px; /*Massima larghezza dei contenuti*/
 	margin: auto; /*Imposto il calcolo del margin automatico*/
 	border: 1px solid #ddd; /*Implementazione del bordino grigio a dx e sx*/
@@ -274,6 +275,43 @@ CONTENT
 	min-height: 20em;
 	white-space: initial;
 }
+
+#content h1 {
+	color: #c34267; 
+	font-family: 'Open Sans', sans-serif; 
+	font-size: 34px; 
+	font-weight: 300; 
+	line-height: 40px; 
+	margin: 0 0 16px; 
+}
+
+
+#content h2 { 
+	color: #c34267; 
+	font-family: 'Open Sans', sans-serif; 
+	font-size: 24px; font-weight: 300; 
+	line-height: 32px; margin: 0 0 14px; 
+}
+
+
+#content p { 
+	color: #222; 
+	font-family: 'Open Sans', sans-serif; 
+	font-size: 15px; 
+	font-weight: 400; 
+	line-height: 24px; 
+	margin: 0 0 14px; 
+}
+
+
+#content a { 
+	background: #fff; 
+	color: #222; 
+	text-decoration: none; 
+}
+
+
+#content a:hover { background: #c34267; color: #eee; text-decoration: none; }
 
 #content p{
 	margin-top: 1em;
