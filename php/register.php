@@ -31,13 +31,12 @@
 
     <body>
         <div id="header">
-        <a href="../html/index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
-        <h1 xml:lang="en">Axolotl Society</h1>
-        <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
-        <p xml:lang="en">
-            <a href="../php/login.php">Login</a> <br /> 
-            <a >Registrati</a> </p>
-		</div>
+            <a href="index.html" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
+            <div class="header-right">
+              <a href="../php/login.php" class="colored">Accedi</a>
+              <a>Registrati</a>
+            </div>
+          </div>
     
         <div id="breadcrumb">
             <p>Ti trovi in: <span xml:lang="en">Registrati</span></p>
