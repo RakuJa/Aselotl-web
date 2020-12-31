@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
@@ -27,11 +31,11 @@
 
     <body>
         <div id="header">
-        <a href="index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
+        <a href="../html/index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
         <h1 xml:lang="en">Axolotl Society</h1>
         <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
         <p xml:lang="en">
-            <a href="login.html">Login</a> <br /> 
+            <a href="../php/login.php">Login</a> <br /> 
             <a >Registrati</a> </p>
 		</div>
     
@@ -41,7 +45,7 @@
 
         <div id="menu">
         <ul>
-            <li xml:lang="en"><a href="index.html">Home</a></li>
+            <li xml:lang="en"><a href="../html/index.html">Home</a></li>
             <li><a href="famous.html">Personaggi famosi</a></li>
             <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
             <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
@@ -76,8 +80,14 @@
                     <!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->
                     <button type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4">Registrati</button>
 
-                    <a href="login.html" tabindex="3" style="float: right;">Sei già registrato? CLICCA QUI</a>  
+                    <a href="login.php" tabindex="3" style="float: right;">Sei già registrato? CLICCA QUI</a>  
                 </fieldset>
+                <?php
+                    if(isset($_SESSION["error"])){
+                        $error = $_SESSION["error"];
+                        echo "<span>$error</span>";
+                    }
+                ?>  
            </form>
         </div>
     
@@ -95,3 +105,7 @@
         <script type="text/javascript" src="../js/script.js"></script>
     </body>
 </html>
+
+<?php
+    unset($_SESSION["error"]);
+?>

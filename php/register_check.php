@@ -95,4 +95,8 @@
         }
         $obj_connection->close_connection();
     }
+
+    $_SESSION["error"] = $error;
+    header("location: ../php/register.php");
+
 ?>

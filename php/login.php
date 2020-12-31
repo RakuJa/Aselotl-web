@@ -31,12 +31,12 @@
 
     <body>
         <div id="header">
-        <a href="index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
+        <a href="../html/index.html"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente"/></a>
         <h1 xml:lang="en">Axolotl Society</h1>
         <h2 xml:lang="it">"Le salamandre più adorabili"</h2>
         <p xml:lang="en">
             <a >Login</a> <br /> 
-            <a href="register.html">Registrati</a> </p>
+            <a href="../php/register.php">Registrati</a> </p>
 		</div>
     
         <div id="breadcrumb">
@@ -45,7 +45,7 @@
 
         <div id="menu">
             <ul>
-                <li xml:lang="en"><a href="index.html">Home</a></li>
+                <li xml:lang="en"><a href="../html/index.html">Home</a></li>
                 <li><a href="famous.html">Personaggi famosi</a></li>
                 <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
                 <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
@@ -82,7 +82,7 @@
                     <button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4">Login</button>
 
 
-                    <a href="register.html" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
+                    <a href="register.php" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
                 </fieldset>
 
                 <?php
