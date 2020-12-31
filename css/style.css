@@ -195,6 +195,7 @@ MENU
 	overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
 	text-align: center;
 	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 
 }
 
@@ -260,6 +261,7 @@ MENU
 		overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
 		text-align: center;
 		border-left: none;
+		border-bottom: none;
 	}
 }
 
