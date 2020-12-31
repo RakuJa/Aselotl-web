@@ -331,6 +331,18 @@ CONTENT
 	text-decoration: none; 
 }
 
+#content a:link { 
+	background: #fff; 
+	color: #c34267; 
+	text-decoration: underline; 
+}
+
+#content a:visited { 
+	background: #fff; 
+	color:#c46d85; 
+	text-decoration: underline; 
+}
+
 
 #content a:hover { background: #c34267; color: #eee; text-decoration: none; }
 
