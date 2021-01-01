@@ -39,11 +39,9 @@
             new Debugger("Found password on post");
             new Debugger("Password is ".$pwd);
         }
-        /*
         if(isset($_POST['remember_me'])){
             $check='checked="checked"';
         }
-        */
         new Debugger("Trying connection with database...");
         $connection_established = False;
         $obj_connection = new DBConnection();
@@ -78,8 +76,10 @@
                         setcookie("user_pwd",$pwd,time()+60*60*24*30); 
                         new Debugger("Logged for a long time");   
                     }else{
-                        setcookie("user_email",$email,time()-3600);
-                        setcookie("user_pwd",$pwd,time()-3600); 
+                        setcookie("user_email",$email,time()+60*60*24*30);
+                        setcookie("user_pwd",$pwd,time()+60*60*24*30); 
+                        //setcookie("user_email",$email,time()-3600);
+                        //setcookie("user_pwd",$pwd,time()-3600); 
                         new Debugger("Logged for a short while");
                     }
 
