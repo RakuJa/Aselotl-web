@@ -72,12 +72,12 @@
                     $_SESSION['PERMISSION']=$log_array[0]['Permessi'];
                     new Debugger("Logged in!");
                     if(isset($_POST['remember_me'])){
-                        setcookie("user_email",$email,time()+60*60*24*30);
-                        setcookie("user_pwd",$pwd,time()+60*60*24*30); 
+                        setcookie("user_email",$email,time()+60*60*24*30,'/');
+                        setcookie("user_pwd",$pwd,time()+60*60*24*30,'/'); 
                         new Debugger("Logged for a long time");   
                     }else{
-                        setcookie("user_email",$email,time()-3600);
-                        setcookie("user_pwd",$pwd,time()-3600); 
+                        setcookie("user_email",$email,time()-3600,'/');
+                        setcookie("user_pwd",$pwd,time()-3600,'/'); 
                         new Debugger("Logged for a short while");
                     }
 
