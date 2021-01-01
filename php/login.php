@@ -33,8 +33,12 @@
         <div id="header">
             <a href="index.html" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-              <a>Accedi</a>
-              <a href="../php/register.php" class="colored">Registrati</a>
+                <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/logout.php" class="colored">Logout</a>
+                <?php } else { ?>
+                    <a href="../php/login.php" class="colored">Accedi</a>
+                    <a href="../php/register.php" class="colored">Registrati</a>
+                <?php } ?>
             </div>
           </div>
     
