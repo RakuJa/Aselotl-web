@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<?php
+    session_start();
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,10 +31,15 @@
 
     <body>
         <div id="header">
-            <a href="index.html" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
+            <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-              <a href="../php/login.php" class="colored">Accedi</a>
-              <a href="../php/register.php" class="colored">Registrati</a>
+              <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profile </a>
+                    <a href="../php/logout.php" class="colored">Logout</a>
+                <?php } else { ?>
+                    <a href="../php/login.php" class="colored">Accedi</a>
+                    <a href="../php/register.php" class="colored">Registrati</a>
+                <?php } ?>
             </div>
           </div>
     

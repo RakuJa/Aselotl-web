@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
@@ -27,10 +31,15 @@
 
     <body>
         <div id="header">
-            <a href="index.html" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
+            <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-              <a href="../php/login.php" class="colored">Accedi</a>
-              <a href="../php/register.php" class="colored">Registrati</a>
+              <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profile </a>
+                    <a href="../php/logout.php" class="colored">Logout</a>
+                <?php } else { ?>
+                    <a href="../php/login.php" class="colored">Accedi</a>
+                    <a href="../php/register.php" class="colored">Registrati</a>
+                <?php } ?>
             </div>
           </div>
     
@@ -40,12 +49,12 @@
 
         <div id="menu">
             <ul>
-                <li xml:lang="en"><a href="../php/index.html">Home</a></li>
-                <li><a href="../php/famous.html">Personaggi famosi</a></li>
-                <li xml:lang="en"><a href="../php/fanart.html">Fan art</a></li>
-                <li xml:lang="en"><a href="../php/fun_facts.html">Fun facts</a></li>
-                <li><a href="../php/about_us.html">Chi siamo</a></li>
-                <li><a href="../php/rules.html">Regolamento</a></li>
+                <li xml:lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/famous.php">Personaggi famosi</a></li>
+                <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
+                <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+                <li><a href="../php/about_us.php">Chi siamo</a></li>
+                <li><a href="../php/rules.php">Regolamento</a></li>
             </ul>
         </div>
 

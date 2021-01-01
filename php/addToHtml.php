@@ -15,7 +15,7 @@ class addToHtml {
     }
 
     public function addHeader(&$page) {
-        $header = file_get_contents("../components/header.html");
+        $header = file_get_contents("../components/header.php");
       
        if(isset($_SESSION['logged'])&&$_SESSION['logged']){            
             $header=str_replace('<a href="../php/login.php" class="btn">LOGIN</a>',

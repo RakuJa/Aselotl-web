@@ -7,7 +7,7 @@
 
     /*Aggiunta header,menu e footer*/
     //new Debugger("Chiamata ad addToHtml iniziata");
-    //$page= (new addToHtml)->add("../html/register.html",false,false);
+    //$page= (new addToHtml)->add("../html/register.php",false,false);
     //new Debugger("Chiamata ad addToHtml terminata");
 
     if($_SESSION['logged']==true){

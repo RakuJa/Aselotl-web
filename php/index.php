@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
@@ -28,16 +32,10 @@
     <body>
 
         <div id="header">
-            <a href="index.html" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
+            <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-                <?php
-                require_once("debugger.php");
-                $debug = "empty";
-                new Debugger($debug);
-                $debug = $_COOKIE['user_email'];
-                new Debugger($debug);
-                if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
-                    <a> Benvenuto </a>
+                <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profile </a>
                     <a href="../php/logout.php" class="colored">Logout</a>
                 <?php } else { ?>
                     <a href="../php/login.php" class="colored">Accedi</a>
@@ -73,7 +71,7 @@
             <h3>Non solo salamandre</h3>
             <p>
                 Ma sono soltanto salamandre? Assolutamente no. Moltissimi biologi ritengono che possano cambiare forma e assumere sembianze umane.
-                Si vocifera che i più grandi essere umani della storia siano stati in realtà degli axolotl camuffati! Date un'occhiata qua per conoscere qualche celebre salamandra: <a href="famous.html">Personaggi famosi</a>
+                Si vocifera che i più grandi essere umani della storia siano stati in realtà degli axolotl camuffati! Date un'occhiata qua per conoscere qualche celebre salamandra: <a href="famous.php">Personaggi famosi</a>
             </p>
 
             <h3>Vuoi far parte dell'<span xml:lang="en">Axolotl Society</span>?</h3>
