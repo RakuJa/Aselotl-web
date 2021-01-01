@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Fan art - Axolotl Society</title>
-        <meta name="title" content="Fan Art - Axolotl Society" />
+        <title>Modifica profilo - Axolotl Society</title>
+        <meta name="title" content="Modifica profilo - Axolotl Society" />
 
         <meta name="description" content="pagina di base del sito" />
         <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
@@ -33,37 +33,55 @@
               <a href="../php/register.php" class="colored">Registrati</a>
             </div>
           </div>
-		
+    
         <div id="breadcrumb">
-            <p>Ti trovi in: <span xml:lang="en">Fan art</span></p>
+            <p>Ti trovi in: Profilo</p>
         </div>
 
         <div id="menu">
-            <ul>
-                <li xml:lang="en"><a href="index.html">Home</a></li>
-                <li><a href="famous.html">Personaggi famosi</a></li>
-                <li xml:lang="en" id="currentLink"><a>Fan art</a></li>
-                <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
-                <li><a href="about_us.html">Chi siamo</a></li>
-                <li><a href="rules.html">Regolamento</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li xml:lang="en"><a href="../php/index.php">Home</a></li>
+            <li><a href="../php/famous.php">Personaggi famosi</a></li>
+            <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
+            <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+			<li><a href="../php/about_us.php">Chi siamo</a></li>
+			<li><a href="../php/rules.php">Regolamento</a></li>
+        </ul>
+		</div>
 
         <div id="content">
-            <h1><span xml:lang="en">FAN ART</span></h1>
-            <p><span xml:lang="en">Anche tu sei un amante degli Axolotl? Mandaci una tua creazione! <a href="add_fanart.html">Premi qui</a></span></p>
-
-
-            <img id="fanart" src="../img/fanart/fanart1.jpg" alt="disegno stilizzato di un axolotl" /><br clear="all" />
-            <p id="mittente">Inviato da Roberto.</p>
-
-            <img id="fanart" src="../img/fanart/fanart2.jpg" alt="disegno fantascientifico di un axolotl" /><br clear="all" />
-            <p id="mittente">Inviato da Simone.</p>
-
-            <img id="fanart" src="../img/fanart/fanart3.jpg" alt="illustrazione di un axolotl" /><br clear="all" />
-            <p id="mittente">Inviato da Samara.</p>
-
-
+            %ERROR%
+            <h1 id="page_title">Il mio profilo</h1>
+            <img class="img_profilo" id="img_profilo-view" src="../img/imgnotfound.jpg" alt="immagine di profilo"/>
+            
+            <div id="profile-view">
+                <h2 class="profile-view_title">I miei dati utente</h2>
+                <dl class="list_profilo">
+                    <dt>La mia <span xml:lang="en">Email</span>:</dt>
+                    <dd>%EMAIL%</dd>
+                    <dt>Tipo di utenza: </dt>
+                    <dd>%UTENZA%</dd>
+                </dl> 
+               
+                <h2 class="profile-view_title">I miei dati personali</h2>
+                <dl class="list_profilo">
+                    <dt>Nome: </dt>
+                    <dd>%NOME%</dd>
+                    <dt>Cognome: </dt>
+                    <dd>%COGNOME%</dd>
+                    <dt>Sesso: </dt>
+                    <dd>%SESSO%</dd>
+                    <dt>Data di Nascita: </dt>
+                    <dd>%DATA_NASCITA%</dd>
+                    <dt>Partita <abbr title="imposta sul valore aggiunto">IVA</abbr>:</dt>
+                    <dd>%PARTITA_IVA%</dd>
+                    <dt>Ragione Sociale: </dt>
+                    <dd>%RAGIONESOCIALE%</dd>
+                </dl>
+            </div>
+         
+            <a class="btn right" href="edit_profile.html">Modifica profilo</a>
+            <a class="btn alert_btn right" href="rimuovi_profilo.php">Rimuovi profilo</a>
         </div>
     
         <div id="footer">

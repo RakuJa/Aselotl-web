@@ -40,11 +40,11 @@
 
         <div id="menu">
             <ul>
-                <li xml:lang="en"><a href="index.html">Home</a></li>
-                <li><a href="famous.html">Personaggi famosi</a></li>
-                <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
-                <li xml:lang="en"><a href="fun_facts.html">Fun facts</a></li>
-                <li><a href="about_us.html">Chi siamo</a></li>
+                <li xml:lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/famous.php">Personaggi famosi</a></li>
+                <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
+                <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+                <li><a href="../php/about_us.php">Chi siamo</a></li>
                 <li id="currentLink"><a>Regolamento</a></li>
             </ul>
         </div>

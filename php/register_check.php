@@ -11,8 +11,8 @@
     //new Debugger("Chiamata ad addToHtml terminata");
 
     if($_SESSION['logged']==true){
-        //header('location:index.php');
-        //exit();
+        header('location:index.php');
+        exit();
     }
     $email='';
     $pwd='';

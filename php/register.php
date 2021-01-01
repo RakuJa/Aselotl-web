@@ -44,12 +44,12 @@
 
         <div id="menu">
         <ul>
-            <li xml:lang="en"><a href="../html/index.html">Home</a></li>
-            <li><a href="../html/famous.html">Personaggi famosi</a></li>
-            <li xml:lang="en"><a href="../html/fanart.html">Fan art</a></li>
-            <li xml:lang="en"><a href="../html/fun_facts.html">Fun facts</a></li>
-			<li><a href="../html/about_us.html">Chi siamo</a></li>
-			<li><a href="../html/rules.html">Regolamento</a></li>
+            <li xml:lang="en"><a href="../php/index.php">Home</a></li>
+            <li><a href="../php/famous.php">Personaggi famosi</a></li>
+            <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
+            <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+			<li><a href="../php/about_us.php">Chi siamo</a></li>
+			<li><a href="../php/rules.php">Regolamento</a></li>
         </ul>
 		</div>
 

@@ -5,7 +5,7 @@
 
     if($_SESSION['logged']==true){
         new Debugger("User already logged in");
-        header('location: ../html/index.html');
+        header('location: ../php/index.php');
         exit();
     }
     new Debugger("User not logged in");
@@ -83,7 +83,7 @@
 
                     $obj_connection->close_connection();
                 
-                    header('location: ../html/index.html');
+                    header('location: ../php/index.php');
                     exit;
                 }
             }else {

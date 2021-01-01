@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Aggiungi Fan art - Axolotl Society</title>
-        <meta name="title" content="Aggiungi Fan art - Axolotl Society" />
+        <title>Fan art - Axolotl Society</title>
+        <meta name="title" content="Fan Art - Axolotl Society" />
 
         <meta name="description" content="pagina di base del sito" />
         <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
@@ -33,30 +33,37 @@
               <a href="../php/register.php" class="colored">Registrati</a>
             </div>
           </div>
-    
+		
         <div id="breadcrumb">
-            <p>Ti trovi in: Aggiungi <span xml:lang="en">Fan Art</span></p>
+            <p>Ti trovi in: <span xml:lang="en">Fan art</span></p>
         </div>
 
         <div id="menu">
-        <ul>
-            <li xml:lang="en"><a href="index.html">Home</a></li>
-            <li><a href="famous.html">Personaggi famosi</a></li>
-            <li xml:lang="en"><a href="fanart.html">Fan art</a></li>
-            <li xml:lang="en"><a href="fun_facts.html">Fun Facts</a></li>
-			<li><a href="about_us.html">Chi siamo</a></li>
-			<li><a href="rules.html">Regolamento</a></li>
-        </ul>
+            <ul>
+                <li xml:lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/famous.php">Personaggi famosi</a></li>
+                <li xml:lang="en" id="currentLink"><a>Fan art</a></li>
+                <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+                <li><a href="../php/about_us.php">Chi siamo</a></li>
+                <li><a href="../php/rules.php">Regolamento</a></li>
+            </ul>
         </div>
 
         <div id="content">
-            <h1>AGGIUNGI <span xml:lang="en">FAN ART</span></h1>
-			<p>
-			Vuoi sapere come? Ottima domanda, non lo so nemmeno io...
-			</br></br></br></br></br></br></br></br></br></br></br></br>
-			<label for="new_foto_profilo">Seleziona nuova <span xml:lang="en">fan art</span>: </label>
-			<input type="file" accept="image/*" id="new_foto_profilo" name="new_foto_profilo" tabindex="1"/>
-			</p>
+            <h1><span xml:lang="en">FAN ART</span></h1>
+            <p><span xml:lang="en">Anche tu sei un amante degli Axolotl? Mandaci una tua creazione! <a href="add_fanart.html">Premi qui</a></span></p>
+
+
+            <img id="fanart" src="../img/fanart/fanart1.jpg" alt="disegno stilizzato di un axolotl" /><br clear="all" />
+            <p id="mittente">Inviato da Roberto.</p>
+
+            <img id="fanart" src="../img/fanart/fanart2.jpg" alt="disegno fantascientifico di un axolotl" /><br clear="all" />
+            <p id="mittente">Inviato da Simone.</p>
+
+            <img id="fanart" src="../img/fanart/fanart3.jpg" alt="illustrazione di un axolotl" /><br clear="all" />
+            <p id="mittente">Inviato da Samara.</p>
+
+
         </div>
     
         <div id="footer">
