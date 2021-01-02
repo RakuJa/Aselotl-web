@@ -306,7 +306,7 @@ CONTENT
 ========
 */
 
-#content {
+#content, #full_content {
 	margin-left: 20%;
 	width: auto;
 	border-left:1px solid #ddd;
@@ -321,12 +321,25 @@ CONTENT
 	overflow-wrap: break-word;
 }
 
+#full_content{
+	margin-left: 0;
+}
+
+#full_content img{
+	display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+}
+
 #content img {
 	max-width: 100%;
   	height: auto;
 }
 
-#content h1 {
+#content h1, #full_content h1 {
 	color: #c34267; 
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 2.125em; 
@@ -336,7 +349,7 @@ CONTENT
 }
 
 
-#content h2 { 
+#content h2, #full_content h2 { 
 	color: #c34267; 
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 24px; font-weight: 300; 
@@ -344,7 +357,7 @@ CONTENT
 }
 
 
-#content p { 
+#content p, #full_content p { 
 	color: #222; 
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 15px; 
@@ -357,48 +370,48 @@ CONTENT
 	text-justify: inter-word;
 }
 
-#content small {
+#content small, #full_content small {
 	color: #c34267;
 }
 
 
-#content a { 
+#content a, #full_content a { 
 	background: #fff; 
 	color: #222; 
 	text-decoration: none; 
 }
 
-#content a:link { 
+#content a:link, #full_content a:link { 
 	background: #fff; 
 	color: #c34267; 
 	text-decoration: underline; 
 }
 
-#content a:visited { 
+#content a:visited, #full_content a:visited { 
 	background: #fff; 
 	color:#884055; 
 	text-decoration: underline; 
 }
 
 
-#content a:hover { 
+#content a:hover, #full_content a:hover { 
 	background: #c34267; 
 	color: #eee; 
 	text-decoration: none; 
 }
 
-#content ol li {
+#content ol li, #full_content ol li {
 	margin-left: 1.5em;
 }
 
-#content ul li {
+#content ul li, #full_content ul li {
 	margin-left: 1.5em;
 }
 
 
 @media screen and (max-width: 670px) {
 
-	#content {
+	#content, #full_content {
 		border-left: none;
 		border-right: none;
 		margin-left: 0%;
@@ -411,7 +424,7 @@ CONTENT
 		min-height: 20em;
 		white-space: initial;
 	}
-	#content img {
+	#content img, #full_content img {
 		display: block;
   		margin-left: auto;
   		margin-right: auto;
