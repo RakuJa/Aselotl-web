@@ -33,8 +33,10 @@
 
                     <label for= "pwd" xml:lang="en">Password:</label>
 					
-					<label for="show_password" style="float: right;">Mostra password</label>
-					<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password" style="float: right;"/>
+					<div style="float: right;">
+                    <input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
+					<label for="show_password">Mostra password</label>
+                    </div>
 					
                     <input type="password" name="pwd" id="pwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
                     

@@ -40,9 +40,11 @@
                     <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="30" tabindex="1" class="full_width_input"/>
 
                     <label for= "pwd" xml:lang="en">Password:</label>
-					
-					<label for="show_password" style="float: right;">Mostra password</label>
-					<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password" style="float: right;"/>
+                    
+                    <div style="float: right;">
+                    <input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
+					<label for="show_password">Mostra password</label>
+                    </div>
 					
                     <input type="password" name="pwd" id="pwd" value="osi" maxlength= "15" tabindex="2" class="full_width_input"/>
 					
