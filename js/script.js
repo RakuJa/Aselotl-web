@@ -50,13 +50,13 @@ function check_pwd() {
 	if(pwd.value.match(valid_pwd)) 
 		{
 		document.getElementById('message1').style.color = 'green';
-		document.getElementById('message1').innerHTML = 'Password valida.';
+		document.getElementById('message1').innerHTML = 'Password valida.</br>';
 		return true;
 	}
 	else
 	{
 		document.getElementById('message1').style.color = 'red';
-		document.getElementById('message1').innerHTML = 'Password non valida.';
+		document.getElementById('message1').innerHTML = 'Password non valida: deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero.';
 		return false;
 	}
 }

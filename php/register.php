@@ -41,7 +41,6 @@
 					
                     <input type="password" name="pwd" id="pwd" maxlength= "50" tabindex="2" class="full_width_input" onkeyup="check_pwd(), confirm_pwd(), check_all()"/></br>
                     <span id="message1"></span></br></br>
-					La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero.</br></br>
 					
                     <label for= "pwd" xml:lang="en">Ripeti Password:</label>
                     <input type="password" name="rpwd" id="rpwd" maxlength= "50" tabindex="2" class="full_width_input" onkeyup="confirm_pwd(), check_all()"/>
