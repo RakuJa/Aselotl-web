@@ -27,15 +27,6 @@ html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
 	/*background-image: url(../img/logo.png);*/
 }
 
-a:link {
-	color: #C77B00; /*Colore per i link non visitati*/
-}
-
-a:visited {
-	color: #755AC8; /*Colore per i link visitati*/
-	/*N.B. e'stato scelto un rosso che faccia contrasto sufficiente con i link non visitati*/
-}
-
 
 /*
 Passo 2
@@ -66,9 +57,11 @@ SEZIONE HEADER
 	padding-right: 2em;
 	text-decoration: none;
 	font-size: 1em;
-	line-height: 3.5em;
+	line-height: 2.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
@@ -101,9 +94,11 @@ SEZIONE HEADER
 	padding-right: 2em;
 	text-decoration: none;
 	font-size: 1em;
-	line-height: 3.5em;
+	line-height: 2.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 	background-color: #c34267;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
@@ -114,7 +109,7 @@ SEZIONE HEADER
 	float: right;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 670px) {
 	#header {
 		border-left: none;
 		border-right: none;
@@ -127,7 +122,22 @@ SEZIONE HEADER
 	  display: block;
 	  text-align: center;
 	  line-height: 0.5em;
+	  padding-left: none;
+	  padding-right: none;
+	  margin-left: 0em;
+	  margin-right: 0em;
 	}
+
+	#header p {
+		float: none;
+		display: block;
+		text-align: center;
+		line-height: 0.5em;
+		padding-left: none;
+	  padding-right: none;
+		margin-left: 0em;
+	  	margin-right: 0em;
+	  }
 
 	#header a.logo {
 		float: none;
@@ -147,15 +157,6 @@ SEZIONE HEADER
 	  float: none;
 	}
   }
-
-
-
-#header p {
-	/*padding: 1em; Pensato per adattarsi alla dimensione del carattere*/
-	/*float: right;*/
-	text-align: right;
-	font-size: 1em;
-}
 
 #logo {
 	float: left;/*Posiziona il logo a sinistra*/
@@ -237,7 +238,7 @@ MENU
 	display: block;
 	padding-bottom: 0.5em;
 	padding-top: 0.5em;
-	margin-left: 0.4375em;
+	margin-left: 0.5em;
 	margin-right: 0.5em;
 	background-color: #c34267;
 	border: solid #c34267;
@@ -267,7 +268,7 @@ MENU
 	outline-offset: -0.1em;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 670px) {
 	#menu {
 		padding-top: 0.2em ;
 		padding-bottom: 0.2em;
@@ -369,7 +370,7 @@ CONTENT
 
 #content a:visited { 
 	background: #fff; 
-	color:#c46d85; 
+	color:#884055; 
 	text-decoration: underline; 
 }
 
@@ -395,7 +396,7 @@ CONTENT
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 670px) {
 
 	#content {
 		border-left: none;
