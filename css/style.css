@@ -214,6 +214,7 @@ MENU
 	text-align: center;
 	border-left: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
+	outline-offset: -0.1px;
 
 }
 
@@ -489,7 +490,7 @@ INPUT FORM
 
 input[type=text], input[type=password] {
 	width: 100%;
-	padding: 1em 2em;
+	padding: 0.8em 2em;
 	margin: 1em 0;
 	display: inline-block;
 	border: 1px solid #c46d85;
