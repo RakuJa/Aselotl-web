@@ -73,3 +73,4 @@
     $page_footer = readfile("../html/footer.html");
     unset($_SESSION["error"]);
 ?>
+<title>Accedi</title>

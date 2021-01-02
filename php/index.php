@@ -6,4 +6,3 @@
     $page_footer = readfile("../html/footer.html");
 
 ?>
-<title>Home - Axolotl Society</title>
