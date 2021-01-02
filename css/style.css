@@ -214,6 +214,7 @@ MENU
 	text-align: center;
 	border-left: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
+	outline-offset: -0.1px;
 
 }
 
@@ -317,6 +318,7 @@ CONTENT
 	min-height: 21.5em;
 	white-space: initial;
 	border-right: 1px solid #ddd;
+	overflow-wrap: break-word;
 }
 
 #content img {
@@ -351,7 +353,7 @@ CONTENT
 	margin: 0 0 14px; 
 	margin-top: 1em;
 	margin-bottom: 1em;
-	text-align: justify;
+	text-align:left;
 	text-justify: inter-word;
 }
 
@@ -488,7 +490,7 @@ INPUT FORM
 
 input[type=text], input[type=password] {
 	width: 100%;
-	padding: 1em 2em;
+	padding: 0.8em 2em;
 	margin: 1em 0;
 	display: inline-block;
 	border: 1px solid #c46d85;
