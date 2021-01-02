@@ -20,7 +20,7 @@
             foreach($files as $file) {
                 if($file !== "." && $file !== "..") {
                     echo "<img src='$file[PATH]' alt='$file[DESCRIPTION]' />";
-                    echo "<p> $file[DESCRIPTION] </p>";
+                    echo "<p> <small> Immagine caricata da $file[EMAIL] </small> <br /> $file[DESCRIPTION] </p>";
                     echo "<br />";
                 }
             }

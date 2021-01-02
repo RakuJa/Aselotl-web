@@ -355,6 +355,10 @@ CONTENT
 	text-justify: inter-word;
 }
 
+#content small {
+	color: #c34267;
+}
+
 
 #content a { 
 	background: #fff; 
@@ -389,12 +393,6 @@ CONTENT
 	margin-left: 1.5em;
 }
 
-#content img {
-	margin-left: auto;
-	margin-right: auto;
-	width: 40%;
-}
-
 
 @media screen and (max-width: 670px) {
 
@@ -415,7 +413,10 @@ CONTENT
 		display: block;
   		margin-left: auto;
   		margin-right: auto;
-		width: 50%;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+		
 	}
 }
 
