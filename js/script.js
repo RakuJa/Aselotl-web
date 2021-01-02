@@ -87,3 +87,15 @@ function check_all() {
 		button.disabled = true;
 	}
 }
+
+function check_empty() {
+	var button = document.getElementById('login_btn');
+	var email = document.getElementById('email');
+	var pwd = document.getElementById('pwd');
+	if((email.value == "") || (pwd.value == ""))	{
+		button.disabled = true;
+	}
+	else {
+		button.disabled = false;
+	}
+}
