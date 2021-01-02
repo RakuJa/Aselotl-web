@@ -37,7 +37,7 @@
                     </noscript> 
                                     
                     <label for="email" xml:lang="en">Email:</label>
-                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="50" tabindex="1" class="full_width_input"/>
+                    <input type="text" name="email" id="email" maxlength="50" tabindex="1" class="full_width_input" onkeyup="check_empty()"/>
 
                     <label for= "pwd" xml:lang="en">Password:</label>
                     
@@ -46,13 +46,13 @@
 					<label for="show_password">Mostra password</label>
                     </div>
 					
-                    <input type="password" name="pwd" id="pwd" value="Osi42069" maxlength= "50" tabindex="2" class="full_width_input"/>
+                    <input type="password" name="pwd" id="pwd" maxlength= "50" tabindex="2" class="full_width_input" onkeyup="check_empty()"/>
 
 					<input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
                     <label for="remember_me">Ricordati di me</label>
                     
                     <!--<input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />-->
-                    <button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4">Login</button>
+                    <button type="submit" disabled id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" >Login</button>
 
 
                     <a href="../php/register.php" tabindex="3" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
