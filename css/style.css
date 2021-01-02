@@ -88,9 +88,19 @@ SEZIONE HEADER
 	color: white;
 }
 
-#header a.active {
-	background-color: #c34267;
-	color: white;
+#header p {
+	float: left;
+	color: #c34267;
+	text-align: center;
+	padding: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	text-decoration: none;
+	font-size: 1em;
+	line-height: 3.5em;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
 }
 
 .header-right {
