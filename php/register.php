@@ -28,21 +28,25 @@
                             NON ESSERE DISPONIBILI
                         </div>
                     </noscript> 
-                    <label for="mail" xml:lang="en">Email:</label>
-                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="320" tabindex="1" class="full_width_input"/>
-
-                    <label for= "pwd" xml:lang="en">Password:</label>
+                    <label for="email" xml:lang="en">Email:</label>
+                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="50" tabindex="1" class="full_width_input" onkeyup="check_email(), check_all()"/></br>
+					<span id="message0"></span></br></br>
+					
+                    <label for="pwd" xml:lang="en">Password:</label>
 					
 					<div style="float: right;">
                     <input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
 					<label for="show_password">Mostra password</label>
                     </div>
 					
-                    <input type="password" name="pwd" id="pwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
-                    
+                    <input type="password" name="pwd" id="pwd" value="Antonio99" maxlength= "50" tabindex="2" class="full_width_input" onkeyup="check_pwd(), confirm_pwd(), check_all()"/></br>
+                    <span id="message1"></span></br></br>
+					La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero.</br></br>
+					
                     <label for= "pwd" xml:lang="en">Ripeti Password:</label>
-                    <input type="password" name="rpwd" id="rpwd" value="Antonio99" maxlength= "15" tabindex="2" class="full_width_input"/>
-                    
+                    <input type="password" name="rpwd" id="rpwd" value="Antonio99" maxlength= "50" tabindex="2" class="full_width_input" onkeyup="confirm_pwd(), check_all()"/>
+                    <span id="message2"></span></br></br>
+					
                     <!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->
                     <button type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4">Registrati</button>
 

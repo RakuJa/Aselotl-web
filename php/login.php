@@ -37,7 +37,7 @@
                     </noscript> 
                                     
                     <label for="email" xml:lang="en">Email:</label>
-                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="30" tabindex="1" class="full_width_input"/>
+                    <input type="text" name="email" id="email" value="daniele.giachetto@studenti.unipd.it" maxlength="50" tabindex="1" class="full_width_input"/>
 
                     <label for= "pwd" xml:lang="en">Password:</label>
                     
@@ -46,8 +46,8 @@
 					<label for="show_password">Mostra password</label>
                     </div>
 					
-                    <input type="password" name="pwd" id="pwd" value="osi" maxlength= "15" tabindex="2" class="full_width_input"/>
-					
+                    <input type="password" name="pwd" id="pwd" value="osi" maxlength= "50" tabindex="2" class="full_width_input"/>
+
 					<input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
                     <label for="remember_me">Ricordati di me</label>
                     

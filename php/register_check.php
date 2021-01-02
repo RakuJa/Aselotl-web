@@ -39,7 +39,7 @@
     //controllo input
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         new Debugger("[La mail inserita non è valida.]");
-        $error=$error."<div class=\"msg_box error_box\">'La mail inserita non è valida.</div>";
+        $error=$error."<div class=\"msg_box error_box\">La mail inserita non è valida.</div>";
         $no_error=false;
     }
     new Debugger("Mail inserita: ".$email);
