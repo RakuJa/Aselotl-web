@@ -33,9 +33,9 @@
         <div id="header">
             <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-              <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
-                    <a href="../php/profile.php" class="colored"> Profile </a>
-                    <a href="../php/logout.php" class="colored">Logout</a>
+				<?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profilo </a>
+                    <a xml:lang="en" href="../php/logout.php" class="colored">Logout</a>
                 <?php } else { ?>
                     <a href="../php/login.php" class="colored">Accedi</a>
                     <a href="../php/register.php" class="colored">Registrati</a>
@@ -53,7 +53,7 @@
                 <li><a href="../php/famous.php">Personaggi famosi</a></li>
                 <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
                 <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
-                <li id="currentLink"><a>Chi siamo</a></li>
+                <li><p>Chi siamo</p></li>
                 <li><a href="../php/rules.php">Regolamento</a></li>
             </ul>
         </div>

@@ -1,5 +1,6 @@
 <?php
     session_start();
+	header('refresh:5; url= ../php/index.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -33,9 +34,9 @@
         <div id="header">
             <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-              <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
-                    <a href="../php/profile.php" class="colored"> Profile </a>
-                    <a href="../php/logout.php" class="colored">Logout</a>
+				<?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profilo </a>
+                    <a xml:lang="en" href="../php/logout.php" class="colored">Logout</a>
                 <?php } else { ?>
                     <a href="../php/login.php" class="colored">Accedi</a>
                     <a href="../php/register.php" class="colored">Registrati</a>
@@ -48,7 +49,6 @@
 
             <p id="subtitle_404">Non hai i permessi per accedere a questa pagina. 
                 Verrai reindirizzato alla <a xml:lang="en" href="index.php">Home</a> tra qualche secondo. </p>
-
             <img id="img_404" src="../img/access_denied.jpg" alt="Axolotl vestito da personale di sicurezza che fa segno di stop" />
         </div>
     

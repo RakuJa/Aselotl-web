@@ -33,9 +33,9 @@
         <div id="header">
             <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-              <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
-                    <a href="../php/profile.php" class="colored"> Profile </a>
-                    <a href="../php/logout.php" class="colored">Logout</a>
+				<?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profilo </a>
+                    <a xml:lang="en" href="../php/logout.php" class="colored">Logout</a>
                 <?php } else { ?>
                     <a href="../php/login.php" class="colored">Accedi</a>
                     <a href="../php/register.php" class="colored">Registrati</a>
@@ -44,12 +44,13 @@
           </div>
 
         <div id="full_content">
-            <h1 id="title_404">Ops! Non siamo riusciti a trovare quello che stavi cercando...</h1>  
+            <h1 id="title_404">Ops! Non siamo riusciti a trovare quello che stavi cercando...</h1>
+			</br>
             <p id="subtitle_404">
                 Questa pagina ha perso la coda! Vuoi farla ricrescere? 
                 <a href="index.php">Torna alla <span xml:lang="en">home</span></a>
             </p> 
-            <img id="img_404" src="../img/404.jpg" alt="Un axolotl che piange" />
+            <img id="img_404" src="../img/404.jpg" alt="Un axolotl che piange"/>
         </div>
     
         <div id="footer">

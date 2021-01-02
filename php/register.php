@@ -34,7 +34,7 @@
             <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
               <a href="../php/login.php" class="colored">Accedi</a>
-              <a>Registrati</a>
+              <p>Registrati</p>
             </div>
           </div>
     

@@ -98,7 +98,7 @@ SEZIONE HEADER
 }
 
 @media screen and (max-width: 500px) {
-	#header{
+	#header {
 		border-left: none;
 		border-right: none;
 		padding-left: 0.5em;
@@ -119,7 +119,7 @@ SEZIONE HEADER
 		line-height: 2em;
 	}
 
-	#header a.logo img{
+	#header a.logo img {
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
@@ -140,12 +140,12 @@ SEZIONE HEADER
 	font-size: 1em;
 }
 
-#logo{
+#logo {
 	float: left;/*Posiziona il logo a sinistra*/
 	padding: 5px;
 }
 
-#header h1{/*Indica tutti gli h1 contenuti nei div con id "header"*/
+#header h1 {/*Indica tutti gli h1 contenuti nei div con id "header"*/
 	color: #c34267;
 	font-size: 2.5em;/*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
 	text-align: center;
@@ -164,7 +164,7 @@ Passo 3
 Procedo con la sezione "breadcrumb"
 */
 
-#breadcrumb{/*Rappresenta la sezione contenente la dicitura 'ti trovi in:nome_pagina'*/
+#breadcrumb {/*Rappresenta la sezione contenente la dicitura 'ti trovi in:nome_pagina'*/
 	background-color: #c34267;/*Sfondo*/
 	color: white;/*Colore del testo*/
 	padding: 0.5em 0em 0.5em 0.5em;/*Aggiungo una leggera spaziatura attorno al testo, ovvero al contenuto del div contenente l'id specificato*/
@@ -199,7 +199,7 @@ MENU
 
 }
 
-#menu a:link{
+#menu a:link {
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
@@ -210,7 +210,7 @@ MENU
 	border: none;
 }
 
-#menu a{
+#menu a, #menu p {
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
@@ -224,21 +224,7 @@ MENU
 	border: none;
 }
 
-#menu p{
-	text-decoration: none;
-	text-align: center;
-  	font-size: 1em;
-	color: white;
-	display: block;
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	margin-left: 0.4375em;
-	margin-right: 0.5em;
-	background-color: #c34267;
-	border: none;
-}
-
-#menu a:visited{
+#menu a:visited {
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
@@ -248,7 +234,7 @@ MENU
 	border: none;
 }
 
-#menu a:hover{
+#menu a:hover {
 	color: white;
 	display: block;
 	background-color: #c34267;
@@ -271,11 +257,11 @@ MENU
 /*
 Do una regola alle liste non ordinate
 */
-#menu ul{
+#menu ul {
 	list-style-type: none;/*Nasconde i pallini nelle entry della lista*/
 }
 
-#menu ul li{
+#menu ul li {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
@@ -292,7 +278,7 @@ CONTENT
 ========
 */
 
-#content, #full_content{
+#content {
 	margin-left: 20%;
 	width: auto;
 	border-left:1px solid #ddd;
@@ -368,11 +354,11 @@ CONTENT
 	text-decoration: none; 
 }
 
-#content ol li{
+#content ol li {
 	margin-left: 1.5em;
 }
 
-#content ul li{
+#content ul li {
 	margin-left: 1.5em;
 }
 
@@ -382,15 +368,10 @@ CONTENT
 	width: 40%;
 }
 
-#full_content {
-    margin: 0.5em 0;    
-    min-height: 0;
-}
-
 
 @media screen and (max-width: 500px) {
 
-	#content, #full_content{
+	#content {
 		border-left: none;
 		border-right: none;
 		margin-left: 0%;
@@ -403,13 +384,14 @@ CONTENT
 		min-height: 20em;
 		white-space: initial;
 	}
-	#content img{
+	#content img {
 		display: block;
   		margin-left: auto;
   		margin-right: auto;
 		width: 50%;
 	}
 }
+
 /*
 Passo 6
 Prendo in considerazione il footer, o "piede", della pagina
@@ -438,11 +420,11 @@ FOOTER
     margin-right: auto;
 }
 
-#footer ul{
+#footer ul {
 	list-style-type: none;
 }
 
-#footer a{
+#footer a {
 	color: white;
 }
 /*
@@ -485,7 +467,7 @@ input[type=text], input[type=password] {
 	box-sizing: border-box;
   }
 
-fieldset{
+fieldset {
 	border:none;
 }
 
