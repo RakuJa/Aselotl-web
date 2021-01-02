@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2021 at 08:49 PM
+-- Generation Time: Jan 02, 2021 at 08:57 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -50,8 +50,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
-('antonio.osele@studenti.unipd.it', '5652f53d1f027b780b2843c6fe4c1da8bd430872f7c2b1473cd8de8c96e5a136bb78e1276f022e915db7ee6ade4e0aec1cd4e5b85f6d52ffc68653ec1f3e860e', 0),
-('daniele.giachetto@studenti.unipd.it', '58935a4a0e0238d6ba6a1ea123f81b04b9cbcd63b56f79bcb651491c3feade35fb779a74f6a9c8bd320cf3c636f73a88d7669f9b1c6c67a57996f93fe120999f', 0),
+('admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 0),
+('daniele.giachetto@studenti.unipd.it', '58e684ba7eb228fbf7c53f20a0f96892abd7ac20f3b8fb2304a1c41a61aa1e74f5e8a46cc22c18d99b7dbc77a54eea2cecf598d49f05cc42e3917e0a0a1d7f12', 1),
 ('daniele@studenti.unipd.it', '570e4730eb31169d6fc2e43adfbf36761611049457b079274960fc3635445671efd84c8c4e010d1a3515ca59db92eecba4c1a8dcc2a65b9cb5501b764751e6c0', 1);
 
 --
