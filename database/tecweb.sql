@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 28, 2020 at 11:37 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Host: 127.0.0.1
+-- Generation Time: Jan 02, 2021 at 08:49 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,23 +24,62 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `foto`
 --
 
-CREATE TABLE `User` (
+CREATE TABLE `foto` (
+  `PATH` varchar(256) NOT NULL,
+  `DESCRIPTION` text NOT NULL,
+  `EMAIL` varchar(320) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
   `EMAIL` varchar(320) NOT NULL,
   `PASSWORD` varchar(255) NOT NULL,
   `PERMISSION` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `User`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `User` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
-('daniele.giachetto@studenti.unipd.it', '58935a4a0e0238d6ba6a1ea123f81b04b9cbcd63b56f79bcb651491c3feade35fb779a74f6a9c8bd320cf3c636f73a88d7669f9b1c6c67a57996f93fe120999f', 0),
+INSERT INTO `user` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
 ('antonio.osele@studenti.unipd.it', '5652f53d1f027b780b2843c6fe4c1da8bd430872f7c2b1473cd8de8c96e5a136bb78e1276f022e915db7ee6ade4e0aec1cd4e5b85f6d52ffc68653ec1f3e860e', 0),
+('daniele.giachetto@studenti.unipd.it', '58935a4a0e0238d6ba6a1ea123f81b04b9cbcd63b56f79bcb651491c3feade35fb779a74f6a9c8bd320cf3c636f73a88d7669f9b1c6c67a57996f93fe120999f', 0),
 ('daniele@studenti.unipd.it', '570e4730eb31169d6fc2e43adfbf36761611049457b079274960fc3635445671efd84c8c4e010d1a3515ca59db92eecba4c1a8dcc2a65b9cb5501b764751e6c0', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `foto`
+--
+ALTER TABLE `foto`
+  ADD PRIMARY KEY (`PATH`),
+  ADD KEY `EMAIL` (`EMAIL`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`EMAIL`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `foto`
+--
+ALTER TABLE `foto`
+  ADD CONSTRAINT `email` FOREIGN KEY (`EMAIL`) REFERENCES `user` (`EMAIL`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

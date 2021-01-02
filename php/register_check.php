@@ -1,5 +1,4 @@
 <?php 
-
     require_once("sessione.php");
     require_once('connessione.php');
     require_once('debugger.php');
