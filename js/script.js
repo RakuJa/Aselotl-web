@@ -130,3 +130,13 @@ function check_size() {
 		document.getElementById('message').innerHTML = '';
 	}
 }
+
+function show_file_name() {
+	var file = document.getElementById('uploadImage');
+	if (file.files.length == 0) {
+		document.getElementById('file-selected').innerHTML = 'Nessun immagine selezionata';
+	}
+	else {
+		document.getElementById('file-selected').innerHTML = file.files[0].name;
+	}
+}

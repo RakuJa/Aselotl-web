@@ -493,9 +493,42 @@ input[type=text], input[type=password] {
 	padding: 0.8em 2em;
 	margin: 1em 0;
 	display: inline-block;
-	border: 1px solid #c46d85;
+	border: 1px solid #c34267;
 	box-sizing: border-box;
   }
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload, input[type=submit] {
+	width: auto;
+	height: auto;
+	padding: 0.8em 2em;
+	margin: 1em 0;
+	display: inline-block;
+	color: #c34267;
+	border: 1px solid #c34267;
+	box-sizing: border-box;
+	outline-offset: -0.1px;
+}
+
+input[type=submit]{
+	float: right;
+}
+
+input[type=submit]:enabled{
+	background-color: white;
+}
+
+.custom-file-upload:hover, input[type=submit]:hover{
+	color: white;
+	background-color: #c34267;
+}
+
+input[type=submit]:disabled{
+	background-color:#c9c9c9f8;
+}
 
 fieldset {
 	border:none;
