@@ -46,7 +46,7 @@
 					<label for="show_password">Mostra password</label>
                     </div>
 					
-                    <input type="password" name="pwd" id="pwd" value="osi" maxlength= "50" tabindex="2" class="full_width_input"/>
+                    <input type="password" name="pwd" id="pwd" value="Osi42069" maxlength= "50" tabindex="2" class="full_width_input"/>
 
 					<input type="checkbox" id="remember_me" name="remember_me" %CHECKED%/>
                     <label for="remember_me">Ricordati di me</label>
