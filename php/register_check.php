@@ -4,12 +4,6 @@
     require_once('connessione.php');
     require_once('debugger.php');
     require_once("reg_ex.php");
-
-    /*Aggiunta header,menu e footer*/
-    //new Debugger("Chiamata ad addToHtml iniziata");
-    //$page= (new addToHtml)->add("../html/register.php",false,false);
-    //new Debugger("Chiamata ad addToHtml terminata");
-
     if($_SESSION['logged']==true){
         header('location:index.php');
         exit();

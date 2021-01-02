@@ -1,119 +1,24 @@
 ﻿<?php
     session_start();
+    $page_head = readfile("../html/head.html");
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-        <title>Fun facts - Axolotl Society</title>
-        <meta name="title" content="Fun Facts - Axolotl Society" />
-
-        <meta name="description" content="pagina di base del sito" />
-        <meta name="keywords" content="axolotl, assolotti, bellissimi, carini" />
-        <meta name="author" content="Francesco De Marchi, Daniele Giachetto, Antonio Osele, Vittorio Schiavon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-         
-        <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="../css/stampa.css" media="print"/>  
-
-        <!-- favicon - realfavicongenerator.net - -->
-        <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" href="../img/favicon/favicon-32x32.png" />
-        <link rel="manifest" href="../img/favicon/site.webmanifest" />
-        <link rel="mask-icon" href="../img/favicon/safari-pinned-tab.svg" />
-        <link rel="shortcut icon" href="../img/favicon/favicon.ico" />
-        <meta name="msapplication-TileColor" content="#00aba9" />
-        <meta name="msapplication-config" content="../img/favicon/browserconfig.xml" />
-        <meta name="theme-color" content="#ffffff" />  
-    </head>
 
     <body>
         <div id="header">
             <a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> <h1>Axolotl Society</h1><br clear="all" /></a>
             <div class="header-right">
-				<?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
-                    <a href="../php/profile.php" class="colored"> Profilo </a>
-                    <a xml:lang="en" href="../php/logout.php" class="colored">Logout</a>
+              <?php if (isset($_SESSION['logged']) && $_SESSION['logged']==true) { ?>
+                    <a href="../php/profile.php" class="colored"> Profile </a>
+                    <a href="../php/logout.php" class="colored">Logout</a>
                 <?php } else { ?>
                     <a href="../php/login.php" class="colored">Accedi</a>
                     <a href="../php/register.php" class="colored">Registrati</a>
                 <?php } ?>
             </div>
           </div>
-    
-        <div id="breadcrumb">
-            <p>Ti trovi in: <span xml:lang="en">Fun facts</span></p>
-        </div>
 
-        <div id="menu">
-            <ul>
-                <li xml:lang="en"><a href="../php/index.php">Home</a></li>
-                <li><a href="../php/famous.php">Personaggi famosi</a></li>
-                <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
-                <li xml:lang="en"><p>Fun facts</p></li>
-                <li><a href="../php/about_us.php">Chi siamo</a></li>
-                <li><a href="../php/rules.php">Regolamento</a></li>
-            </ul>
-        </div>
 
-        <div id="content">
-			<h1>FUN FACTS</h1>
-            <ul>
-                <li>
-                    <h3>Che strani cornetti!</h3>
-                    <p>Non sono cornetti! Può sembrare strano ma quelle sono le loro branchie! </p>
-                </li>
-
-                <li>
-                    <h3>Una specie a rischio</h3>
-                    <p>Purtroppo questi animaletti così carini sono anche molto fragili. E' bastato soltanto distruggere il loro habitat naturale e una pesca intensiva non regolamentata per renderli una specie a rischio! </p>
-                </li>
-
-                <li>
-                    <h3><span xml:lang="en"> Junior</span> chi?</h3>
-                    <p>
-                        Vi ricordate il personaggio <span xml:lang="en">Junior</span> di <span xml:lang="en">Dragon Ball</span>? Quello verde con la capacità di rigenerare parti del corpo.
-                        Beh, le nostre amate salamandre evidentemente hanno preso spunto da lui infatti possono rigenerare grandi parti del loro corpo in caso di necessità.
-                    </p>
-                </li>
-
-                <li>
-                    <h3>Il razzismo nelle salamandre</h3>
-                    <p>
-                        Queste tenerezze possono essere di vari colori. I più comuni sono il rosa pallido e il nero. Nonostante la similitudine con un'altra specie animale decisamente più stupida le salamandre non hanno mai compiuto discriminazioni razziali.
-                    </p>
-                </li>
-
-                <li>
-                    <h3>"Ma come si può mangiare un axolotl?"</h3>
-                    <p>
-                        Noi della redazione non siamo bravi a cogliere le domande retoriche quindi ecco a voi: Prendete un Axolotl adulto, impanatelo, friggetelo e accompagnatelo con un bel contorno saporito. Un successone.
-                    </p>
-                </li>
-
-                <li>
-                    <h3>Degli animali civili</h3>
-                    <p>
-                        Di tutti gli attentati terroristici datati dopo il 2001 <strong>nessuno</strong> è stato compiuto da degli Axolotl. Per gli attentati precedenti al 2001 non si hanno sufficienti dati.
-                    </p>
-                </li>
-
-            </ul>
-        </div>
-    
-        <div id="footer">
-            <ul>
-                <li><span xml:lang="en">Axolotl</span> - Le salamandre più adorabili</li>
-                <li xml:lang="en">axolotl4ever@gmail.com</li>
-                <li>049-0000000 - Padova, Via Gattamelata 42</li>
-                <li xml:lang="en">Copyright &copy; 2020-2021 all rights reserved</li>
-            </ul>
-
-            <a id="scrollBtn" class="hide" href="#header">Torna Su</a>
-        </div>
-              
-        <script type="text/javascript" src="../js/script.js"></script>
-    </body>
-</html>
+        <?php
+            $page_body = readfile("../html/fun_facts.html");
+            $page_footer = readfile("../html/footer.html");
+        ?>
