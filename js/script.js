@@ -92,10 +92,41 @@ function check_empty() {
 	var button = document.getElementById('login_btn');
 	var email = document.getElementById('email');
 	var pwd = document.getElementById('pwd');
-	if((email.value == "") || (pwd.value == ""))	{
+	if((email.value == '') || (pwd.value == ''))	{
 		button.disabled = true;
 	}
 	else {
 		button.disabled = false;
+	}
+}
+
+function check_empty_art() {
+	var button = document.getElementById('submit');
+	var description = document.getElementById('description');
+	var keywords = document.getElementById('keywords');
+	var file = document.getElementById('uploadImage');
+	if((description.value == '') || (keywords.value == '') || (file.files.length == 0))	{
+		button.disabled = true;
+		document.getElementById('message').style.color = 'red';
+		document.getElementById('message').innerHTML = 'I campi descrizione, parole chiave ed immagine non possono essere vuoti';
+	}
+	else {
+		button.disabled = false;
+		document.getElementById('message').innerHTML = '';
+	}
+}
+
+function check_size() {
+	var button = document.getElementById('submit');
+	var file = document.getElementById('uploadImage');
+	if(file.files[0].size > 5000000)	{
+		file.value = "";
+		button.disabled = true;
+		document.getElementById('message').style.color = 'red';
+		document.getElementById('message').innerHTML = 'File troppo grande (massimo 5MB)';
+	}
+	else {
+		button.disabled = false;
+		document.getElementById('message').innerHTML = '';
 	}
 }

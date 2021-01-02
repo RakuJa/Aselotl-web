@@ -17,12 +17,15 @@
 
         <div id="content">
             <h1>AGGIUNGI <span xml:lang="en">FAN ART</span></h1>
-			<p>
-			Vuoi sapere come? Ottima domanda, non lo so nemmeno io...
-			</br></br></br></br></br></br></br></br></br></br></br></br>
+			<p> 
             <form action="../php/upload_fanart.php" method="post" enctype="multipart/form-data">
+			<label for="description">Descrizione: </label>
+			<input type="text" name="description" id="description" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/></br></br>
+			<label for="keywords">Parole chiave: </label>
+			<input type="text" name="keywords" id="keywords" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/></br></br>
 			<label for="uploadImage">Seleziona nuova <span xml:lang="en">fan art</span>: </label>
-			<input type="file" accept="image/*" id="uploadImage" name="uploadImage" tabindex="1"/>
-            <input type="submit">
+			<input type="file" name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_size()"/>
+            <input type="submit" id="submit" disabled name="submit" value="Carica immagine"/></br></br>
+			<span id="message"></span>
 			</p>
         </div>

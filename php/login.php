@@ -2,13 +2,9 @@
     session_start();
     $page_header = readfile("../html/head.html");
     include 'header.php';
-	$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-	$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-			if($url == "http://127.0.0.1/php/login.php") {
-				header("location: ../php/index.php");
-			}
-		}
+		header("location: ../php/index.php");
+	}
 ?>
     
         <div id="breadcrumb">
