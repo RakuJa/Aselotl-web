@@ -38,15 +38,18 @@
 					echo "Utente";
 				} else {
 					echo "Amministratore";
-					echo "</br>";
-					echo "<a href='../php/admin.php' id='selectbutton'>Pannello amministratore</a>";
+					echo "<div id='customlink'>";
+					echo "<a href='../php/admin.php' id='prevbutton'>Pannello amministratore</a>";
+					echo "</div>";
 				} 
 			?>
 		</dl> 
 	</div>
 	</br></br></br>
-	<a class="btn right" href="../php/remove_profile.php">Modifica password</a>
-	<a class="btn alert_btn right" href="../php/remove_profile.php">Rimuovi profilo</a>
+	<div id='customlink'>
+		<a id='prevbutton' href="../php/remove_profile.php">Modifica password</a>
+		<a id='nextbutton' href="../php/remove_profile.php">Rimuovi profilo</a>
+	</div>
 </div>
 
 <?php 
