@@ -21,17 +21,16 @@
 
         public function queryDB($query){
             if($queryResult = $this->connessione->query($query)){
-
                 $result=array();
                 if($queryResult && $queryResult->num_rows>0){
                     while($row=$queryResult->fetch_array(MYSQLI_ASSOC)){
                         array_push($result,$row);
                     }
-                }
-                
+                } 
                 if ($this->connessione) {
                     $this->connessione->close();
                 }
+                var_dump($result);
                 return $result;
             }else{
                 return false;
@@ -51,7 +50,7 @@
         }
 
         public function insertDB($query){
-            $this->connessione->query($query);
+            return $this->connessione->query($query);
         }
 
         public function escape_str($string){

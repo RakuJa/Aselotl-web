@@ -78,13 +78,14 @@
         $hashed_pwd=hash("sha512",$obj_connection->escape_str(trim($pwd)));
         //check dati inseriti
         $query = "INSERT INTO User (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
-        if(!$obj_connection->queryDB($query)){
-            new Debugger("[Errore nel inserimento dei dati]");
-            $error="<div class=\"msg_box error_box\">Errore nell' inserimento dei dati</div>";
-        }else{
+        if($obj_connection->insertDB($query)){
             if ($obj_connection) $obj_connection->close_connection();
+            $_SESSION["error"]="";
             header('location: login.php');
             exit();
+        }else{  
+            new Debugger("[Errore nel inserimento dei dati]");
+            $error="<div class=\"msg_box error_box\">Errore nell' inserimento dei dati</div>";
         }
         if ($obj_connection) $obj_connection->close_connection();
     }
