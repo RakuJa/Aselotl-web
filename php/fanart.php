@@ -20,44 +20,47 @@
             $files = $obj_connection->queryDB($sql);
             $lenght = count($files);
             $curr_page = 0;
-            $images_per_page = 5;
+            $images_per_page = 3;
+            $totpages = $lenght/$images_per_page;
 
-            if(isset($_GET['pic']))
+            if(isset($_GET['page']))
             {
-                $pic = $_GET['pic'];
-                if(isset($files[$pic]['PATH']))
+                $page = $_GET['page'];
+                for($i = 0; $i < $images_per_page; $i++)
                 {
-                    $img = $files[$pic]['PATH'];
-                    $dsc = $files[$pic]['DESCRIPTION'];
-                    $mail = $files[$pic]['EMAIL'];
-                    echo "<img src='$img' alt='$dsc' />";
-                    echo "<p> <small> Immagine caricata da $mail </small> <br /> $dsc </p>";
-                    echo "<br />";
+                    $curr_image = $page*$images_per_page+$i;
+                    if(isset($files[$curr_image]['PATH']))
+                    {
+                        $img = $files[$curr_image]['PATH'];
+                        $dsc = $files[$curr_image]['DESCRIPTION'];
+                        $mail = $files[$curr_image]['EMAIL'];
+                        echo "<hr>";
+                        echo "<br />";
+                        echo "<img src='$img' alt='$dsc' />";
+                        echo "<p> <small> Immagine caricata da $mail </small> <br /> $dsc </p>";
+                    }
                 }
-                else
-                {
-                    echo "<p> L'immagine da te richiesta non è stata trovata </p>";
-                }
-                $nextpic = $pic+1;
-                $prevpic = $pic-1;
+                $nextpage = $page+1;
+                $prevpage = $page-1;
                 echo "<div id='customlink'>";
-                if(isset($files[$nextpic]['PATH'])  )
+                if(isset($files[$nextpage*$images_per_page]['PATH'])  )
                 {
-                    echo "<a href='../php/fanart.php?pic=$nextpic' id='nextbutton'>Prossima Immagine</a>";
+                    echo "<a href='../php/fanart.php?page=$nextpage' id='nextbutton'>Pagina sucessiva</a>";
                 }
-                if(isset($files[$prevpic]['PATH'])  )
+                if(isset($files[$prevpage*$images_per_page]['PATH'])  )
                 {
-                    echo "<a href='../php/fanart.php?pic=$prevpic' id='prevbutton'>Immagine scorsa</a>";
+                    echo "<a href='../php/fanart.php?page=$prevpage' id='prevbutton'>Pagina precedente</a>";
                 }
                 echo "</div>";
+                echo "<p> $nextpage / $totpages</p>"; /* PARZIALE DA FIXARE */
             }
             else
             {
-                $pic = 0;
-                if(isset($files[$pic]['PATH'])){
+                $page = 0;
+                if(isset($files[$page]['PATH'])){
                     $host  = $_SERVER['HTTP_HOST'];
                     $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-                    $extra = '../php/fanart.php?pic=0';
+                    $extra = '../php/fanart.php?page=0';
                     header("Location: http://$host$uri/$extra");
                 }
             }
