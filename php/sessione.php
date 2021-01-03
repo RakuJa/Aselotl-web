@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    const USER = 1;
+    const NOTLOGGED = 2;
 
     if(!isset($_SESSION['logged'])){
         $_SESSION['logged']=false;
@@ -10,7 +10,7 @@
         $_SESSION['ID']='';
     }
     if(!isset($_SESSION['PERMISSION'])){
-        $_SESSION['PERMISSION']=USER;
+        $_SESSION['PERMISSION']=NOTLOGGED;
     }
 
     if(isset($_SESSION['current_page'])){

@@ -8,7 +8,7 @@
         $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
         $no_error=false;
     }
-	if ($_SESSION['logged']==false) {
+	if ($_SESSION['logged']==false || $_SESSION['PERMISSION']!=0) {
 		header("location: ../php/access_denied.php");
 	}
     $page_head = readfile("../html/head.html");
