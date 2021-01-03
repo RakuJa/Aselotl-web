@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2021 at 09:06 PM
+-- Generation Time: Jan 03, 2021 at 03:38 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -36,6 +36,39 @@ CREATE TABLE `foto` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `fotokeyword`
+--
+
+CREATE TABLE `fotokeyword` (
+  `KEYWORD` varchar(40) NOT NULL,
+  `PATH` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keyword`
+--
+
+CREATE TABLE `keyword` (
+  `KEYWORD` varchar(40) NOT NULL,
+  `LAST_USED` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keyword`
+--
+
+INSERT INTO `keyword` (`KEYWORD`, `LAST_USED`) VALUES
+('bene', '2021-01-03'),
+('mamma', '2021-01-03'),
+('mi', '2021-01-03'),
+('osi', '1999-10-10'),
+('vuoi', '2021-01-03');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -51,8 +84,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
 ('admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 0),
+('da@si.co', '2e33ef72f2222e7d4343e0ea8056c96f6bfdf536532b03f004075b00324326d6d4d03dee00349ead1d0bf86f33e0c1f7472163dd7929be18e9335c4edd5b5cb2', 1),
 ('daniele.giachetto@studenti.unipd.it', '58e684ba7eb228fbf7c53f20a0f96892abd7ac20f3b8fb2304a1c41a61aa1e74f5e8a46cc22c18d99b7dbc77a54eea2cecf598d49f05cc42e3917e0a0a1d7f12', 1),
 ('daniele@studenti.unipd.it', '570e4730eb31169d6fc2e43adfbf36761611049457b079274960fc3635445671efd84c8c4e010d1a3515ca59db92eecba4c1a8dcc2a65b9cb5501b764751e6c0', 1),
+('theasel99@gmail.com', '570e4730eb31169d6fc2e43adfbf36761611049457b079274960fc3635445671efd84c8c4e010d1a3515ca59db92eecba4c1a8dcc2a65b9cb5501b764751e6c0', 1),
 ('user', 'b14361404c078ffd549c03db443c3fede2f3e534d73f78f77301ed97d4a436a9fd9db05ee8b325c0ad36438b43fec8510c204fc1c1edb21d0941c00e9e2c1ce2', 1);
 
 --
@@ -65,6 +100,19 @@ INSERT INTO `user` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`PATH`),
   ADD KEY `EMAIL` (`EMAIL`);
+
+--
+-- Indexes for table `fotokeyword`
+--
+ALTER TABLE `fotokeyword`
+  ADD KEY `KEYWORD` (`KEYWORD`),
+  ADD KEY `PATH` (`PATH`);
+
+--
+-- Indexes for table `keyword`
+--
+ALTER TABLE `keyword`
+  ADD PRIMARY KEY (`KEYWORD`);
 
 --
 -- Indexes for table `user`
@@ -81,6 +129,13 @@ ALTER TABLE `user`
 --
 ALTER TABLE `foto`
   ADD CONSTRAINT `email` FOREIGN KEY (`EMAIL`) REFERENCES `user` (`EMAIL`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `fotokeyword`
+--
+ALTER TABLE `fotokeyword`
+  ADD CONSTRAINT `keyword` FOREIGN KEY (`KEYWORD`) REFERENCES `keyword` (`KEYWORD`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `path` FOREIGN KEY (`PATH`) REFERENCES `foto` (`PATH`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
