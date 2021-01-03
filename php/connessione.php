@@ -18,7 +18,7 @@
                 $this->connessione->close();
             }
         }
-
+        
         public function queryDB($query){
             if($queryResult = $this->connessione->query($query)){
                 $result=array();
@@ -35,10 +35,17 @@
                 return false;
             }
         }
+        
+        public function insertDB($query){
+            return $this->connessione->query($query);
+        }
+
+        public function escape_str($string){
+            return $this->connessione->real_escape_string($string);
+        }
 
         //restituisce matrice contenente tabelle risultato della query passata
         public function queryToArray($query_res){
-            
             $arr=array();
             if($query_res){
                 while($row=$query_res->fetch_array(MYSQLI_ASSOC)){
@@ -46,14 +53,6 @@
                 }
             }
             return $arr;
-        }
-
-        public function insertDB($query){
-            return $this->connessione->query($query);
-        }
-
-        public function escape_str($string){
-            return $this->connessione->real_escape_string($string);
         }
     }
 ?>

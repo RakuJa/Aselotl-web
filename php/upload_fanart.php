@@ -65,25 +65,54 @@ if(!$obj_connection->create_connection()){
 }
 
 if ($no_error) {
+    $query_error = false;
     new Debugger("Query in preparazione");
     new Debugger($filePath);
     new Debugger($description);
     new Debugger($email);
     new Debugger($keywords);
     $foto_query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
-    $keyword_check_query = "";
-    $keyword_query ="";
-    $association_query =""; 
-    if ($obj_connection->connessione->query($foto_query)) {
-        new Debugger("Query eseguita con successo");
-    }else {
-        new Debugger("Query fallita con successo"); 
-        $error=$error."Query fallita";
-        $no_error = false;
+    $query_error = $obj_connection->insertDB($foto_query);
+    if ($query_error) {
+        //Elimina immagine dal server
+        $_SESSION["errorImage"] = $error."errore nel inserimento nel db";
+        header("location: ../php/add_fanart.php");
     }
+    $association_query =""; 
+    $array_kw = explode(" ",$keywords);
+    foreach ($array_kw as &$kw) {
+        preg_replace('/\PL/u', '', $kw);
+        $keyword_check_query = "SELECT * FROM keyword WHERE keyword = '$kw'";
+        if($query_rist=$obj_connection->connessione->query($keyword_check_query)){
+            $array_rist=$obj_connection->queryToArray($query_rist);
+            $count=0;
+            foreach ($array_rist as &$value) {
+                $count=$count+1;
+            }
+            $data_odierna = date("Y-m-d");
+            if ($count==0) {
+                $keyword_query ="INSERT INTO keyword(`KEYWORD`,`LAST_USED`) VALUES (\"$kw\",\"$data_odierna\")";
+            }else {
+                $keyword_query ="UPDATE `keyword` SET `LAST_USED` = '$data_odierna' WHERE `keyword`.`KEYWORD` = '$kw'";
+            }
+            $query_error = !$obj_connection->insertDB($keyword_query);
+            if (!$query_error) {
+                $query_error =
+                $association_query = "INSERT INTO `fotokeyword` (`KEYWORD`,`PATH`) VALUES (\"$kw\",\"$filePath\")";
+                $query_error = !$obj_connection->insertDB($association_query);
+                if ($query_error) {
+                    new Debugger("ERRORE RILEVATO =====");
+                    new Debugger($kw);
+                    new Debugger($filePath);
+                    new Debugger("FINE ERRORE ========");
+                }
+            }
+        }
+    }
+    
 
 }
 
 $_SESSION["errorImage"] = $error;
-header("location: ../php/add_fanart.php");
+//header("location: ../php/add_fanart.php");
 ?>
