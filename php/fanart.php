@@ -34,9 +34,10 @@
                         $img = $files[$curr_image]['PATH'];
                         $dsc = $files[$curr_image]['DESCRIPTION'];
                         $mail = $files[$curr_image]['EMAIL'];
+                        echo "<hr>";
+                        echo "<br />";
                         echo "<img src='$img' alt='$dsc' />";
                         echo "<p> <small> Immagine caricata da $mail </small> <br /> $dsc </p>";
-                        echo "<br />";
                     }
                 }
                 $nextpage = $page+1;
