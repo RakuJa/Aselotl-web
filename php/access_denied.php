@@ -1,6 +1,6 @@
 <?php
     session_start();
-	header('refresh:5; url= ../php/index.php');
+	header('refresh:8; url= ../php/index.php');
     $page_head = readfile("../html/head.html");
     include 'header.php';
     $page_body = readfile("../html/access_denied.html");
