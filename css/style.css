@@ -489,6 +489,12 @@ CONTENT
 	clear:both;
 }
 
+#pagenum{
+	text-align: center;
+	margin: auto;
+	float: right;
+}
+
 
 @media screen and (max-width: 670px) {
 
