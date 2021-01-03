@@ -36,10 +36,7 @@
             $lenght = count($files);
             $curr_page = 0;
             $images_per_page = 3;
-            $totpages = $lenght/$images_per_page;
-            if($totpages<1){
-                $totpages=1;
-            }
+            $totpages = ceil($lenght/$images_per_page);
 
             if(isset($_GET['page']))
             {

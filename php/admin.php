@@ -41,7 +41,7 @@
             $lenght = count($files);
             $curr_page = 0;
             $users_per_page = 5;
-            $totpages = $lenght/$users_per_page;
+            $totpages = ceil($lenght/$users_per_page);
 
             if(isset($_GET['page']))
             {
