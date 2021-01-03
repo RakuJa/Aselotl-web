@@ -30,7 +30,6 @@
                 if ($this->connessione) {
                     $this->connessione->close();
                 }
-                var_dump($result);
                 return $result;
             }else{
                 return false;
