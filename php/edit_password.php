@@ -34,7 +34,10 @@
             <form method="post" action="edit_profile_check.php" id="edit_pwd" class="vertical_input_form">
                 <fieldset>
                     <legend>Cambio <span xml:lang="en">password</span>:</legend></br>
-
+					
+					<label for="email" xml:lang="en">Email:</label>
+                    <input type="text" disabled name="email" id="email" maxlength="50" class="full_width_input" value = "daniele.osi@sexybois.com" onkeyup="check_empty()"/>
+					
                     <label for="opwd">Vecchia <span lang="en">password</span>:</label>
 					
 					<div style="float: right;">
