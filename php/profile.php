@@ -47,8 +47,8 @@
 	</div>
 	</br></br></br>
 	<div id='customlink'>
-		<a id='nextbutton' href="../php/modify_pwd.php">Modifica password</a>
-		<a id='prevbutton' href="../php/remove_profile.php">Rimuovi profilo</a>
+		<a id='prevbutton' href="../php/modify_pwd.php">Modifica password</a>
+		<a id='nextbutton' href="../php/remove_profile.php">Rimuovi profilo</a>
 	</div>
 </div>
 
