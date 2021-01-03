@@ -89,6 +89,18 @@ function check_all() {
 	}
 }
 
+function check_edit() {
+	var button = document.getElementById('change_psw_btn');
+	var old_pwd = document.getElementById('opwd');
+	if((old_pwd.value != '') && check_pwd() && confirm_pwd())	{
+		button.disabled = false;
+		button.tabIndex = 0;
+	}
+	else {
+		button.disabled = true;
+	}
+}
+
 function check_empty() {
 	var button = document.getElementById('login_btn');
 	var email = document.getElementById('email');

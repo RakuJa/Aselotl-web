@@ -48,7 +48,7 @@
                     <span id="message2"></span></br></br>
 					
                     <!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->
-                    <button type="submit" disabled id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4">Registrati</button>
+                    <button type="submit" disabled id="register_btn" class="btn" name="Registrati" value="Registrati">Registrati</button>
 
                     <a href="../php/login.php" style="float: right;">Sei già registrato? CLICCA QUI</a>  
                 </fieldset>
