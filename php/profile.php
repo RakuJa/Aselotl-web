@@ -45,7 +45,7 @@
 		</dl> 
 	</div>
 	</br></br></br>
-	<a class="btn right" href="../php/remove_profile.php">Modifica password</a>
+	<a class="btn right" href="../php/modify_account.php">Modifica password</a>
 	<a class="btn alert_btn right" href="../php/remove_profile.php">Rimuovi profilo</a>
 </div>
 
