@@ -40,14 +40,16 @@
                 }
                 $nextpic = $pic+1;
                 $prevpic = $pic-1;
+                echo "<div id='customlink'>";
                 if(isset($files[$nextpic]['PATH'])  )
                 {
-                    echo "<a href='../php/fanart.php?pic=$nextpic'><button> Prossima immagine </button></a>";
+                    echo "<a href='../php/fanart.php?pic=$nextpic' id='nextbutton'>Prossima Immagine</a>";
                 }
                 if(isset($files[$prevpic]['PATH'])  )
                 {
-                    echo "<a href='../php/fanart.php?pic=$prevpic'><button> Immagine scorsa </button></a>";
+                    echo "<a href='../php/fanart.php?pic=$prevpic' id='prevbutton'>Immagine scorsa</a>";
                 }
+                echo "</div>";
             }
             else
             {
@@ -60,6 +62,8 @@
                 }
             }
         ?>
+
+        <div id="clearing_element"></div>
 </div>
 
 <?php
