@@ -82,11 +82,11 @@
             new Debugger("[Errore nel inserimento dei dati]");
             $error="<div class=\"msg_box error_box\">Errore nell' inserimento dei dati</div>";
         }else{
-            $obj_connection->close_connection();
+            if ($obj_connection) $obj_connection->close_connection();
             header('location: login.php');
-            exit;
+            exit();
         }
-        $obj_connection->close_connection();
+        if ($obj_connection) $obj_connection->close_connection();
     }
 
     $_SESSION["error"] = $error;

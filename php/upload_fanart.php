@@ -70,8 +70,11 @@ if ($no_error) {
     new Debugger($description);
     new Debugger($email);
     new Debugger($keywords);
-    $query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
-    if ($obj_connection->connessione->query($query)) {
+    $foto_query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
+    $keyword_check_query = "";
+    $keyword_query ="";
+    $association_query =""; 
+    if ($obj_connection->connessione->query($foto_query)) {
         new Debugger("Query eseguita con successo");
     }else {
         new Debugger("Query fallita con successo"); 

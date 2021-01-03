@@ -13,6 +13,12 @@
             return true;
         }
 
+        public function close_connection(){
+            if($this->connessione){
+                $this->connessione->close();
+            }
+        }
+
         public function queryDB($query){
             if($queryResult = $this->connessione->query($query)){
 
@@ -23,7 +29,9 @@
                     }
                 }
                 
-                $queryResult->close();
+                if ($this->connessione) {
+                    $this->connessione->close();
+                }
                 return $result;
             }else{
                 return false;
@@ -44,12 +52,6 @@
 
         public function insertDB($query){
             $this->connessione->query($query);
-        }
-
-        public function close_connection(){
-            if($this->connessione){
-                $this->connessione->close();
-            }
         }
 
         public function escape_str($string){
