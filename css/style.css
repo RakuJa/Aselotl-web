@@ -514,6 +514,12 @@ CONTENT
 		height: auto;
 		
 	}
+	
+	#selectbutton{
+		float: none;
+		margin-left: 0em;
+		margin-bottom: 0.5em;
+	}
 }
 
 /*
