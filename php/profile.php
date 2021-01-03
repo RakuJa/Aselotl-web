@@ -47,8 +47,11 @@
 	</div>
 	</br></br></br>
 	<div id='customlink'>
-		<a id='prevbutton' href="../php/edit_password.php">Modifica password</a>
-		<a id='nextbutton' href="../php/remove_profile.php">Rimuovi profilo</a>
+		<?php
+			$email = $_SESSION["EMAIL"];
+			echo "<a href=edit_password.php?email=",urlencode($email)," id='prevbutton'>Modifica password </a>";
+			echo "<a href=delete_account.php?email=",urlencode($email)," id='nextbutton'>Rimuovi profilo</a>";
+			?>
 	</div>
 </div>
 
