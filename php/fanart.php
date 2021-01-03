@@ -13,8 +13,18 @@
     $page_body = readfile("../html/fanart.html");
 ?>
 <div id="content">
+        <?php 
+        if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
+        ?>
+        <div id='clear_top'></div>
+        <div id='customlink'>
+            <a href='add_fanart.php' id='selectbutton'>Carica una fanart</a>
+        </div>
+        <?php
+        }
+        ?>
         <h1><span xml:lang="en">FAN ART</span></h1>
-        <p><span xml:lang="en">Anche tu sei un amante degli Axolotl? Mandaci una tua creazione! <a href="add_fanart.php">Premi qui</a></span></p>
+        <p><span xml:lang="en">Anche tu sei un amante degli Axolotl? Mandaci una tua creazione!</span></p>
         <?php
             $sql = "SELECT * FROM foto";
             $files = $obj_connection->queryDB($sql);

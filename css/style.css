@@ -516,9 +516,14 @@ CONTENT
 	}
 	
 	#selectbutton{
-		float: none;
-		margin-left: 0em;
+		float: right;
+		margin-left: 0.5em;
+		width: auto;
 		margin-bottom: 0.5em;
+	}
+
+	#clear_top {
+		clear:both;
 	}
 }
 
