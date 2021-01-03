@@ -56,11 +56,13 @@
             new debugger($hashed_pwd);
             //$pwd = $obj_connection->escape_str(trim($pwd));
             $query = "SELECT * FROM User WHERE EMAIL = '$email' AND PASSWORD = '$hashed_pwd'";
+            $permission = 2;
             if($query_rist=$obj_connection->connessione->query($query)){
                 $array_rist=$obj_connection->queryToArray($query_rist);
                 $count=0;
                 foreach ($array_rist as &$value) {
                     $count=$count+1;
+                    $permission = filter_var($value["PERMISSION"], FILTER_VALIDATE_BOOLEAN);
                 }
                 new Debugger($count);
                 if($count==0){
@@ -68,8 +70,7 @@
                 }else{
                     $_SESSION['logged']=true;
                     $_SESSION['EMAIL']=$email;
-                    $_SESSION['ID']=$log_array[0]['ID'];
-                    $_SESSION['PERMISSION']=$log_array[0]['Permessi'];
+                    $_SESSION['PERMISSION']=$permission;
                     new Debugger("Logged in!");
                     if(isset($_POST['remember_me'])){
                         setcookie("user_email",$email,time()+60*60*24*30,'/');
