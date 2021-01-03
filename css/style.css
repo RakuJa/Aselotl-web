@@ -486,14 +486,33 @@ BUTTON
 */
 
 button {
-	background-color: #c34267;
-	color: white;
-	padding: 1em 2em;
-	margin: 1em 0;
-	border: none;
-	cursor: pointer;
 	width: 100%;
+	height: auto;
+	padding: 0.8em 2em;
+	margin: 1em 0;
+	display: inline-block;
+	color: #c34267;
+	border: 1px solid #c34267;
+	background-color: white;
+	box-sizing: border-box;
+	outline-offset: -0.1px;
   }
+
+.nextbutton{
+	float: right;
+	width: auto;
+}
+
+.prevbutton{
+	float: left;
+	width: auto;
+}
+
+button:hover{
+	color: white;
+	background-color: #c34267;
+}
+
 
 /*
 ==========

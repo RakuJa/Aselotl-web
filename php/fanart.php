@@ -1,5 +1,6 @@
 ﻿<?php
     require_once('connessione.php');
+    require_once('debugger.php');
     session_start();
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
@@ -17,11 +18,45 @@
         <?php
             $sql = "SELECT * FROM foto";
             $files = $obj_connection->queryDB($sql);
-            foreach($files as $file) {
-                if($file !== "." && $file !== "..") {
-                    echo "<img src='$file[PATH]' alt='$file[DESCRIPTION]' />";
-                    echo "<p> <small> Immagine caricata da $file[EMAIL] </small> <br /> $file[DESCRIPTION] </p>";
+            $lenght = count($files);
+            $curr_page = 0;
+            $images_per_page = 5;
+
+            if(isset($_GET['pic']))
+            {
+                $pic = $_GET['pic'];
+                if(isset($files[$pic]['PATH']))
+                {
+                    $img = $files[$pic]['PATH'];
+                    $dsc = $files[$pic]['DESCRIPTION'];
+                    $mail = $files[$pic]['EMAIL'];
+                    echo "<img src='$img' alt='$dsc' />";
+                    echo "<p> <small> Immagine caricata da $mail </small> <br /> $dsc </p>";
                     echo "<br />";
+                }
+                else
+                {
+                    echo "<p> L'immagine da te richiesta non è stata trovata </p>";
+                }
+                $nextpic = $pic+1;
+                $prevpic = $pic-1;
+                if(isset($files[$nextpic]['PATH'])  )
+                {
+                    echo "<a href='../php/fanart.php?pic=$nextpic'><button> Prossima immagine </button></a>";
+                }
+                if(isset($files[$prevpic]['PATH'])  )
+                {
+                    echo "<a href='../php/fanart.php?pic=$prevpic'><button> Immagine scorsa </button></a>";
+                }
+            }
+            else
+            {
+                $pic = 0;
+                if(isset($files[$pic]['PATH'])){
+                    $host  = $_SERVER['HTTP_HOST'];
+                    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+                    $extra = '../php/fanart.php?pic=0';
+                    header("Location: http://$host$uri/$extra");
                 }
             }
         ?>
