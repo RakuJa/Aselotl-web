@@ -72,7 +72,7 @@ if ($no_error) {
     new Debugger($keywords);
     $query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
     if ($obj_connection->connessione->query($query)) {
-        new Debugger("Query eseguita con successo");  
+        new Debugger("Query eseguita con successo");
     }else {
         new Debugger("Query fallita con successo"); 
         $error=$error."Query fallita";
