@@ -24,9 +24,12 @@
         }
         ?>
         <h1><span xml:lang="en">FAN ART</span></h1>
-		<label for="search">Cerca immagine: </label>
-		<input type="text" id="search" name="search" placeholder="Cerca..." title="Cerca"/>
-		<button type="submit">Cerca</button>
+        <label for="search">Cerca immagine: </label>
+        <div id='searchbar'>
+		<input type="text" id="search" name="search" placeholder="Inserisci termini da cercare..." title="Cerca"/>
+        <input type="submit" value="Cerca"></input>
+        <br/><br/><br/><br/>
+        </div>
         <?php
             $sql = "SELECT * FROM foto";
             $files = $obj_connection->queryDB($sql);
@@ -34,6 +37,9 @@
             $curr_page = 0;
             $images_per_page = 3;
             $totpages = $lenght/$images_per_page;
+            if($totpages<1){
+                $totpages=1;
+            }
 
             if(isset($_GET['page']))
             {
@@ -49,7 +55,7 @@
                         echo "<hr>";
                         echo "<br />";
                         echo "<img src='$img' alt='$dsc' />";
-                        echo "<p> <small> Immagine caricata da $mail </small> <br /> $dsc </p>";
+                        echo "<p> $dsc <br /> <small> Immagine caricata da $mail </small> </p>";
                     }
                 }
                 $nextpage = $page+1;

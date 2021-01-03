@@ -614,12 +614,26 @@ INPUT FORM
 
 input[type=text], input[type=password] {
 	width: 100%;
-	padding: 0.8em 2em;
+	padding: 0.8em 1em;
 	margin: 1em 0;
 	display: inline-block;
 	border: 1px solid #c34267;
 	box-sizing: border-box;
   }
+
+#searchbar input[type=text], #searchbar input[type=submit]{
+	display:block;
+	float: left;
+}
+
+#searchbar input[type=text]{
+	width: 80%;
+}
+
+#searchbar input[type=submit]{
+	width: 20%;
+	border-left: 0em;
+}
 
 input[type="file"] {
     display: none;
