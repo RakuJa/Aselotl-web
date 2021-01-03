@@ -52,13 +52,13 @@
                     if(isset($files[$curr_user]['EMAIL']))
                     {
                         $perm = $files[$curr_user]['PERMISSION'];
-                        $mail = $files[$curr_user]['EMAIL'];
+                        $email = $files[$curr_user]['EMAIL'];
                         echo "<hr>";
                         echo "<div id='customlink'>";
-                        echo "<a href='LINK' id='selectbutton'>Elimina</a>";
-                        echo "<a href='LINK' id='selectbutton'>Modifica utente</a>";
+                        echo "<a href=delete_account.php?email=",urlencode($email)," id='selectbutton'>Elimina</a>";
+                        echo "<a href=modify_account.php?email=",urlencode($email)," id='selectbutton'>Modifica utente </a>";
                         echo "</div>";
-                        echo "<h2> $mail </h2>";
+                        echo "<h2> $email </h2>";
                         echo "<p> Permessi: $perm</p>";
                     }
                 }
