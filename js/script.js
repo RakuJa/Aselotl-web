@@ -64,7 +64,7 @@ function check_pwd() {
 function confirm_pwd() {
 	var pwd = document.getElementById('pwd');
 	var rpwd = document.getElementById('rpwd');
-	if(pwd.value == rpwd.value) 
+	if(pwd.value == rpwd.value && pwd.value != "" && rpwd.value != "") 
 		{
 		document.getElementById('message2').style.color = 'green';
 		document.getElementById('message2').innerHTML = 'Le password corrispondono.';
