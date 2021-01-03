@@ -24,7 +24,9 @@
         }
         ?>
         <h1><span xml:lang="en">FAN ART</span></h1>
-        <p><span xml:lang="en">Anche tu sei un amante degli Axolotl? Mandaci una tua creazione!</span></p>
+		<label for="search">Cerca immagine: </label>
+		<input type="text" id="search" name="search" placeholder="Cerca..." title="Cerca"/>
+		<button type="submit">Cerca</button>
         <?php
             $sql = "SELECT * FROM foto";
             $files = $obj_connection->queryDB($sql);
