@@ -38,7 +38,7 @@ function check_email() {
 	}
 	else
 	{
-		document.getElementById('message0').style.color = 'red';
+		document.getElementById('message0').style.color = '#EB0000';
 		document.getElementById('message0').innerHTML = 'Email non valida.';
 		return false;
 	}
@@ -55,7 +55,7 @@ function check_pwd() {
 	}
 	else
 	{
-		document.getElementById('message1').style.color = 'red';
+		document.getElementById('message1').style.color = '#EB0000';
 		document.getElementById('message1').innerHTML = 'Password non valida: deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero.';
 		return false;
 	}
@@ -72,7 +72,7 @@ function confirm_pwd() {
 	}
 	else
 	{
-		document.getElementById('message2').style.color = 'red';
+		document.getElementById('message2').style.color = '#EB0000';
 		document.getElementById('message2').innerHTML = 'Le password non corrispondono.';
 		return false;
 	}
@@ -82,6 +82,7 @@ function check_all() {
 	var button = document.getElementById('register_btn');
 	if(check_email() && check_pwd() && confirm_pwd())	{
 		button.disabled = false;
+		button.tabIndex = 0;
 	}
 	else {
 		button.disabled = true;
@@ -97,6 +98,7 @@ function check_empty() {
 	}
 	else {
 		button.disabled = false;
+		button.tabIndex = 0;
 	}
 }
 
@@ -107,12 +109,13 @@ function check_empty_art() {
 	var file = document.getElementById('uploadImage');
 	if((description.value == '') || (keywords.value == '') || (file.files.length == 0))	{
 		button.disabled = true;
-		document.getElementById('message').style.color = 'red';
+		document.getElementById('message').style.color = '#EB0000';
 		document.getElementById('message').innerHTML = 'I campi descrizione, parole chiave ed immagine non possono essere vuoti';
 	}
 	else {
 		button.disabled = false;
 		document.getElementById('message').innerHTML = '';
+		button.tabIndex = 0;
 	}
 }
 
@@ -122,7 +125,7 @@ function check_size() {
 	if(file.files[0].size > 5000000)	{
 		file.value = "";
 		button.disabled = true;
-		document.getElementById('message').style.color = 'red';
+		document.getElementById('message').style.color = '#EB0000';
 		document.getElementById('message').innerHTML = 'File troppo grande (massimo 5MB)';
 	}
 	else {
@@ -134,7 +137,7 @@ function check_size() {
 function show_file_name() {
 	var file = document.getElementById('uploadImage');
 	if (file.files.length == 0) {
-		document.getElementById('file-selected').innerHTML = 'Nessun immagine selezionata';
+		document.getElementById('file-selected').innerHTML = 'Nessuna immagine selezionata';
 	}
 	else {
 		document.getElementById('file-selected').innerHTML = file.files[0].name;
