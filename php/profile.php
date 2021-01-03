@@ -46,8 +46,10 @@
 		</dl> 
 	</div>
 	</br></br></br>
-	<a class="btn right" href="../php/modify_pwd.php">Modifica password</a>
-	<a class="btn alert_btn right" href="../php/remove_profile.php">Rimuovi profilo</a>
+	<div id='customlink'>
+		<a id='nextbutton' href="../php/modify_pwd.php">Modifica password</a>
+		<a id='prevbutton' href="../php/remove_profile.php">Rimuovi profilo</a>
+	</div>
 </div>
 
 <?php 
