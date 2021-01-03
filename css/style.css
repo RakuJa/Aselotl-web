@@ -408,6 +408,54 @@ CONTENT
 	margin-left: 1.5em;
 }
 
+#customlink a:link, #customlink a:visited{
+	background: #fff; 
+	color: #c34267; 
+	text-decoration: none; 
+}
+
+#customlink a:hover{
+	background: #c34267; 
+	color: #fff; 
+	text-decoration: none; 
+}
+
+#nextbutton{
+	text-decoration: none;
+	text-align: center;
+  	font-size: 1em;
+	color:  #c34267;
+	display: block;
+	padding: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	background-color: white;
+	border: solid #c34267;
+	border-width: 0.1em 0.1em;
+	outline-offset: -0.1em;
+	float: right;
+}	
+
+#prevbutton{
+	text-decoration: none;
+	text-align: center;
+  	font-size: 1em;
+	color:  #c34267;
+	display: block;
+	padding: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	background-color: white;
+	border: solid #c34267;
+	border-width: 0.1em 0.1em;
+	outline-offset: -0.1em;
+	float: left;
+}
+
+#clearing_element {
+	clear:both;
+}
+
 
 @media screen and (max-width: 670px) {
 
