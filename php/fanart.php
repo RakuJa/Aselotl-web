@@ -67,6 +67,8 @@
                     echo "<a href='../php/fanart.php?page=$prevpage' id='prevbutton'>Pagina precedente</a>";
                 }
                 echo "</div>";
+                echo "<br/><br/>";
+                echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
             }
             else
             {
@@ -79,7 +81,6 @@
                 }
             }
         ?>
-        <h2 id='pagenum'> <?php echo "$nextpage / $totpages"; ?></h2> 
         <div id="clearing_element"></div>
 </div>
 
