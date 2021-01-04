@@ -13,24 +13,9 @@
 	}
     $page_head = readfile("../html/head.html");
     include 'header.php';
-    /*$page_body = readfile("../html/admin.html");*/
+	$page_body = readfile("../html/admin.html");
 ?>
-<title>Pannello amministratore</title>
 
-<div id="breadcrumb">
-    <p>Ti trovi in: Pannello amministratore</p>
-</div>
-
-<div id="menu">
-    <ul>
-<li xml:lang="en"><a href="../php/index.php">Home</a></li>
-        <li><a href="../php/famous.php">Personaggi famosi</a></li>
-        <li xml:lang="en"><a href="../php/fanart.php">Fan art</a></li>
-        <li xml:lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
-        <li><a href="../php/about_us.php">Chi siamo</a></li>
-        <li><a href="../php/rules.php">Regolamento</a></li>
-    </ul>
-</div>
 <div id="content">
     <h1 id="page_title">PANNELLO AMMINISTRATORE</h1>
     <?php
@@ -57,9 +42,9 @@
 					}
                     $email = $files[$curr_user]['EMAIL'];
                     echo "<hr>";
-                    echo "<div id='customlink'>";
-                    echo "<a href=delete_account.php?email=",urlencode($email)," id='selectbutton'>Elimina</a>";
-                    echo "<a href=edit_password.php?email=",urlencode($email)," id='selectbutton'>Modifica <span xml:lang='en'> password </span> </a>";
+                    echo "<div class='customlink'>";
+                    echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
+                    echo "<a href='edit_password.php?email=", urlencode($email), "'>Modifica <span xml:lang='en' lang='en'> password </span> </a>";
                     echo "</div>";
                     echo "<h2> $email </h2>";
                     echo "<p> Permessi: $perm</p>";
@@ -67,17 +52,15 @@
             }
             $nextpage = $page+1;
             $prevpage = $page-1;    
-            echo "<div id='customlink'>";
             if(isset($files[$nextpage*$users_per_page]['EMAIL'])  )
             {
-                echo "<a href='../php/admin.php?page=$nextpage' id='nextbutton'>Pagina sucessiva</a>";
+                echo "<a href='../php/admin.php?page=$nextpage' class='rightbutton'>Pagina successiva</a>";
             }
             if(isset($files[$prevpage*$users_per_page]['EMAIL'])  )
             {
-                echo "<a href='../php/admin.php?page=$prevpage' id='prevbutton'>Pagina precedente</a>";
+                echo "<a href='../php/admin.php?page=$prevpage' class='leftbutton'>Pagina precedente</a>";
             }
-            echo "</div>";
-            echo "<br/><br/>";
+            echo "<br /><br />";
 			if ($totpages>1) {
             echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
 			}

@@ -17,17 +17,17 @@
         if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
         ?>
         <div id='clear_top'></div>
-        <div id='customlink'>
-            <a href='add_fanart.php' id='selectbutton'>Carica una <span xml:lang="en">fan art</span></a>
+        <div class='customlink'>
+            <a href='add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
         </div>
         <?php
         }
         ?>
-        <h1>LE MIE <span xml:lang="en">FAN ART</span></h1>
+        <h1>LE MIE <span xml:lang="en" lang="en">FAN ART</span></h1>
         <label for="search">Cerca immagine: </label>
         <div id='searchbar'>
 		<input type="text" id="search" name="search" placeholder="Inserisci termini da cercare..." title="Cerca"/>
-        <input type="submit" value="Cerca"></input>
+        <input type="submit" value="Cerca" />
         <br/><br/><br/><br/>
         </div>
         <?php
@@ -57,16 +57,14 @@
                 }
                 $nextpage = $page+1;
                 $prevpage = $page-1;
-                echo "<div id='customlink'>";
                 if(isset($files[$nextpage*$images_per_page]['PATH'])  )
                 {
-                    echo "<a href='../php/my_fanart.php?page=$nextpage' id='nextbutton'>Pagina sucessiva</a>";
+                    echo "<a href='../php/my_fanart.php?page=$nextpage' class='rightbutton'>Pagina sucessiva</a>";
                 }
                 if(isset($files[$prevpage*$images_per_page]['PATH'])  )
                 {
-                    echo "<a href='../php/my_fanart.php?page=$prevpage' id='prevbutton'>Pagina precedente</a>";
+                    echo "<a href='../php/my_fanart.php?page=$prevpage' class='leftbutton'>Pagina precedente</a>";
                 }
-                echo "</div>";
                 echo "<br/><br/>";
 				if ($totpages>1) {
                 echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";

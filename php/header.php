@@ -1,5 +1,5 @@
 <div id="header">
-	<a href="index.php" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> Axolotl Society</a>
+	<a href="index.php" xml:lang="en" lang="en" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> Axolotl Society</a>
 	<div class="header-right">
 		<?php 
 		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
@@ -10,7 +10,7 @@
 			<?php } else { ?>
 				<a href="../php/profile.php" class="colored"> Profilo </a>
 			<?php } ?>
-		<a href="../php/logout.php" class="colored">Logout</a>
+		<a href="../php/logout.php" xml:lang="en" lang="en" class="colored">Logout</a>
 		<?php } else {
 			if($url == "http://127.0.0.1/php/login.php") { ?>
 				<p> Accedi </p>
