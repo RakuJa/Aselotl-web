@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     require_once('connessione.php');
     require_once('debugger.php');
     session_start();
@@ -10,7 +10,7 @@
     }
     $page_head = readfile("../html/head.html");
     include 'header.php';
-    $page_body = readfile("../html/fanart.html");
+    $page_body = readfile("../html/my_fanart.html");
 ?>
 <div id="content">
         <?php 
@@ -18,13 +18,12 @@
         ?>
         <div id='clear_top'></div>
         <div id='customlink'>
-            <a href='../php/add_fanart.php' id='selectbutton'>Carica una <span xml:lang="en">fan art</span></a>
-			<a href='../php/my_fanart.php' id='selectbutton'>Le mie <span xml:lang="en">fan art</span></a>
+            <a href='add_fanart.php' id='selectbutton'>Carica una <span xml:lang="en">fan art</span></a>
         </div>
         <?php
         }
         ?>
-        <h1><span xml:lang="en">FAN ART</span></h1>
+        <h1>LE MIE <span xml:lang="en">FAN ART</span></h1>
         <label for="search">Cerca immagine: </label>
         <div id='searchbar'>
 		<input type="text" id="search" name="search" placeholder="Inserisci termini da cercare..." title="Cerca"/>
@@ -32,7 +31,8 @@
         <br/><br/><br/><br/>
         </div>
         <?php
-            $sql = "SELECT * FROM foto";
+			$email = $_SESSION['EMAIL'];
+            $sql = "SELECT * FROM foto WHERE EMAIL='$email'";
             $files = $obj_connection->queryDB($sql);
             $lenght = count($files);
             $curr_page = 0;
@@ -49,11 +49,9 @@
                     {
                         $img = $files[$curr_image]['PATH'];
                         $dsc = $files[$curr_image]['DESCRIPTION'];
-                        $mail = $files[$curr_image]['EMAIL'];
                         echo "<hr>";
                         echo "<br />";
                         echo "<img src='$img' alt='$dsc' />";
-                        echo "<p> $dsc <br /> <small> Immagine caricata da $mail </small> </p>";
                     }
                 }
                 $nextpage = $page+1;
@@ -61,11 +59,11 @@
                 echo "<div id='customlink'>";
                 if(isset($files[$nextpage*$images_per_page]['PATH'])  )
                 {
-                    echo "<a href='../php/fanart.php?page=$nextpage' id='nextbutton'>Pagina sucessiva</a>";
+                    echo "<a href='../php/my_fanart.php?page=$nextpage' id='nextbutton'>Pagina sucessiva</a>";
                 }
                 if(isset($files[$prevpage*$images_per_page]['PATH'])  )
                 {
-                    echo "<a href='../php/fanart.php?page=$prevpage' id='prevbutton'>Pagina precedente</a>";
+                    echo "<a href='../php/my_fanart.php?page=$prevpage' id='prevbutton'>Pagina precedente</a>";
                 }
                 echo "</div>";
                 echo "<br/><br/>";
@@ -77,7 +75,7 @@
                 if(isset($files[$page]['PATH'])){
                     $host  = $_SERVER['HTTP_HOST'];
                     $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-                    $extra = '../php/fanart.php?page=0';
+                    $extra = '../php/my_fanart.php?page=0';
                     header("Location: http://$host$uri/$extra");
                 }
             }

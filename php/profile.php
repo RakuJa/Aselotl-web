@@ -25,27 +25,38 @@
 
 <div id="content">
 	<div id="profile-view">
+	<div id='clear_top'></div>
+	<div id='customlink'>
+		<a href='../php/my_fanart.php' id='selectbutton'>Le mie <span xml:lang="en">fan art</span></a>
+	</div>
+	<h1>PROFILO</h1>
 		<h2>I miei dati utente</h2>
 			<dt>La mia <span xml:lang="en">email</span>:</dt>
-			<dd><?php
+			<dd>
+			<input type="text" id="email" readonly value=
+			<?php
 				$email = $_SESSION['EMAIL'];
 				echo "$email"; 
-			?></dd></br>
+			?> class="full_width_input">
+			</dd></br>
 			<dt>Tipo di utenza: </dt>
+			<dd>
+			<input type="text" id="email" readonly value=
 			<?php
 				$user = $_SESSION['PERMISSION'];
 				if($user == 1)	{
-					echo "Utente";
+					echo "Utente ";
 				} else {
-					echo "Amministratore";
+					echo "Amministratore>";
 					echo "<div id='customlink'>";
 					echo "<a href='../php/admin.php' id='prevbutton'>Pannello amministratore</a>";
 					echo "</div>";
 				} 
 			?>
+			</dd>
 		</dl> 
 	</div>
-	</br></br></br>
+	</br></br></br></br>
 	<div id='customlink'>
 		<?php
 			$email = $_SESSION["EMAIL"];
