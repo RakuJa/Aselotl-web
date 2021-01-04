@@ -43,7 +43,7 @@
 					<label for="email" xml:lang="en">Email:</label>
 
                     <input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly
-                    <?php echo 'value="'.$email.'"';?>
+                    <?php echo 'value="'.$email.'"';?>></br></br>
                     <label for="pwd">Nuova <span lang="en">password</span>:</label>
 					
 					<div style="float: right;">

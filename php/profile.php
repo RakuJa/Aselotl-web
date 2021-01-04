@@ -31,7 +31,7 @@
 	</div>
 	<h1>PROFILO</h1>
 		<h2>I miei dati utente</h2>
-			<dt>La mia <span xml:lang="en">email</span>:</dt>
+			<label for="email">La mia <span xml:lang="en">email</span>:</label>
 			<dd>
 			<input type="text" id="email" readonly value=
 			<?php
@@ -39,9 +39,9 @@
 				echo "$email"; 
 			?> class="full_width_input">
 			</dd></br>
-			<dt>Tipo di utenza: </dt>
+			<label for="user">Tipo di utenza: </label>
 			<dd>
-			<input type="text" id="email" readonly value=
+			<input type="text" id="user" readonly value=
 			<?php
 				$user = $_SESSION['PERMISSION'];
 				if($user == 1)	{
