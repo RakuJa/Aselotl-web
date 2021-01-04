@@ -32,7 +32,7 @@
         </div>
         <?php
 			$email = $_SESSION['EMAIL'];
-            $sql = "SELECT * FROM foto WHERE EMAIL='$email'";
+            $sql = "SELECT * FROM foto WHERE EMAIL='$email' ORDER BY PATH DESC";
             $files = $obj_connection->queryDB($sql);
             $lenght = count($files);
             $curr_page = 0;
@@ -52,6 +52,7 @@
                         echo "<hr>";
                         echo "<br />";
                         echo "<img src='$img' alt='$dsc' />";
+						echo "<p> $dsc </p>";
                     }
                 }
                 $nextpage = $page+1;
@@ -67,7 +68,9 @@
                 }
                 echo "</div>";
                 echo "<br/><br/>";
+				if ($totpages>1) {
                 echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
+				}
             }
             else
             {

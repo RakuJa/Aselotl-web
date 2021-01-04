@@ -32,7 +32,7 @@
         <br/><br/><br/><br/>
         </div>
         <?php
-            $sql = "SELECT * FROM foto";
+            $sql = "SELECT * FROM foto ORDER BY PATH DESC";
             $files = $obj_connection->queryDB($sql);
             $lenght = count($files);
             $curr_page = 0;
@@ -69,7 +69,9 @@
                 }
                 echo "</div>";
                 echo "<br/><br/>";
+				if ($totpages>1) {
                 echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
+				}
             }
             else
             {

@@ -49,12 +49,17 @@
                 $curr_user = $page*$users_per_page+$i;
                 if(isset($files[$curr_user]['EMAIL']))
                 {
-                    $perm = $files[$curr_user]['PERMISSION'];
+                    $tempperm = $files[$curr_user]['PERMISSION'];
+					if($tempperm == 1)	{
+						$perm = "Utente";
+					} else {
+						$perm = "Amministratore";
+					}
                     $email = $files[$curr_user]['EMAIL'];
                     echo "<hr>";
                     echo "<div id='customlink'>";
                     echo "<a href=delete_account.php?email=",urlencode($email)," id='selectbutton'>Elimina</a>";
-                    echo "<a href=edit_password.php?email=",urlencode($email)," id='selectbutton'>Modifica utente </a>";
+                    echo "<a href=edit_password.php?email=",urlencode($email)," id='selectbutton'>Modifica <span xml:lang='en'> password </span> </a>";
                     echo "</div>";
                     echo "<h2> $email </h2>";
                     echo "<p> Permessi: $perm</p>";
@@ -73,7 +78,9 @@
             }
             echo "</div>";
             echo "<br/><br/>";
+			if ($totpages>1) {
             echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
+			}
         }
         else
         {
