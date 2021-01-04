@@ -32,7 +32,7 @@
     </ul>
 </div>
 <div id="content">
-    <h1 id="page_title">Pannello amministratore</h1>
+    <h1 id="page_title">PANNELLO AMMINISTRATORE</h1>
     <?php
         $tempmail = $_SESSION['EMAIL'];
         $sql = "SELECT EMAIL, PERMISSION FROM user WHERE EMAIL<>'$tempmail'";

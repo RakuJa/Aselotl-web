@@ -341,13 +341,13 @@ CONTENT
   	height: auto;
 }
 
-#content h1, #full_content h1 {
+#content h1, #content legend, #full_content h1 {
 	color: #c34267; 
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 2.125em; 
 	font-weight: 300; 
 	line-height: 40px; 
-	margin: 0 0 16px; 
+	margin: 0 0 0.5em; 
 }
 
 

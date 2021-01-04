@@ -12,9 +12,9 @@
         $email=$_SESSION['EMAIL'];
     }
 ?>
-<title>Modifica profilo</title>
+<title>Modifica password</title>
         <div id="breadcrumb">
-            <p>Ti trovi in: <span xml:lang="en">Modifica profilo</span></p>
+            <p>Ti trovi in: Modifica <span xml:lang="en">password</span></p>
         </div>
 
         <div id="menu">
@@ -35,24 +35,15 @@
                     NON ESSERE DISPONIBILI
                 </div>
             </noscript>
-
-            <h1>Modifica il mio profilo</h1>            
+          
             <form method="post" action="edit_password_check.php" id="edit_pwd" class="vertical_input_form">
                 <fieldset>
-                    <legend>Cambio <span xml:lang="en">password</span>:</legend></br>
+                    <legend>MODIFICA <span xml:lang="en">PASSWORD</span></legend></br>
 					
 					<label for="email" xml:lang="en">Email:</label>
 
-                    <input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly="true"
+                    <input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly
                     <?php echo 'value="'.$email.'"';?>
-                    onkeyup="check_email()"/></br>
-					<span id="message0"></span></br></br>
-					<?php $perm=$_SESSION['PERMISSION'];
-					if($perm == 0) { ?>
-						<script type="text/javascript">
-							document.getElementById('email').readOnly = false;
-						</script> <?php 
-					} ?>
                     <label for="pwd">Nuova <span lang="en">password</span>:</label>
 					
 					<div style="float: right;">

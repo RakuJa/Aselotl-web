@@ -21,7 +21,7 @@
         <div id="content">
             <form method="post" action="../php/register_check.php" id="register_form" class="vertical_input_form">
                 <fieldset>
-				<legend>Registrati:</legend></br>
+				<legend>REGISTRATI</legend></br>
 				
                     <noscript>
                         <div class="msg_box warning_box">

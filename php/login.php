@@ -8,7 +8,7 @@
 ?>
     
         <div id="breadcrumb">
-            <p>Ti trovi in: <span xml:lang="en">Login</span></p>
+            <p>Ti trovi in: Accedi</span></p>
         </div>
         <div id="menu">
             <ul>
@@ -24,7 +24,7 @@
         <div id="content">
             <form method="post" action="../php/login_check.php" id="login_form" class="vertical_input_form">
                 <fieldset>
-					<legend>Accedi:</legend></br>
+					<legend>ACCEDI</legend></br>
 					
                     <noscript>
                         <div class="msg_box warning_box">
