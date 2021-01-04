@@ -9,7 +9,7 @@
 	if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
-        header("location: ../php/admin.php");
+        header("location: ../php/index.php");
         exit();
         $no_error=false;
     }

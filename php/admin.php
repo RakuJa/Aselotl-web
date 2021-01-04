@@ -54,7 +54,7 @@
                     echo "<hr>";
                     echo "<div id='customlink'>";
                     echo "<a href=delete_account.php?email=",urlencode($email)," id='selectbutton'>Elimina</a>";
-                    echo "<a href=modify_account.php?email=",urlencode($email)," id='selectbutton'>Modifica utente </a>";
+                    echo "<a href=edit_password.php?email=",urlencode($email)," id='selectbutton'>Modifica utente </a>";
                     echo "</div>";
                     echo "<h2> $email </h2>";
                     echo "<p> Permessi: $perm</p>";
