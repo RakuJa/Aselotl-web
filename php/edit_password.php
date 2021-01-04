@@ -43,7 +43,7 @@
 					
 					<label for="email" xml:lang="en">Email:</label>
 
-                    <input type="text" name="email" id="email" maxlength="50" class="full_width_input"
+                    <input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly="readonly"
                     <?php echo 'value="'.$email.'"';?>
                     onkeyup="check_empty()"/>
                     <label for="opwd">Vecchia <span lang="en">password</span>:</label>
