@@ -71,10 +71,11 @@ SEZIONE HEADER
 	font-size: 0.5em;
 	font-weight: bold;
 	text-align: center;
-	display: block;
+	display: flex;
+	align-items: center;
   	margin-left: auto;
  	margin-right: auto;
-	width: 50%;
+	width: 30%;
 	background-color: white;
 	border: none;
 
@@ -109,6 +110,23 @@ SEZIONE HEADER
 	float: right;
 }
 
+#logo {
+	float: left;/*Posiziona il logo a sinistra*/
+}
+
+#header h1 {/*Indica tutti gli h1 contenuti nei div con id "header"*/
+	color: #c34267;
+	font-size: 2.5em;/*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
+	text-align: center;
+	padding-left: 0.5em;
+}
+
+#header h2 { /*Indica tutti gli h1 contenuti nei div con id "header"*/
+	color: #c34267;
+	font-size: 1.5em; /*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
+	text-align: center;
+}
+
 @media screen and (max-width: 670px) {
 	#header {
 		border-left: none;
@@ -118,14 +136,14 @@ SEZIONE HEADER
 		padding-right: 0.5em;
 	}
 	#header a {
-	  float: none;
-	  display: block;
-	  text-align: center;
-	  line-height: 0.5em;
-	  padding-left: none;
-	  padding-right: none;
-	  margin-left: 0em;
-	  margin-right: 0em;
+		float: none;
+		display: block;
+		text-align: center;
+		line-height: 0.5em;
+		padding-left: none;
+		padding-right: none;
+		margin-left: 0em;
+		margin-right: 0em;
 	}
 
 	#header p {
@@ -134,16 +152,18 @@ SEZIONE HEADER
 		text-align: center;
 		line-height: 0.5em;
 		padding-left: none;
-	  padding-right: none;
+		padding-right: none;
 		margin-left: 0em;
-	  	margin-right: 0em;
+		margin-right: 0em;
 	  }
 
 	#header a.logo {
 		float: none;
-		display: block;
+		display: flex;
+		align-items: center;
 		text-align: center;
 		line-height: 2em;
+		width: 50%;
 	}
 
 	#header a.logo img {
@@ -154,26 +174,8 @@ SEZIONE HEADER
 	}
 	
 	.header-right {
-	  float: none;
+		float: none;
 	}
-  }
-
-#logo {
-	float: left;/*Posiziona il logo a sinistra*/
-	padding: 5px;
-}
-
-#header h1 {/*Indica tutti gli h1 contenuti nei div con id "header"*/
-	color: #c34267;
-	font-size: 2.5em;/*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
-	text-align: center;
-	padding-top: 1em;
-}
-
-#header h2 { /*Indica tutti gli h1 contenuti nei div con id "header"*/
-	color: #c34267;
-	font-size: 1.5em; /*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
-	text-align: center;
 }
 
 

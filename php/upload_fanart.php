@@ -109,8 +109,7 @@ if ($no_error) {
             }
         }
     }
-    
-
+    header("location: ../php/fanart.php");
 }
 
 $_SESSION["errorImage"] = $error;

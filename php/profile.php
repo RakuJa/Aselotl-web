@@ -53,6 +53,7 @@
 			echo "<a href=delete_account.php?email=",urlencode($email)," id='nextbutton'>Rimuovi profilo</a>";
 			?>
 	</div>
+	<div id="clearing_element"></div>
 </div>
 
 <?php 
