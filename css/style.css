@@ -644,7 +644,9 @@ input[type=text], input[type=password] {
 }
 
 input[type="file"] {
-    display: none;
+    height: 0;
+	width: 0;
+	padding: 0;
 }
 
 .custom-file-upload, input[type=submit] {

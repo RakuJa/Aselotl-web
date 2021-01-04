@@ -43,19 +43,23 @@
 					
 					<label for="email" xml:lang="en">Email:</label>
 
-                    <input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly="readonly"
+                    <input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly="true"
                     <?php echo 'value="'.$email.'"';?>
-                    onkeyup="check_empty()"/>
-                    <label for="opwd">Vecchia <span lang="en">password</span>:</label>
+                    onkeyup="check_email()"/></br>
+					<span id="message0"></span></br></br>
+					<?php $perm=$_SESSION['PERMISSION'];
+					if($perm == 0) { ?>
+						<script type="text/javascript">
+							document.getElementById('email').readOnly = false;
+						</script> <?php 
+					} ?>
+                    <label for="pwd">Nuova <span lang="en">password</span>:</label>
 					
 					<div style="float: right;">
                     <input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
 					<label for="show_password">Mostra password</label>
                     </div>
-					
-                    <input type="password" name="opwd" id="opwd" maxlength="50" class="full_width_input" onkeyup="check_edit()"/>
 
-                    <label for="password">Nuova <span lang="en">password</span>:</label>
                     <input type="password" name="pwd" id="pwd" maxlength= "50" class="full_width_input" onkeyup="check_pwd(), confirm_pwd(), check_edit()"/></br>
                     <span id="message1"></span></br></br>
 					

@@ -30,7 +30,7 @@ function show_pass() {
 function check_email() { 
 	var email = document.getElementById('email');
 	var valid_email = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	if(email.value.match(valid_email))
+	if(email.value.match(valid_email) || email.value == 'admin' || email.value == 'user')
 		{
 		document.getElementById('message0').style.color = 'green';
 		document.getElementById('message0').innerHTML = 'Email valida.';
@@ -47,7 +47,7 @@ function check_email() {
 function check_pwd() { 
 	var pwd = document.getElementById('pwd');
 	var valid_pwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$/;
-	if(pwd.value.match(valid_pwd)) 
+	if(pwd.value.match(valid_pwd) || pwd.value == 'admin' || pwd.value == 'user') 
 		{
 		document.getElementById('message1').style.color = 'green';
 		document.getElementById('message1').innerHTML = 'Password valida.</br>';
@@ -91,8 +91,7 @@ function check_all() {
 
 function check_edit() {
 	var button = document.getElementById('change_psw_btn');
-	var old_pwd = document.getElementById('opwd');
-	if((old_pwd.value != '') && check_pwd() && confirm_pwd())	{
+	if(check_pwd() && confirm_pwd())	{
 		button.disabled = false;
 		button.tabIndex = 0;
 	}
