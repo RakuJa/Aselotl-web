@@ -407,7 +407,7 @@ CONTENT
 	margin: 0 0 14px; 
 	margin-top: 1em;
 	margin-bottom: 1em;
-	text-align:left;
+	text-align: justify;
 	text-justify: inter-word;
 }
 
@@ -483,6 +483,7 @@ CONTENT
 	padding-left: 1em;
 	padding-right: 1em;
 	margin-left: 0.5em;
+	margin-top: 0.5em;
 	background-color: white;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
@@ -747,9 +748,15 @@ textarea {
 }
 
 fieldset {
-	width: 100%;
+	width: 95%;
 	border-color: #c34267;
 	padding: 1em;
 }
 
-  
+@media screen and (max-width: 670px) {
+	fieldset {
+		width: 92%;
+		border-color: #c34267;
+		padding: 1em;
+}
+}
