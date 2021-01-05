@@ -347,13 +347,21 @@ CONTENT
   	height: auto;
 }
 
-#content h1, #full_content h1 {
+#content h1 {
 	color: #c34267; 
 	font-size: 2.125em; 
 	font-weight: 300; 
 	line-height: 40px; 
 	margin: 0 0 0.5em;
-	width: 10em;
+	width: auto;
+}
+
+#full_content h1 {
+	color: #c34267; 
+	font-size: 2.125em; 
+	font-weight: 300; 
+	line-height: 40px; 
+	margin: 0 0 0.5em;
 }
 
 #content legend {
@@ -363,7 +371,23 @@ CONTENT
 	margin: 0; 
 }
 
-#content h2, #full_content h2 { 
+#content h2 {
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+	color: #c34267;
+	font-size: 24px; font-weight: 300; 
+	line-height: 32px; margin: 0 0 14px; 
+}
+
+#content h3 {
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+	color: #c34267; 
+}
+
+#full_content h2 {
 	color: #c34267;
 	font-size: 24px; font-weight: 300; 
 	line-height: 32px; margin: 0 0 14px; 
@@ -371,6 +395,7 @@ CONTENT
 
 
 #content p, #full_content p { 
+	width: auto;
 	color: #222; 
 	font-size: 15px; 
 	font-weight: 400; 
@@ -440,7 +465,7 @@ CONTENT
 }
 
 .customlink {
-	min-height: 1em;
+	min-height: 2.5em;
 }
 
 .customlink h1 {
@@ -647,7 +672,9 @@ input[type=text], input[type=password] {
 	box-sizing: border-box;
 }
 
-#searchbar {
+#searchbar label { 
+	display: inline-block;
+	width: 100%;
 	text-align: left;
 }
 

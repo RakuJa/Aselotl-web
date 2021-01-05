@@ -40,7 +40,7 @@ CREATE TABLE `foto` (
 INSERT INTO `foto` (`PATH`, `DESCRIPTION`, `EMAIL`) VALUES
 ('../img/fanart/1609802163.jpg', 'Disegno fatto a mano con tanto amore', 'admin'),
 ('../img/fanart/1609802181.jpg', 'Disegno digitale di un axolotl', 'admin'),
-('../img/fanart/1609802222.jpg', 'Un axolotl un po\' strano', 'user'),
+('../img/fanart/1609802222.jpg', 'Un axolotl strano', 'user'),
 ('../img/fanart/1609802260.jpg', 'Modello 3D di un axolotl', 'user');
 
 -- --------------------------------------------------------

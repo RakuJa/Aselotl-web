@@ -31,6 +31,12 @@
         if(isset($_GET['page']))
         {
             $page = $_GET['page'];
+			if ($page + 1 > $totpages || $page < 0)	{
+				$host  = $_SERVER['HTTP_HOST'];
+				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+				$extra = '../php/admin.php';
+				header("Location: http://$host$uri/$extra");;
+			}
             for($i = 0; $i < $users_per_page; $i++)
             {
                 $curr_user = $page*$users_per_page+$i;
