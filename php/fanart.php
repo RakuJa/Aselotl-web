@@ -78,7 +78,7 @@
 			}
 			echo "<br/><br/>";
 			if ($totpages>1) {
-			echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
+			echo "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
 			}
 		}
 		else

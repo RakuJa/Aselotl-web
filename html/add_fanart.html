@@ -18,12 +18,12 @@
 	<form action="../php/upload_fanart.php" method="post" enctype="multipart/form-data">
 	<fieldset>
 	<legend>Inserisci dati:</legend><br />
-		<label for="description">Descrizione: </label>
-		<input type="text" name="description" id="description" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/><br /><br />
+		<label for="description">Descrizione: </label><br />
+		<textarea required name="description" id="description" maxlength= "500" onkeyup="check_empty_art()"></textarea><br /><br />
 		<label for="keywords">Parole chiave: </label>
-		<input type="text" name="keywords" id="keywords" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/><br /><br />
+		<input type="text" required name="keywords" id="keywords" maxlength= "500" onkeyup="check_empty_art()"/><br /><br />
 		<label for="uploadImage" class="custom-file-upload">Seleziona nuova <span xml:lang="en" lang="en">fan art</span></label>
-		<input type="file" name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_size(), show_file_name()"/>
+		<input type="file" required name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_size(), show_file_name()"/>
 		<span id="file-selected">Nessuna immagine selezionata</span>
 		<input type="submit" id="submit" disabled name="submit" value="Carica immagine"/><br />
 		<span id="message"></span><br /><br />

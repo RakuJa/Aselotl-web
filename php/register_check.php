@@ -30,17 +30,17 @@
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
-        $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
+        $error=$error."<div class=\'msg_box error_box\'>Errore di connessione al database</div>";
         $no_error=false;
     }
     $email=$obj_connection->escape_str(trim($email));
     $pwd = $obj_connection->escape_str(trim($pwd));
     //controllo input
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        new Debugger("La mail inserita non è valida");
-        $error=$error."<div class=\"msg_box error_box\">La mail inserita non è valida</div>";
-        $no_error=false;
-    }
+	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+		new Debugger("La mail inserita non è valida");
+		$error=$error."<div class=\'msg_box error_box\'>La mail inserita non è valida</div>";
+		$no_error=false;
+	}
     new Debugger("Mail inserita: ".$email);
     $query = "SELECT * FROM User WHERE EMAIL = '$email'";
     $query_rist=$obj_connection->connessione->query($query);
@@ -54,23 +54,23 @@
         new Debugger($count);
         if($count!=0){
             new Debugger("Questa mail è già in uso");
-            $error=$error."<div class=\"msg_box error_box\">Questa mail è già in uso</div>";
+            $error=$error."<div class=\'msg_box error_box\'>Questa mail è già in uso</div>";
             $no_error=false;
         }
     }
     if(!$query_rist) {
         new Debugger("Errore nella esecuzione della query");
-        $error=$error."<div class=\"msg_box error_box\">Fatal Error. Query non eseguita</div>";
+        $error=$error."<div class=\'msg_box error_box\'>Fatal Error. Query non eseguita</div>";
         $no_error=false;
     }
     if($pwd!=$pwd2){
         new Debugger("Password e Ripeti Password non coincidono");
-        $error=$error."<div class=\"msg_box error_box\">Password e Ripeti Password non coincidono</div>";
+        $error=$error."<div class=\'msg_box error_box\'>Password e Ripeti Password non coincidono</div>";
         $no_error=false;
     }
     if(!check_pwd($pwd)){
         new Debugger("La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero '$pwd'");
-        $error=$error."<div class=\"msg_box error_box\">La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero</div>";
+        $error=$error."<div class=\'msg_box error_box\'>La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero</div>";
         $no_error=false;
     }
     if($no_error){
@@ -85,7 +85,7 @@
             exit();
         }else{  
             new Debugger("Errore nel inserimento dei dati");
-            $error="<div class=\"msg_box error_box\">Errore nell' inserimento dei dati</div>";
+            $error="<div class=\'msg_box error_box\'>Errore nell' inserimento dei dati</div>";
         }
         if ($obj_connection) $obj_connection->close_connection();
     }

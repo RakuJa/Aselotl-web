@@ -30,7 +30,7 @@ function show_pass() {
 function check_email() { 
 	var email = document.getElementById('email');
 	var valid_email = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	if(email.value.match(valid_email) || email.value == 'admin' || email.value == 'user')
+	if(email.value == valid_email || email.value == 'admin' || email.value == 'user')
 		{
 		document.getElementById('message0').style.color = 'green';
 		document.getElementById('message0').innerHTML = 'Email valida';

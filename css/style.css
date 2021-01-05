@@ -380,6 +380,10 @@ CONTENT
 	line-height: 32px; margin: 0 0 14px; 
 }
 
+#content .pagenum {
+	text-align: center;
+}
+
 #content h3 {
 	display: inline-block;
 	width: 100%;
@@ -419,19 +423,12 @@ CONTENT
 #content a, #full_content a { 
 	background: #fff; 
 	color: #222; 
-	text-decoration: none; 
-}
-
-#content a:link, #full_content a:link { 
-	background: #fff; 
-	color: #c34267; 
-	text-decoration: underline; 
 }
 
 #content a:visited, #full_content a:visited { 
 	background: #fff; 
 	color:#884055; 
-	text-decoration: underline; 
+	text-decoration: none; 
 }
 
 
@@ -464,16 +461,20 @@ CONTENT
 	border-right: none;
 }
 
-.customlink {
+#content .customlink {
 	min-height: 2.5em;
 }
 
-.customlink h1 {
+#content .customlink h1 {
 	float: left;
 }
 
-.customlink a {
-	text-decoration: none !important;
+#content .customlink h2 {
+	width: auto;
+}
+
+#content .customlink a {
+	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
 	color:  #c34267;
@@ -489,18 +490,18 @@ CONTENT
 	float: right;
 }
 
-.customlink a:link, .customlink a:visited {
+#content .customlink a:link, .customlink a:visited {
 	background: #fff; 
 	color: #c34267;  
 }
 
-.customlink a:hover {
+#content .customlink a:hover {
 	background: #c34267; 
 	color: #fff; 
 }
 
-.leftbutton {
-	text-decoration: none !important;
+#content .leftbutton {
+	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
 	color:  #c34267;
@@ -515,8 +516,8 @@ CONTENT
 	float: left;
 }
 
-.rightbutton {
-	text-decoration: none !important;
+#content .rightbutton {
+	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
 	color:  #c34267;
@@ -539,7 +540,6 @@ CONTENT
 	text-align: center;
 	margin: auto;
 }
-
 
 @media screen and (max-width: 670px) {
 
@@ -729,8 +729,27 @@ input[type=submit]:disabled{
 	background-color:#c9c9c9;
 }
 
+textarea {
+	resize: none;
+	width: 100%;
+	height: 11em;
+	font-size: 0.9em;
+	text-align: left;
+	padding: 0.8em 1em;
+	margin: 1em 0;
+	display: inline-block;
+	border: 1px solid #c34267;
+	box-sizing: border-box;
+}
+
+.profile textarea {
+	height: 3em;
+}
+
 fieldset {
-	border:none;
+	width: 100%;
+	border-color: #c34267;
+	padding: 1em;
 }
 
   

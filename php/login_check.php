@@ -66,7 +66,7 @@
                 }
                 new Debugger($count);
                 if($count==0){
-                    $error="Le credenziali inserite non sono corrette";
+                    $error="<div class=\'msg_box error_box\'>Le credenziali inserite non sono corrette</div>";
                 }else{
                     $_SESSION['logged']=true;
                     $_SESSION['EMAIL']=$email;
@@ -88,7 +88,7 @@
                     exit;
                 }
             }else {
-                $error="[La query non è andata a buon fine]";
+                $error="La query non è andata a buon fine";
             }
             $obj_connection->close_connection();
 

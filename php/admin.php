@@ -51,10 +51,10 @@
                     $email = $files[$curr_user]['EMAIL'];
                     echo "<hr>";
                     echo "<div class='customlink'>";
+					echo "<h2> $email </h2>";
                     echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
                     echo "<a href='edit_password.php?email=", urlencode($email), "'>Modifica <span xml:lang='en' lang='en'> password </span> </a>";
-                    echo "</div>";
-                    echo "<h2> $email </h2>";
+					echo "</div>";
                     echo "<p> Permessi: $perm</p>";
                 }
             }
@@ -70,7 +70,7 @@
             }
             echo "<br /><br />";
 			if ($totpages>1) {
-            echo "<h2 id='pagenum'>$nextpage / $totpages</h2> ";
+            echo "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
 			}
         }
         else

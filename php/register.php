@@ -12,11 +12,11 @@
 	<form method="post" action="../php/register_check.php" id="register_form" class="vertical_input_form">
 		<fieldset>
 		<legend>Inserisci dati:</legend><br />
-		<span style="color:#EB0000">
+		<span role="alert" style="color:#EB0000">
 			<?php
 			if(isset($_SESSION["error"])){
 				$error = $_SESSION["error"];
-				echo "$error <br /><br />";
+				echo "ERRORE: $error <br /><br />";
 			} ?>
 			</span>
 			<noscript>
@@ -26,7 +26,7 @@
 				</div>
 			</noscript> 
 			<label for="email" xml:lang="en" lang="en">Email:</label>
-			<input type="text" name="email" id="email" maxlength="50" class="full_width_input" onkeyup="check_email(), check_all()"/><br />
+			<input type="text" required name="email" id="email" maxlength="50" onkeyup="check_email(), check_all()"/><br />
 			<span id="message0"></span><br /><br />
 			
 			<label for="pwd" xml:lang="en" lang="en">Password:</label>
@@ -36,11 +36,11 @@
 			<label for="show_password">Mostra password</label>
 			</div>
 			
-			<input type="password" name="pwd" id="pwd" maxlength= "50" class="full_width_input" onkeyup="check_pwd(), confirm_pwd(), check_all()"/><br />
+			<input type="password" required name="pwd" id="pwd" maxlength= "50" onkeyup="check_pwd(), confirm_pwd(), check_all()"/><br />
 			<span id="message1"></span><br /><br />
 			
 			<label for="rpwd" xml:lang="en" lang="en">Ripeti Password:</label>
-			<input type="password" name="rpwd" id="rpwd" maxlength= "50" class="full_width_input" onkeyup="confirm_pwd(), check_all()"/>
+			<input type="password" required name="rpwd" id="rpwd" maxlength= "50" onkeyup="confirm_pwd(), check_all()"/>
 			<span id="message2"></span><br /><br />
 			
 			<!--<input type="submit" id="register_btn" class="btn" name="Registrati" value="Registrati" tabindex="4" />-->

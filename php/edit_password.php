@@ -30,7 +30,7 @@
 			
 			<label for="email" xml:lang="en" lang="en">Email:</label>
 
-			<input type="text" name="email" id="email" maxlength="50" class="full_width_input" readonly
+			<input type="text" required name="email" id="email" maxlength="50" class="full_width_input" readonly
 			<?php echo 'value="'.$email.'"';?>><br /><br />
 			<label for="pwd">Nuova <span xml:lang="en" lang="en">password</span>:</label>
 			
@@ -39,11 +39,11 @@
 			<label for="show_password">Mostra password</label>
 			</div>
 
-			<input type="password" name="pwd" id="pwd" maxlength= "50" class="full_width_input" onkeyup="check_pwd(), confirm_pwd(), check_edit()"/><br />
+			<input type="password" required name="pwd" id="pwd" maxlength= "50" class="full_width_input" onkeyup="check_pwd(), confirm_pwd(), check_edit()"/><br />
 			<span id="message1"></span><br /><br />
 			
 			<label for="rpwd" xml:lang="en" lang="en">Ripeti Password:</label>
-			<input type="password" name="rpwd" id="rpwd" maxlength= "50" class="full_width_input" onkeyup="confirm_pwd(), check_edit()"/>
+			<input type="password" required name="rpwd" id="rpwd" maxlength= "50" class="full_width_input" onkeyup="confirm_pwd(), check_edit()"/>
 			<span id="message2"></span><br /><br />
 
 			<input type="submit" disabled name="mod_pwd" id="change_psw_btn" value="Cambia password" class="btn"/>
