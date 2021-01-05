@@ -3,12 +3,14 @@
 	if ($_SESSION['logged']==false) {
 		header("location: ../php/access_denied.php");
 	}
-    $page_head = readfile("../html/head.html");
+    $page_head = readfile("../html/head.html"); ?>
+	<title>Profilo</title>
+	<?php
     include 'header.php';
 	$page_body = readfile("../html/profile.html");
 ?>
 
-<div id="content">
+<main id="content">
 	<div id="profile-view">
 	<div id='clear_top'></div>
 	<div class='customlink'>
@@ -41,7 +43,7 @@
 		echo "<a href='delete_account.php?email=", urlencode($email), "' class='rightbutton'>Rimuovi profilo</a>";
 	?>
 	<div id="clearing_element"></div>
-</div>
+</main>
 
 <?php 
 	$page_footer = readfile("../html/footer.html");

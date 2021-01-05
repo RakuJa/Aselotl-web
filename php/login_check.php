@@ -66,7 +66,7 @@
                 }
                 new Debugger($count);
                 if($count==0){
-                    $error="[Le credenziali inserite non sono corrette]";
+                    $error="Le credenziali inserite non sono corrette";
                 }else{
                     $_SESSION['logged']=true;
                     $_SESSION['EMAIL']=$email;

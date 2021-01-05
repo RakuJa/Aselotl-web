@@ -8,11 +8,13 @@
         $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
         $no_error=false;
     }
-    $page_head = readfile("../html/head.html");
+    $page_head = readfile("../html/head.html"); ?>
+	<title xml:lang="en" lang="en">Le mie fan art</title>
+	<?php
     include 'header.php';
     $page_body = readfile("../html/my_fanart.html");
 ?>
-<div id="content">
+<main id="content">
         <?php 
         if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
         ?>
@@ -82,7 +84,7 @@
             }
         ?>
         <div id="clearing_element"></div>
-</div>
+</main>
 
 <?php
     $page_footer = readfile("../html/footer.html");

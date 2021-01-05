@@ -1,34 +1,33 @@
-<title>Aggiungi fan art</title>
-
 <div id="breadcrumb">
-            <p>Ti trovi in: Aggiungi <span xml:lang="en" lang="en">fan art</span></p>
-        </div>
+	<p>Ti trovi in: Aggiungi <span xml:lang="en" lang="en">fan art</span></p>
+</div>
 
-        <div id="menu">
-        <ul>
-            <li xml:lang="en" lang="en"><a href="../php/index.php">Home</a></li>
-            <li><a href="../php/famous.php">Personaggi famosi</a></li>
-            <li xml:lang="en" lang="en"><a href="../php/fanart.php">Fan art</a></li>
-            <li xml:lang="en" lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
-			<li><a href="../php/about_us.php">Chi siamo</a></li>
-			<li><a href="../php/rules.php">Regolamento</a></li>
-        </ul>
-        </div>
+<div id="menu">
+<ul>
+	<li xml:lang="en" lang="en"><a href="../php/index.php">Home</a></li>
+	<li><a href="../php/famous.php">Personaggi famosi</a></li>
+	<li xml:lang="en" lang="en"><a href="../php/fanart.php">Fan art</a></li>
+	<li xml:lang="en" lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+	<li><a href="../php/about_us.php">Chi siamo</a></li>
+	<li><a href="../php/rules.php">Regolamento</a></li>
+</ul>
+</div>
 
-        <div id="content">
-            <h1>AGGIUNGI <span xml:lang="en" lang="en">FAN ART</span></h1>
-            <form action="../php/upload_fanart.php" method="post" enctype="multipart/form-data">
-			<p>
-			<label for="description">Descrizione: </label>
-			<input type="text" name="description" id="description" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/><br /><br />
-			<label for="keywords">Parole chiave: </label>
-			<input type="text" name="keywords" id="keywords" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/><br /><br />
-            <label for="uploadImage" class="custom-file-upload">Seleziona nuova <span xml:lang="en" lang="en">fan art</span></label>
-			<input type="file" name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_size(), show_file_name()"/>
-			<span id="file-selected">Nessuna immagine selezionata</span>
-            <input type="submit" id="submit" disabled name="submit" value="Carica immagine"/><br /><br />
-			<span id="message"></span>
-			</p>
-			</form>
-			<div id="clearing_element"></div>
-        </div>
+<main id="content">
+<h1>AGGIUNGI <span xml:lang="en" lang="en">FAN ART</span></h1>
+	<form action="../php/upload_fanart.php" method="post" enctype="multipart/form-data">
+	<fieldset>
+	<legend>Inserisci dati:</legend><br />
+		<label for="description">Descrizione: </label>
+		<input type="text" name="description" id="description" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/><br /><br />
+		<label for="keywords">Parole chiave: </label>
+		<input type="text" name="keywords" id="keywords" maxlength= "500" class="full_width_input" onkeyup="check_empty_art()"/><br /><br />
+		<label for="uploadImage" class="custom-file-upload">Seleziona nuova <span xml:lang="en" lang="en">fan art</span></label>
+		<input type="file" name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_size(), show_file_name()"/>
+		<span id="file-selected">Nessuna immagine selezionata</span>
+		<input type="submit" id="submit" disabled name="submit" value="Carica immagine"/><br />
+		<span id="message"></span><br /><br />
+	</fieldset>
+	</form>
+	<div id="clearing_element"></div>
+</main>

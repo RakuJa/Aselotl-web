@@ -1,6 +1,8 @@
 <?php
     session_start();
-    $page_head = readfile("../html/head.html");
+    $page_head = readfile("../html/head.html"); ?>
+	<title>Aggiungi fan art</title>
+	<?php
     include 'header.php';
 	if ($_SESSION['logged']==true) {
 		$page_body = readfile("../html/add_fanart.html");

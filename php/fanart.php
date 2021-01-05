@@ -8,29 +8,34 @@
         $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
         $no_error=false;
     }
-    $page_head = readfile("../html/head.html");
+    $page_head = readfile("../html/head.html"); ?>
+	<title xml:lang="en" lang="en">Fan art</title>
+	<?php
     include 'header.php';
     $page_body = readfile("../html/fanart.html");
 ?>
-<div id="content">
+
+<main id="content">
+<div class="customlink">
+<h1 xml:lang="en" lang="en">FAN ART</h1>
         <?php 
         if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
         ?>
-        <div id='clear_top'></div>
-        <div class='customlink'>
+        
             <a href='../php/add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
 			<a href='../php/my_fanart.php'>Le mie <span xml:lang="en" lang="en">fan art</span></a>
-        </div>
+        
         <?php
         }
         ?>
-        <h1><span xml:lang="en" lang="en">FAN ART</span></h1>
-        <label for="search">Cerca immagine: </label>
+</div>
+		<br /><br />
         <div id='searchbar'>
+		<label for="search">Cerca immagine: </label>
 		<input type="text" id="search" name="search" placeholder="Inserisci termini da cercare..." title="Cerca"/>
         <input type="submit" value="Cerca"/>
-        <br/><br/><br/><br/>
         </div>
+		<br/><br/><br/>
         <?php
             $sql = "SELECT * FROM foto ORDER BY PATH DESC";
             $files = $obj_connection->queryDB($sql);
@@ -82,7 +87,7 @@
             }
         ?>
         <div id="clearing_element"></div>
-</div>
+</main>
 
 <?php
     $page_footer = readfile("../html/footer.html");

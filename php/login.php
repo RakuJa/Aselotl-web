@@ -1,17 +1,26 @@
 <?php
     session_start();
-    $page_header = readfile("../html/head.html");
+    $page_header = readfile("../html/head.html"); ?>
+	<title>Accedi</title>
+	<?php
     include 'header.php';
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
 		header("location: ../php/index.php");
 	}
 	$page_body = readfile("../html/login.html");
 ?>
-<div id="content">
+<main id="content">
+<h1>ACCEDI</h1>
 	<form method="post" action="../php/login_check.php" id="login_form" class="vertical_input_form">
 		<fieldset>
-			<legend>ACCEDI</legend><br />
-			
+			<legend>Inserisci dati:</legend><br />
+			<span style="color:#EB0000">
+			<?php
+			if(isset($_SESSION["error"])){
+				$error = $_SESSION["error"];
+				echo "$error <br /><br />";
+			} ?>
+			</span>
 			<noscript>
 				<div class="msg_box warning_box">
 					ATTENZIONE: <span xml:lang="en" lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
@@ -40,16 +49,8 @@
 
 			<a href="../php/register.php" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
 		</fieldset>
-
-		<?php
-			if(isset($_SESSION["error"])){
-				$error = $_SESSION["error"];
-				echo "<span>$error</span>";
-			}
-		?>  
-
    </form>
-</div>
+</main>
 
 
 <?php

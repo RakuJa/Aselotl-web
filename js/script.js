@@ -33,13 +33,13 @@ function check_email() {
 	if(email.value.match(valid_email) || email.value == 'admin' || email.value == 'user')
 		{
 		document.getElementById('message0').style.color = 'green';
-		document.getElementById('message0').innerHTML = 'Email valida.';
+		document.getElementById('message0').innerHTML = 'Email valida';
 		return true;
 	}
 	else
 	{
 		document.getElementById('message0').style.color = '#EB0000';
-		document.getElementById('message0').innerHTML = 'Email non valida.';
+		document.getElementById('message0').innerHTML = 'Email non valida';
 		return false;
 	}
 }
@@ -50,13 +50,13 @@ function check_pwd() {
 	if(pwd.value.match(valid_pwd) || pwd.value == 'admin' || pwd.value == 'user') 
 		{
 		document.getElementById('message1').style.color = 'green';
-		document.getElementById('message1').innerHTML = 'Password valida.</br>';
+		document.getElementById('message1').innerHTML = 'Password valida</br>';
 		return true;
 	}
 	else
 	{
 		document.getElementById('message1').style.color = '#EB0000';
-		document.getElementById('message1').innerHTML = 'Password non valida: deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero.';
+		document.getElementById('message1').innerHTML = 'La password  deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero';
 		return false;
 	}
 }
@@ -67,13 +67,13 @@ function confirm_pwd() {
 	if(pwd.value == rpwd.value && pwd.value != "" && rpwd.value != "") 
 		{
 		document.getElementById('message2').style.color = 'green';
-		document.getElementById('message2').innerHTML = 'Le password corrispondono.';
+		document.getElementById('message2').innerHTML = 'Le password corrispondono';
 		return true;
 	}
 	else
 	{
 		document.getElementById('message2').style.color = '#EB0000';
-		document.getElementById('message2').innerHTML = 'Le password non corrispondono.';
+		document.getElementById('message2').innerHTML = 'Le password non corrispondono';
 		return false;
 	}
 }

@@ -3,7 +3,9 @@
 	if ($_SESSION['logged']==false) {
 		header("location: ../php/access_denied.php");
 	}
-    $page_head = readfile("../html/head.html");
+    $page_head = readfile("../html/head.html"); ?>
+	<title>Modifica password</title>
+	<?php
     include 'header.php';
     $email="";
     if (isset($_GET['email'])) {
@@ -14,17 +16,17 @@
 	$page_body = readfile("../html/edit_password.html");
 ?>
 
-<div id="content">
+<main id="content">
 	<noscript>
 		<div class="msg_box warning_box">
 			ATTENZIONE: <span xml:lang="en" lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
 			NON ESSERE DISPONIBILI
 		</div>
 	</noscript>
-  
+<h1>MODIFICA <span xml:lang="en" lang="en">PASSWORD</span></h1>
 	<form method="post" action="edit_password_check.php" id="edit_pwd" class="vertical_input_form">
 		<fieldset>
-			<legend>MODIFICA <span xml:lang="en" lang="en">PASSWORD</span></legend><br />
+			<legend>Inserisci dati:</legend><br />
 			
 			<label for="email" xml:lang="en" lang="en">Email:</label>
 
@@ -47,8 +49,8 @@
 			<input type="submit" disabled name="mod_pwd" id="change_psw_btn" value="Cambia password" class="btn"/>
 		</fieldset>
 	</form>            
-</div>
+</main>
     
-        <?php
-            $page_footer = readfile("../html/footer.html");
-        ?>
+<?php
+	$page_footer = readfile("../html/footer.html");
+?>

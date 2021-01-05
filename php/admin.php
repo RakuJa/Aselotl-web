@@ -11,12 +11,14 @@
 	if ($_SESSION['logged']==false || $_SESSION['PERMISSION']!=0) {
 		header("location: ../php/access_denied.php");
 	}
-    $page_head = readfile("../html/head.html");
+    $page_head = readfile("../html/head.html"); ?>
+	<title>Pannello amministratore</title>
+	<?php
     include 'header.php';
 	$page_body = readfile("../html/admin.html");
 ?>
 
-<div id="content">
+<main id="content">
     <h1 id="page_title">PANNELLO AMMINISTRATORE</h1>
     <?php
         $tempmail = $_SESSION['EMAIL'];
@@ -77,7 +79,7 @@
         }
     ?>
     <div id="clearing_element"> </div>
-</div>
+</main>
 <?php
     $page_footer = readfile("../html/footer.html");
 ?>
