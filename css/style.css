@@ -27,6 +27,13 @@ html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
 	/*background-image: url(../img/logo.png);*/
 }
 
+.hide {
+	display: block;
+	height: 0;
+	width: 0;
+	padding: 0em; 
+	overflow: hidden;
+} 
 
 /*
 Passo 2

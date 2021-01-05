@@ -1,5 +1,8 @@
+</head>
+<body>
+<a id="skipNav" class="hide" href="#content">Vai al contenuto</a>
 <div id="header">
-	<a href="index.php" xml:lang="en" lang="en" class="logo"><img id="logo" src="../img/logo_small.png" alt="Immagine stilizzata della faccia di un axolotl sorridente sorridente" /> Axolotl Society</a>
+	<a href="index.php" xml:lang="en" lang="en" class="logo"><img id="logo" src="../img/logo_small.png" alt="Faccia stilizzata di un axolotl sorridente" /> Axolotl Society</a>
 	<div class="header-right">
 		<?php 
 		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
