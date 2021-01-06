@@ -1,3 +1,8 @@
+function toggle_dark() {
+  var element = document.body;
+  element.classList.toggle("dark_mode");
+}
+
 var checkboxes = document.getElementsByTagName('input');
 
 for (var i=0; i<checkboxes.length; i++)  {

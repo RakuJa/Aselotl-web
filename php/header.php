@@ -4,6 +4,10 @@
 <div id="header">
 	<a href="index.php" xml:lang="en" lang="en" class="logo"><img id="logo" src="../img/logo_small.png" alt="Faccia stilizzata di un axolotl sorridente" /> Axolotl Society</a>
 	<div class="header-right">
+		<label class="switch">
+		<input type="checkbox" onclick="toggle_dark()">
+		<span class="slider round"></span>
+		</label>
 		<?php 
 		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

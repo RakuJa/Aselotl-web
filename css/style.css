@@ -22,6 +22,8 @@ html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
 	font-family: 'Arial', sans-serif; /*Definisco i vari font disponibili*/
 	max-width: 1024px; /*Massima larghezza dei contenuti*/
 	margin: auto; /*Imposto il calcolo del margin automatico*/
+	background-color: white;
+	color: black;
 	/*Implementazione del bordino grigio a dx e sx*/
 	/*background: #facbcd url(img/logo.png) top left fixed ;  ?????????????????????????*/
 	/*background-image: url(../img/logo.png);*/
@@ -65,7 +67,6 @@ SEZIONE HEADER
   	margin: auto;
 	padding: 0.5em;
 	width: 45%;
-	background-color: white;
 	border: none;
 
 }
@@ -225,30 +226,31 @@ MENU
 
 }
 
-#menu a:link {
-	outline-offset: -0.1em;
+#menu a {
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #c34267;
 	display: block;
 	padding-bottom: 0.5em;
-	background-color: white;
+	padding-top: 0.5em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
+	outline-offset: -0.1em;
 }
 
-#menu a, #menu p {
+#menu p {
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color: white;
 	display: block;
 	padding-bottom: 0.5em;
 	padding-top: 0.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
 	background-color: #c34267;
+	color: white;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
@@ -261,7 +263,6 @@ MENU
 	color:  #c34267;
 	display: block;
 	padding-bottom: 0.5em;
-	background-color: white;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
@@ -399,8 +400,7 @@ CONTENT
 
 
 #content p, #full_content p { 
-	width: auto;
-	color: #222; 
+	width: auto; 
 	font-size: 15px; 
 	font-weight: 400; 
 	line-height: 24px; 
@@ -418,14 +418,7 @@ CONTENT
 	color: #c34267;
 }
 
-
-#content a, #full_content a { 
-	background: #fff; 
-	color: #222; 
-}
-
 #content a:visited, #full_content a:visited { 
-	background: #fff; 
 	color:#884055; 
 	text-decoration: none; 
 }
@@ -483,7 +476,6 @@ CONTENT
 	padding-right: 1em;
 	margin-left: 0.5em;
 	margin-top: 0.5em;
-	background-color: white;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
@@ -491,7 +483,6 @@ CONTENT
 }
 
 #content .customlink a:link, .customlink a:visited {
-	background: #fff; 
 	color: #c34267;  
 }
 
@@ -509,7 +500,6 @@ CONTENT
 	padding: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
-	background-color: white;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
@@ -525,7 +515,6 @@ CONTENT
 	padding: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
-	background-color: white;
 	border: solid #c34267;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
@@ -636,7 +625,6 @@ button {
 	display: inline-block;
 	color: #c34267;
 	border: 1px solid #c34267;
-	background-color: white;
 	box-sizing: border-box;
 	outline-offset: -0.1px;
   }
@@ -656,6 +644,67 @@ button:hover{
 	background-color: #c34267;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #c34267;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #c34267;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 /*
 ==========
@@ -664,6 +713,7 @@ INPUT FORM
 */
 
 input[type=text], input[type=password] {
+	background-color: transparent;
 	width: 100%;
 	padding: 0.8em 1em;
 	margin: 1em 0;
@@ -715,10 +765,6 @@ input[type=submit]{
 	padding: 0.8em;
 }
 
-input[type=submit]:enabled{
-	background-color: white;
-}
-
 .custom-file-upload:hover, input[type=submit]:hover{
 	color: white;
 	background-color: #c34267;
@@ -730,6 +776,7 @@ input[type=submit]:disabled{
 }
 
 textarea {
+	background-color: transparent;
 	resize: none;
 	width: 100%;
 	height: 11em;
@@ -757,5 +804,14 @@ fieldset {
 		width: 92%;
 		border-color: #c34267;
 		padding: 1em;
+	}
 }
+
+.dark_mode {
+	background-color: rgb(24, 26, 27);
+	color: white;
+}
+
+textarea .dark_mode {
+	color: white;
 }
