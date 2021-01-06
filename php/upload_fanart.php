@@ -72,7 +72,7 @@ if ($no_error) {
     new Debugger($email);
     new Debugger($keywords);
     $foto_query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
-    $query_error = $obj_connection->insertDB($foto_query);
+    $query_error = !$obj_connection->insertDB($foto_query);
     if ($query_error) {
         unlink($filePath);
         $_SESSION["errorImage"] = $error."errore nel inserimento nel db";
