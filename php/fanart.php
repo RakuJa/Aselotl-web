@@ -76,7 +76,6 @@
 		}else {
 			$query = "SELECT * FROM foto ORDER BY PATH DESC";
 		}
-		var_dump($query);
 		$files = $obj_connection->queryDB($query);
 		$lenght = count($files);
 		$curr_page = 0;
