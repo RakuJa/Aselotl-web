@@ -6,7 +6,7 @@
 	<div class="header-right">
 		<label class="switch">
 		<input type="checkbox" onclick="toggle_dark()">
-		<span class="slider round"></span>
+		<span class="slider"></span>
 		</label>
 		<?php 
 		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";

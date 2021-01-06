@@ -623,6 +623,7 @@ button {
 	padding: 0.8em 2em;
 	margin: 1em 0;
 	display: inline-block;
+	background-color: transparent;
 	color: #c34267;
 	border: 1px solid #c34267;
 	box-sizing: border-box;
@@ -697,17 +698,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.slider.round {
-  /*border-radius: 34px;*/
-  border-radius: none;
-}
-
-.slider.round:before {
-  /*border-radius: 50%;*/
-  border-radius: none;
-}
-
 /*
 ==========
 INPUT FORM
@@ -757,6 +747,7 @@ input[type="file"] {
 	margin: 1em 0;
 	display: inline-block;
 	color: #c34267;
+	background-color: transparent;
 	border: 1px solid #c34267;
 	box-sizing: border-box;
 	outline-offset: -0.1px;
@@ -815,5 +806,5 @@ fieldset {
 }
 
 textarea .dark_mode {
-	color: white;
+	color: white !important;
 }
