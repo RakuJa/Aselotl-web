@@ -49,7 +49,8 @@
 		}
 	}
 	if ($no_error) {
-		new Debugger("nice");
+		unlink($image);
+		new Debugger("Image deleted");
 	}
 	//header("location: ../php/my_fanart.php");
 ?>	
