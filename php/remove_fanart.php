@@ -26,7 +26,7 @@
 			$no_error = $obj_connection->insertDB($query);
 		}else {
 			new Debugger("UTENTE NORMALE");
-			$check = "SELECT EMAIL FROM Foto WHERE foto.PATH = '$image'";
+			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email";
 			if($query_rist=$obj_connection->connessione->query($check)){
                 $array_rist=$obj_connection->queryToArray($query_rist);
                 $count=0;
