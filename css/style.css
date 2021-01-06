@@ -699,11 +699,13 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  /*border-radius: 34px;*/
+  border-radius: none;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  /*border-radius: 50%;*/
+  border-radius: none;
 }
 
 /*
