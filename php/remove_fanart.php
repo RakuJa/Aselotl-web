@@ -54,5 +54,5 @@
 		unlink($image);
 		new Debugger("Image deleted");
 	}
-	//header("location: ../php/my_fanart.php");
+	header("location: ../php/my_fanart.php");
 ?>	
