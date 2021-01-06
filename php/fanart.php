@@ -79,7 +79,7 @@
 		$files = $obj_connection->queryDB($query);
 		$lenght = count($files);
 		$curr_page = 0;
-		$images_per_page = 1;
+		$images_per_page = 3;
 		$totpages = ceil($lenght/$images_per_page);
 		if(isset($_GET['page']))
 		{
