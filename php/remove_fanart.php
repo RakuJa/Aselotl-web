@@ -35,7 +35,10 @@
                 }
                 new Debugger($count);
                 if($count==0){
+                	new Debugger("OH NO");
                 	var_dump("Non esistono utenti con quella img");
+                	header("location: ../php/access_denied.php");
+                	exit();
                 	$no_error = false;
                     $error="<div class=\'msg_box error_box\'>Stai cercando di rimuovere una foto non tua</div>";
                 }else {
@@ -43,7 +46,8 @@
                 	$no_error = $obj_connection->insertDB($query);
                 }
 			}else {
-				new Debugger("Non esiste l'immagine");
+				new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
+				header("location: ../php/access_denied.php");
 				$no_error = false;
 			}
 		}
