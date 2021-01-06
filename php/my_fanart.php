@@ -61,7 +61,8 @@
 					echo "<br />";
 					echo "<img src='$img' alt='$dsc' />";
 					echo "<p> $dsc ";
-					echo "<a href='../php/remove_fanart.php?=$img_name' class='rightbutton'>Rimuovi</a></p><br /><br />";
+					//echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
+					echo "<a href='../php/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a></p><br /><br />";
 				}
 			}
 			$nextpage = $page+1;
