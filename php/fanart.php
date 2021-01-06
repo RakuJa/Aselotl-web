@@ -76,11 +76,10 @@
 		}else {
 			$query = "SELECT * FROM foto ORDER BY PATH DESC";
 		}
-		var_dump($query);
 		$files = $obj_connection->queryDB($query);
 		$lenght = count($files);
 		$curr_page = 0;
-		$images_per_page = 3;
+		$images_per_page = 1;
 		$totpages = ceil($lenght/$images_per_page);
 		if(isset($_GET['page']))
 		{
@@ -109,11 +108,11 @@
 			$prevpage = $page-1;
 			if(isset($files[$nextpage*$images_per_page]['PATH'])  )
 			{
-				echo "<a href='../php/fanart.php?page=$nextpage' class='rightbutton'>Pagina successiva</a>";
+				echo "<a href='../php/fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina successiva</a>";
 			}
 			if(isset($files[$prevpage*$images_per_page]['PATH'])  )
 			{
-				echo "<a href='../php/fanart.php?page=$prevpage' class='leftbutton'>Pagina precedente</a>";
+				echo "<a href='../php/fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
 			}
 			echo "<br/><br/>";
 			if ($totpages>1) {
