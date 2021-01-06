@@ -74,7 +74,7 @@ if ($no_error) {
     $foto_query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
     $query_error = $obj_connection->insertDB($foto_query);
     if ($query_error) {
-        //Elimina immagine dal server
+        unlink($filePath);
         $_SESSION["errorImage"] = $error."errore nel inserimento nel db";
         header("location: ../php/add_fanart.php");
     }
@@ -109,9 +109,11 @@ if ($no_error) {
             }
         }
     }
+    $_SESSION["errorImage"] = $error;
     header("location: ../php/fanart.php");
 }
 
 $_SESSION["errorImage"] = $error;
+
 //header("location: ../php/add_fanart.php");
 ?>
