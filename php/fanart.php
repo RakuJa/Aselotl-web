@@ -30,15 +30,54 @@
 			?>
 	</div>
 	<div id='searchbar'>
-	<label for="search">Cerca immagine: </label>
-	<input type="text" id="search" name="search" placeholder="Inserisci termini da cercare..." title="Cerca"/>
-	<input type="submit" value="Cerca"/>
+	<form method="get" action="../php/fanart.php" id="search_keyword">
+		<label for="keywords">Cerca immagine: </label>
+		<input type="text" id="keywords" name="keywords" placeholder="Inserisci termini da cercare..." title="Cerca"/>
+		<input type="submit" value="Cerca"/>
 	</div>
 	<br/><br/><br/>
 	<?php
+		$keywords = "";
+		if (isset($_GET['keywords']) && $_GET['keywords']!="") {
+			$keywords = $_GET['keywords'];
+			$array_kw = explode(" ",$keywords);
+			$counter = 0;
+			$query = "";
+    		foreach ($array_kw as &$kw) {
+       			preg_replace('/\PL/u', '', $kw);
+       			if ($counter==0) {
+					$query = "
 
-		$sql = "SELECT * FROM foto ORDER BY PATH DESC";
-		$files = $obj_connection->queryDB($sql);
+					SELECT A0.PATH,A0.DESCRIPTION,A0.EMAIL FROM (
+
+					SELECT A1.PATH, DESCRIPTION,EMAIL FROM foto AS A1, fotokeyword AS A2 WHERE
+						A1.PATH = A2.PATH AND KEYWORD = '$kw') AS A$counter " ;
+				}else {
+					$query = $query." JOIN (SELECT * FROM fotokeyword WHERE KEYWORD = '$kw') AS A$counter ";
+				}
+				$counter=$counter+1;
+       		}
+       		if ($counter>1) {
+       			$iterate = true;
+       			$i=0;
+       			while ($i<$counter) {
+       				if ($i==0) {
+       					$x = $i+1;
+       					$query = $query." ON A$i.PATH = A$x.PATH ";
+       					$i = $i+2;
+       				}else {
+       					$query = $query." = A$i.PATH ";
+       					$i = $i+1;
+       				}
+       			}
+       		}
+
+       		$query = $query." ORDER BY A0.PATH DESC";
+		}else {
+			$query = "SELECT * FROM foto ORDER BY PATH DESC";
+		}
+		var_dump($query);
+		$files = $obj_connection->queryDB($query);
 		$lenght = count($files);
 		$curr_page = 0;
 		$images_per_page = 3;
@@ -50,7 +89,7 @@
 				$host  = $_SERVER['HTTP_HOST'];
 				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 				$extra = '../php/fanart.php';
-				header("Location: http://$host$uri/$extra");;
+				header("Location: http://$host$uri/".$extra);
 			}
 			for($i = 0; $i < $images_per_page; $i++)
 			{
@@ -87,8 +126,8 @@
 			if(isset($files[$page]['PATH'])){
 				$host  = $_SERVER['HTTP_HOST'];
 				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-				$extra = '../php/fanart.php?page=0';
-				header("Location: http://$host$uri/$extra");
+				$extra = '../php/fanart.php?page=0'."&keywords=".$keywords;
+				header("Location: http://$host$uri/".$extra);
 			}
 		}
 	?>
