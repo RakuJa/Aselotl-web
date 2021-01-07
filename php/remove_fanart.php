@@ -25,8 +25,8 @@
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
 			header("location: ../php/fanart.php");
-			exit();
 		}else {
+			header("location: ../php/my_fanart.php");
 			new Debugger("UTENTE NORMALE");
 			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
 			var_dump($check);
@@ -57,5 +57,5 @@
 		unlink($image);
 		new Debugger("Image deleted");
 	}
-	header("location: ../php/my_fanart.php");
+	
 ?>	
