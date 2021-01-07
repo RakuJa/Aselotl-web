@@ -34,6 +34,7 @@
 		<label for="keywords">Cerca immagine: </label>
 		<input type="text" id="keywords" name="keywords" placeholder="Inserisci termini da cercare..." title="Cerca"/>
 		<input type="submit" value="Cerca"/>
+	</form>
 	</div>
 	<br/><br/><br/>
 	<?php
@@ -104,13 +105,9 @@
 					echo "<img src='$img' alt='$dsc' />";
 					echo "<p> $dsc ";
 					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
-						echo "<a href='../php/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a></p>";
+						echo "<a href='../php/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
 					}
-					else
-					{
-						echo "</p>";
-					}
-					echo "<small> Immagine caricata da $mail </small> </p>";
+					echo "<br /><small> Immagine caricata da $mail </small> </p>";
 				}
 			}
 			$nextpage = $page+1;
