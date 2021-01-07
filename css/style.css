@@ -18,6 +18,7 @@ In questo modo, la regola viene applicata a tutti i tag
 Passo 1
 Definire il font
 */
+
 html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
 	font-family: 'Arial', sans-serif; /*Definisco i vari font disponibili*/
 	max-width: 1024px; /*Massima larghezza dei contenuti*/
@@ -27,6 +28,11 @@ html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
 	/*Implementazione del bordino grigio a dx e sx*/
 	/*background: #facbcd url(img/logo.png) top left fixed ;  ?????????????????????????*/
 	/*background-image: url(../img/logo.png);*/
+}
+
+html {
+	background-color: #C74B6E;
+	border: 1px solid #ddd;
 }
 
 .hide {
@@ -53,8 +59,6 @@ SEZIONE HEADER
 	padding: 0.5em; /*Pensato per adattarsi alla dimensione del carattere*/
 	/*text-align: center;*/
 	overflow: hidden;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
 }
 
 #header a.logo {
@@ -73,7 +77,7 @@ SEZIONE HEADER
 
 #header a {
 	float: left;
-	color: #c34267;
+	color: #C74B6E;
 	padding: 0.5em;
 	padding-left: 2em;
 	padding-right: 2em;
@@ -82,13 +86,13 @@ SEZIONE HEADER
 	line-height: 2.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 }
 
 #header a.colored:hover {
-	background-color: #c34267;
+	background-color: #C74B6E;
 	color: white;
 }
 
@@ -104,8 +108,8 @@ SEZIONE HEADER
 	line-height: 2.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	background-color: #c34267;
-	border: solid #c34267;
+	background-color: #C74B6E;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 }
@@ -119,7 +123,7 @@ SEZIONE HEADER
 }
 
 #header h1 {/*Indica tutti gli h1 contenuti nei div con id "header"*/
-	color: #c34267;
+	color: #C74B6E;
 	font-size: 2.5em;/*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
 	text-align: center;
 }
@@ -130,7 +134,7 @@ SEZIONE HEADER
 	justify-content: center;
 	float: none;
 	border: none;
-	color: #c34267;
+	color: #C74B6E;
 	font-size: 2.5em;
 	text-align: center;
 }
@@ -191,11 +195,13 @@ Procedo con la sezione "breadcrumb"
 */
 
 #breadcrumb {/*Rappresenta la sezione contenente la dicitura 'ti trovi in:nome_pagina'*/
-	background-color: #c34267;/*Sfondo*/
+	background-color: #C74B6E;/*Sfondo*/
 	color: white;/*Colore del testo*/
 	padding: 0.5em 0em 0.5em 0.5em;/*Aggiungo una leggera spaziatura attorno al testo, ovvero al contenuto del div contenente l'id specificato*/
 	font-size: 0.9em; /*Ingrandisco un minimo il font per la scritta bianca per aumentarne il contrasto e la leggibilita'*/
 	font-weight: bold; /*Setto il testo in grassetto per lo stesso motivo citato sopra*/
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 /*
@@ -220,7 +226,6 @@ MENU
 	font-size: 1em;
 	overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
 	text-align: center;
-	border-left: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	outline-offset: -0.1px;
 
@@ -235,7 +240,7 @@ MENU
 	padding-top: 0.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 }
@@ -249,9 +254,9 @@ MENU
 	padding-top: 0.5em;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	background-color: #c34267;
+	background-color: #C74B6E;
 	color: white;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 }
@@ -260,10 +265,10 @@ MENU
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #c34267;
+	color:  #C74B6E;
 	display: block;
 	padding-bottom: 0.5em;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 }
@@ -271,8 +276,8 @@ MENU
 #menu a:hover {
 	color: white;
 	display: block;
-	background-color: #c34267;
-	border: solid #c34267;
+	background-color: #C74B6E;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 }
@@ -324,7 +329,6 @@ CONTENT
 	padding-right: 3.5em;
 	min-height: 21.5em;
 	white-space: initial;
-	border-right: 1px solid #ddd;
 	overflow-wrap: break-word;
 }
 
@@ -349,7 +353,7 @@ CONTENT
 }
 
 #content h1 {
-	color: #c34267; 
+	color: #C74B6E; 
 	font-size: 2.125em; 
 	font-weight: 300; 
 	line-height: 40px; 
@@ -358,7 +362,7 @@ CONTENT
 }
 
 #full_content h1 {
-	color: #c34267; 
+	color: #C74B6E; 
 	font-size: 2.125em; 
 	font-weight: 300; 
 	line-height: 40px; 
@@ -366,7 +370,7 @@ CONTENT
 }
 
 #content legend {
-	color: #c34267; 
+	color: #C74B6E; 
 	font-size: 1.5em; 
 	line-height: 40px; 
 	margin: 0; 
@@ -376,7 +380,7 @@ CONTENT
 	display: inline-block;
 	width: 100%;
 	text-align: left;
-	color: #c34267;
+	color: #C74B6E;
 	font-size: 24px; font-weight: 300; 
 	line-height: 32px; margin: 0 0 14px; 
 }
@@ -389,11 +393,11 @@ CONTENT
 	display: inline-block;
 	width: 100%;
 	text-align: left;
-	color: #c34267; 
+	color: #C74B6E; 
 }
 
 #full_content h2 {
-	color: #c34267;
+	color: #C74B6E;
 	font-size: 24px; font-weight: 300; 
 	line-height: 32px; margin: 0 0 14px; 
 }
@@ -415,17 +419,17 @@ CONTENT
 }
 
 #content small, #full_content small {
-	color: #c34267;
+	color: #C74B6E;
 }
 
 #content a:visited, #full_content a:visited { 
-	color:#884055; 
+	color: #C74B6E; 
 	text-decoration: none; 
 }
 
 
 #content a:hover, #full_content a:hover { 
-	background: #c34267; 
+	background: #C74B6E; 
 	color: #eee; 
 	text-decoration: none; 
 }
@@ -469,25 +473,25 @@ CONTENT
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #c34267;
+	color:  #C74B6E;
 	display: block;
 	padding: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
 	margin-left: 0.5em;
 	margin-top: 0.5em;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 	float: right;
 }
 
 #content .customlink a:link, .customlink a:visited {
-	color: #c34267;  
+	color: #C74B6E;  
 }
 
 #content .customlink a:hover {
-	background: #c34267; 
+	background: #C74B6E; 
 	color: #fff; 
 }
 
@@ -495,12 +499,12 @@ CONTENT
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #c34267;
+	color:  #C74B6E;
 	display: block;
 	padding: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 	float: left;
@@ -510,12 +514,12 @@ CONTENT
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #c34267;
+	color:  #C74B6E;
 	display: block;
 	padding: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
-	border: solid #c34267;
+	border: solid #C74B6E;
 	border-width: 0.1em 0.1em;
 	outline-offset: -0.1em;
 	float: right;
@@ -584,7 +588,7 @@ FOOTER
 	font-size: 0.9em;
 	text-align: center;
 	list-style-type: none;
-	background-color: #c34267; /*Sfondo*/
+	background-color: #C74B6E; /*Sfondo*/
 	color: white; /*Colore del testo*/
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -593,6 +597,7 @@ FOOTER
 	/*max-width: 1024px;*/
 	margin-left: auto;
     margin-right: auto;
+	border-top: 1px solid #ddd;
 }
 
 #footer ul {
@@ -602,13 +607,6 @@ FOOTER
 #footer a {
 	color: white;
 }
-/*
-#footer a:visited{
-	color: gray;
-}
-
-*/
-
 
 /*
 
@@ -624,8 +622,8 @@ button {
 	margin: 1em 0;
 	display: inline-block;
 	background-color: transparent;
-	color: #c34267;
-	border: 1px solid #c34267;
+	color: #C74B6E;
+	border: 1px solid #C74B6E;
 	box-sizing: border-box;
 	outline-offset: -0.1px;
   }
@@ -642,7 +640,7 @@ button {
 
 button:hover{
 	color: white;
-	background-color: #c34267;
+	background-color: #C74B6E;
 }
 
 .switch {
@@ -686,11 +684,11 @@ button:hover{
 }
 
 input:checked + .slider {
-	background-color: #c34267;
+	background-color: #C74B6E;
 }
 
 input:focus + .slider {
-	box-shadow: 0 0 1px #c34267;
+	box-shadow: 0 0 1px #C74B6E;
 }
 
 input:checked + .slider:before {
@@ -711,7 +709,7 @@ input[type=text], input[type=password] {
 	padding: 0.8em 1em;
 	margin: 1em 0;
 	display: inline-block;
-	border: 1px solid #c34267;
+	border: 1px solid #C74B6E;
 	box-sizing: border-box;
 }
 
@@ -747,9 +745,9 @@ input[type="file"] {
 	padding: 0.8em 2em;
 	margin: 1em 0;
 	display: inline-block;
-	color: #c34267;
+	color: #C74B6E;
 	background-color: transparent;
-	border: 1px solid #c34267;
+	border: 1px solid #C74B6E;
 	box-sizing: border-box;
 	outline-offset: -0.1px;
 }
@@ -761,7 +759,7 @@ input[type=submit]{
 
 .custom-file-upload:hover, input[type=submit]:hover{
 	color: white;
-	background-color: #c34267;
+	background-color: #C74B6E;
 }
 
 input[type=submit]:disabled{
@@ -779,7 +777,7 @@ textarea {
 	padding: 0.8em 1em;
 	margin: 1em 0;
 	display: inline-block;
-	border: 1px solid #c34267;
+	border: 1px solid #C74B6E;
 	box-sizing: border-box;
 }
 
@@ -789,20 +787,20 @@ textarea {
 
 fieldset {
 	width: 95%;
-	border-color: #c34267;
+	border-color: #C74B6E;
 	padding: 1em;
 }
 
 @media screen and (max-width: 670px) {
 	fieldset {
 		width: 92%;
-		border-color: #c34267;
+		border-color: #C74B6E;
 		padding: 1em;
 	}
 }
 
 .dark_mode {
-	background-color: rgb(24, 26, 27);
+	background-color: #050505;
 	color: white;
 }
 
@@ -811,5 +809,13 @@ fieldset {
 }
 
 .dark_mode input {
+	color: white;
+}
+
+.dark_mode input[type=submit] {
+	color: #C74B6E;
+}
+
+.dark_mode input[type=submit]:hover {
 	color: white;
 }
