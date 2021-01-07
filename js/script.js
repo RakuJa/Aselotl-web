@@ -18,10 +18,12 @@ function check_theme() {
 	if (theme == 1) {
 		element.classList.toggle("dark_mode", false);
 		theme_switch.checked = false;
+		localStorage.theme = 1;
 	}
 	if (theme == 2) {
 		element.classList.toggle("dark_mode", true);
 		theme_switch.checked = true;
+		localStorage.theme = 2;
 	}
 }
 

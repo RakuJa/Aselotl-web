@@ -807,5 +807,5 @@ fieldset {
 }
 
 textarea .dark_mode {
-	color: white !important;
+	color: white;
 }
