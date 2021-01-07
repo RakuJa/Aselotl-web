@@ -25,6 +25,7 @@
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
 			header("location: ../php/fanart.php");
+			exit();
 		}else {
 			new Debugger("UTENTE NORMALE");
 			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
