@@ -31,7 +31,7 @@ html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
 }
 
 html {
-	background-color: #C74B6E;
+	background-color: #E3A6B8;
 	border: 1px solid #ddd;
 }
 
@@ -336,6 +336,7 @@ CONTENT
 	margin-left: 0;
 	padding-top: 0;
 	text-align: center;
+	border-left:none;
 }
 
 #full_content img{
