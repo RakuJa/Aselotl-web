@@ -21,12 +21,14 @@
 		$email = $_SESSION['EMAIL'];
 		$image = "../img/fanart/".$image;
 		$query = "DELETE FROM Foto WHERE foto.PATH = '$image'";
+		header("location: ../php/my_fanart.php");
 		if ($_SESSION['PERMISSION'] == 0) {
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
-			header("location: ../php/fanart.php");
+			if (isset($_GET['adm']) && $_GET['adm']==0) {
+				header("location: ../php/fanart.php");
+			}
 		}else {
-			header("location: ../php/my_fanart.php");
 			new Debugger("UTENTE NORMALE");
 			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
 			var_dump($check);

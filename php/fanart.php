@@ -105,7 +105,7 @@
 					echo "<img src='$img' alt='$dsc' />";
 					echo "<p> $dsc ";
 					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
-						echo "<a href='../php/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
+						echo "<a href='../php/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
 					}
 					echo "<br /><small> Immagine caricata da $mail </small> </p>";
 				}
