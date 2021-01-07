@@ -806,6 +806,10 @@ fieldset {
 	color: white;
 }
 
-textarea .dark_mode {
+.dark_mode textarea {
+	color: white;
+}
+
+.dark_mode input {
 	color: white;
 }
