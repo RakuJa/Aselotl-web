@@ -24,9 +24,11 @@
 		if ($_SESSION['PERMISSION'] == 0) {
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
+			header("location: ../php/fanart.php");
 		}else {
 			new Debugger("UTENTE NORMALE");
-			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email";
+			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
+			var_dump($check);
 			if($query_rist=$obj_connection->connessione->query($check)){
                 $array_rist=$obj_connection->queryToArray($query_rist);
                 $count=0;
