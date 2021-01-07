@@ -98,10 +98,19 @@
 					$img = $files[$curr_image]['PATH'];
 					$dsc = $files[$curr_image]['DESCRIPTION'];
 					$mail = $files[$curr_image]['EMAIL'];
+					$img_name = str_replace('../img/fanart/', '', $img);	
 					echo "<hr>";
 					echo "<br />";
 					echo "<img src='$img' alt='$dsc' />";
-					echo "<p> $dsc <br /> <small> Immagine caricata da $mail </small> </p>";
+					echo "<p> $dsc ";
+					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
+						echo "<a href='../php/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a></p>";
+					}
+					else
+					{
+						echo "</p>";
+					}
+					echo "<small> Immagine caricata da $mail </small> </p>";
 				}
 			}
 			$nextpage = $page+1;
