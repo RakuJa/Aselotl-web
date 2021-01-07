@@ -4,10 +4,12 @@
 <div id="header">
 	<a href="index.php" xml:lang="en" lang="en" class="logo"><img id="logo" src="../img/logo_small.png" alt="Faccia stilizzata di un axolotl sorridente" /> Axolotl Society</a>
 	<div class="header-right">
-		<label class="switch">
-		<input type="checkbox" onclick="toggle_dark()">
+		<label class="switch" for="theme_switch">
+		<input type="checkbox" id="theme_switch" onclick="toggle_dark()"/>
 		<span class="slider"></span>
-		</label>
+		<script src="../js/script.js"></script>
+		<script> check_theme(); </script>
+		Cambia tema</label>
 		<?php 
 		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

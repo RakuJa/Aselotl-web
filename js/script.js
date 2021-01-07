@@ -1,41 +1,73 @@
-function toggle_dark() {
-  var element = document.body;
-  element.classList.toggle("dark_mode");
-}
-
 var checkboxes = document.getElementsByTagName('input');
 
-for (var i=0; i<checkboxes.length; i++)  {
-  if (checkboxes[i].type == 'checkbox')   {
-    checkboxes[i].checked = false;
-  }
+for (var i=0; i<checkboxes.length; i++) {
+	if (checkboxes[i].type == 'checkbox' && checkboxes[i].id != 'theme_switch') {
+		checkboxes[i].checked = false;
+	}
+}
+
+function check_theme() {
+	var element = document.body;
+	var theme_switch = document.getElementById('theme_switch');
+	var theme = localStorage.getItem("theme");
+	if (theme != 1 || theme != 2) {
+		localStorage.setItem("theme", 1);
+		element.classList.toggle("dark_mode", false);
+		theme_switch.checked = false;
+	}
+	if (theme == 1) {
+		element.classList.toggle("dark_mode", false);
+		theme_switch.checked = false;
+	}
+	if (theme == 2) {
+		element.classList.toggle("dark_mode", true);
+		theme_switch.checked = true;
+	}
+}
+
+
+function toggle_dark() {
+	var element = document.body;
+	element.classList.toggle("dark_mode");
+	var theme = localStorage.getItem("theme");
+	if (theme != 1 || theme != 2) {
+		localStorage.setItem("theme", 1);
+	}
+	if (theme == 1) {
+		localStorage.theme = 2;
+		element.classList.toggle("dark_mode", true);
+	}
+	if (theme == 2) {
+		localStorage.theme = 1;
+		element.classList.toggle("dark_mode", false);
+	}
 }
 
 function show_pass() {
-  var x = document.getElementById('pwd');
-  var y = document.getElementById('rpwd');
-  var z = document.getElementById('opwd');
-  if (x.type === 'password') {
-    x.type = 'text';
-  } else {
-    x.type = 'password';
-  }
-  if (y.type === 'password') {
-    y.type = 'text';
-  } else {
-    y.type = 'password';
-  }
-  if (z.type === 'password') {
-    z.type = 'text';
-  } else {
-    z.type = 'password';
-  }
+	var x = document.getElementById('pwd');
+	var y = document.getElementById('rpwd');
+	var z = document.getElementById('opwd');
+	if (x.type === 'password') {
+		x.type = 'text';
+	} else {
+		x.type = 'password';
+	}
+	if (y.type === 'password') {
+		y.type = 'text';
+	} else {
+		y.type = 'password';
+	}
+		if (z.type === 'password') {
+		z.type = 'text';
+	} else {
+		z.type = 'password';
+	}
 }
 
 function check_email() { 
 	var email = document.getElementById('email');
 	var valid_email = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	if(email.value == valid_email || email.value == 'admin' || email.value == 'user')
+	if((email.value.match(valid_email)) || (email.value == 'admin') || (email.value == 'user'))
 		{
 		document.getElementById('message0').style.color = 'green';
 		document.getElementById('message0').innerHTML = 'Email valida';
