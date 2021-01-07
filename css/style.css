@@ -233,6 +233,7 @@ MENU
 
 #menu a {
 	text-decoration: none;
+	color: #C74B6E;
 	text-align: center;
   	font-size: 1em;
 	display: block;
@@ -351,6 +352,10 @@ CONTENT
 #content img {
 	max-width: 100%;
   	height: auto;
+}
+
+#content a {
+	color: #C74B6E;
 }
 
 #content h1 {
