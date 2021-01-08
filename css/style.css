@@ -37,6 +37,7 @@ html {
 
 .hide {
 	display: block;
+	color: #C74B6E;
 	height: 0;
 	width: 0;
 	padding: 0em; 
@@ -128,15 +129,21 @@ SEZIONE HEADER
 	text-align: center;
 }
 
-#header #title {
-	padding: 0;
+#full_header {
+	margin: 0.5em;
+	padding: 0em;
 	display: flex;
+	align-items: center;
 	justify-content: center;
-	float: none;
-	border: none;
 	color: #C74B6E;
 	font-size: 2.5em;
 	text-align: center;
+}
+
+#full_header a {
+	color: #C74B6E;
+	text-decoration: none;
+	margin-right: 0.5em;
 }
 
 @media screen and (max-width: 670px) {
@@ -408,6 +415,9 @@ CONTENT
 	line-height: 32px; margin: 0 0 14px; 
 }
 
+#full_content a {
+	color: #C74B6E;
+}
 
 #content p, #full_content p { 
 	width: auto; 
@@ -632,7 +642,17 @@ button {
 	border: 1px solid #C74B6E;
 	box-sizing: border-box;
 	outline-offset: -0.1px;
-  }
+	cursor: pointer;
+}
+
+button:hover {
+	color: white;
+	background-color: #C74B6E;
+}
+
+button:disabled{
+	cursor: auto;
+}
 
 .nextbutton{
 	float: right;
@@ -642,11 +662,6 @@ button {
 .prevbutton{
 	float: left;
 	width: auto;
-}
-
-button:hover{
-	color: white;
-	background-color: #C74B6E;
 }
 
 .switch {
@@ -659,7 +674,6 @@ button:hover{
 
 /* Hide default HTML checkbox */
 .switch input {
-	opacity: 0;
 	width: 0;
 	height: 0;
 }
@@ -756,6 +770,7 @@ input[type="file"] {
 	border: 1px solid #C74B6E;
 	box-sizing: border-box;
 	outline-offset: -0.1px;
+	cursor: pointer;
 }
 
 input[type=submit]{
@@ -771,6 +786,7 @@ input[type=submit]{
 input[type=submit]:disabled{
 	color: #932F4B;
 	background-color:#c9c9c9;
+	cursor: auto;
 }
 
 textarea {

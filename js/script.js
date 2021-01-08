@@ -11,9 +11,9 @@ function check_theme() {
 	var theme_switch = document.getElementById('theme_switch');
 	var theme = localStorage.getItem("theme");
 	if (theme != 1 || theme != 2) {
-		localStorage.setItem("theme", 1);
 		element.classList.toggle("dark_mode", false);
 		theme_switch.checked = false;
+		localStorage.setItem("theme", 1);
 	}
 	if (theme == 1) {
 		element.classList.toggle("dark_mode", false);

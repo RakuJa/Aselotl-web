@@ -2,6 +2,9 @@
     require_once('connessione.php');
     require_once('debugger.php');
     session_start();
+	if ($_SESSION['logged']==false) {
+		header("location: ../php/access_denied.php");
+	}
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");

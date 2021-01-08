@@ -4,6 +4,9 @@
 	<title>Registrati</title>
 	<?php
     include 'header.php';
+	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
+		header("location: ../php/index.php");
+	}
 	$page_body = readfile("../html/register.html");
 ?>  
 
