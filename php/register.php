@@ -52,7 +52,7 @@
 			<a href="../php/login.php" style="float: right;">Sei già registrato? CLICCA QUI</a>  
 		</fieldset>
    </form>
-</main>
+
 <?php
     $page_footer = readfile("../html/footer.html");
     unset($_SESSION["error"]);

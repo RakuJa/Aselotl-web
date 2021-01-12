@@ -42,7 +42,7 @@
 	?>
 </fieldset>
 <div id="clearing_element"></div>
-</main>
+
 
 <?php 
 	$page_footer = readfile("../html/footer.html");

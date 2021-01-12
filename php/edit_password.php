@@ -49,7 +49,6 @@
 			<input type="submit" disabled name="mod_pwd" id="change_psw_btn" value="Cambia password" class="btn"/>
 		</fieldset>
 	</form>            
-</main>
     
 <?php
 	$page_footer = readfile("../html/footer.html");

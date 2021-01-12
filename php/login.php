@@ -50,7 +50,6 @@
 			<a href="../php/register.php" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
 		</fieldset>
    </form>
-</main>
 
 
 <?php
