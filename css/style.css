@@ -92,6 +92,10 @@ SEZIONE HEADER
 	outline-offset: -0.1em;
 }
 
+#header a.colored:visited {
+	color: #664BC7;
+}
+
 #header a.colored:hover {
 	background-color: #C74B6E;
 	color: white;
@@ -270,10 +274,9 @@ MENU
 }
 
 #menu a:visited {
-	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #C74B6E;
+	color: #664BC7;
 	display: block;
 	padding-bottom: 0.5em;
 	border: solid #C74B6E;
@@ -363,6 +366,7 @@ CONTENT
 
 #content a {
 	color: #C74B6E;
+	text-decoration: none; 
 }
 
 #content h1 {
@@ -439,8 +443,7 @@ CONTENT
 }
 
 #content a:visited, #full_content a:visited { 
-	color: #C74B6E; 
-	text-decoration: none; 
+	color: #664BC7;
 }
 
 
@@ -489,7 +492,7 @@ CONTENT
 	text-decoration: none;
 	text-align: center;
   	font-size: 1em;
-	color:  #C74B6E;
+	color: #C74B6E;
 	display: block;
 	padding: 0.5em;
 	padding-left: 1em;
@@ -502,8 +505,8 @@ CONTENT
 	float: right;
 }
 
-#content .customlink a:link, .customlink a:visited {
-	color: #C74B6E;  
+#content .customlink a:visited {
+	color: #664BC7;
 }
 
 #content .customlink a:hover {
