@@ -193,3 +193,8 @@ function show_file_name() {
 		document.getElementById('file-selected').innerHTML = file.files[0].name;
 	}
 }
+
+function remove_error() {
+	var error = document.getElementById('error');
+	error.innerHTML = '';
+}

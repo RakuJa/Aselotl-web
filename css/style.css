@@ -544,6 +544,15 @@ CONTENT
 	float: right;
 }
 
+#content .error {
+	color: #EB0000;
+}
+
+#content .right {
+	float: right;
+}
+
+
 #clearing_element {
 	clear:both;
 }

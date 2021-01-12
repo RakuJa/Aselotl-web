@@ -9,16 +9,17 @@
 	}
 	$page_body = readfile("../html/login.html");
 ?>
+
 <main id="content">
 <h1>ACCEDI</h1>
 	<form method="post" action="../php/login_check.php" id="login_form" class="vertical_input_form">
 		<fieldset>
 			<legend>Inserisci dati:</legend><br />
-			<span role="alert" style="color:#EB0000">
+			<span id="error" class="error">
 			<?php
 			if(isset($_SESSION["error"])){
 				$error = $_SESSION["error"];
-				echo "ERRORE: $error <br /><br />";
+				echo "ERRORE:<br />$error<br /><br />";
 			} ?>
 			</span>
 			<noscript>
@@ -29,25 +30,25 @@
 			</noscript> 
 							
 			<label for="email" xml:lang="en" lang="en">Email:</label>
-			<input type="text" required name="email" id="email" maxlength="50"/>
+			<input type="text" required name="email" id="email" maxlength="50" onkeyup="remove_error()"/>
 
 			<label for= "pwd" xml:lang="en" lang="en">Password:</label>
 			
-			<div style="float: right;">
+			<div class="right">
 			<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
 			<label for="show_password">Mostra password</label>
 			</div>
 			
-			<input type="password" required name="pwd" id="pwd" maxlength= "50"/>
+			<input type="password" required name="pwd" id="pwd" maxlength= "50" onkeyup="remove_error()"/>
 
 			<input type="checkbox" id="remember_me" name="remember_me"/>
 			<label for="remember_me">Ricordati di me</label>
 			
 			<!--<input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />-->
-			<button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi">Login</button>
+			<button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" aria-describedby="error">Login</button>
 
 
-			<a href="../php/register.php" style="float: right;">Non sei ancora registrato? CLICCA QUI</a>  
+			<a href="../php/register.php" class="right">Non sei ancora registrato? CLICCA QUI</a>  
 		</fieldset>
    </form>
 

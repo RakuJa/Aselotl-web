@@ -18,7 +18,7 @@
 
 <main id="content">
 	<noscript>
-		<div class="msg_box warning_box">
+		<div class="error">
 			ATTENZIONE: <span xml:lang="en" lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
 			NON ESSERE DISPONIBILI
 		</div>
@@ -34,7 +34,7 @@
 			<?php echo 'value="'.$email.'"';?>><br /><br />
 			<label for="pwd">Nuova <span xml:lang="en" lang="en">password</span>:</label>
 			
-			<div style="float: right;">
+			<div class="right">
 			<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
 			<label for="show_password">Mostra password</label>
 			</div>
