@@ -102,12 +102,14 @@
 					$img_name = str_replace('../img/fanart/', '', $img);	
 					echo "<hr>";
 					echo "<br />";
-					echo "<img src='$img' alt='$dsc' />";
-					echo "<p> $dsc ";
+					echo "<figure>";
+					echo "<img src='$img'/>";
+					echo "<figcaption> $dsc </figcaption>";
+					echo "</figure>";
 					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
 						echo "<a href='../php/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
 					}
-					echo "<br /><small> Immagine caricata da $mail </small> </p>";
+					echo "<p><small> Immagine caricata da $mail </small></p>";
 				}
 			}
 			$nextpage = $page+1;

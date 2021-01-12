@@ -62,9 +62,10 @@
 					$img_name = str_replace('../img/fanart/', '', $img);
 					echo "<hr>";
 					echo "<br />";
-					echo "<img src='$img' alt='$dsc' />";
-					echo "<p> $dsc ";
-					//echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
+					echo "<figure>";
+					echo "<img src='$img'/>";
+					echo "<figcaption> $dsc </figcaption>";
+					echo "</figure>";
 					echo "<a href='../php/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a></p><br /><br />";
 				}
 			}
