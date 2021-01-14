@@ -1,3 +1,25 @@
+html{
+font-family: "Times New
+Roman", Times, serif;
+font-size:12pt;
+}
+
 #menu{
+display:none;
+}
+
+#logo{
+display:none;
+}
+
+.header-right{
+display:none;
+}
+
+#content, .a{
+display none;
+}
+
+#skipNav{
 display:none;
 }
