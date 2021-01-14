@@ -14,6 +14,7 @@
 <div class='customlink'>
 <h1>PROFILO</h1>
 	<div id="profile-view">
+		<a href='../php/add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
 		<a href='../php/my_fanart.php'>Le mie <span xml:lang="en" lang="en">fan art</span></a>
 	</div>
 </div>

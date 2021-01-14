@@ -215,6 +215,10 @@ Procedo con la sezione "breadcrumb"
 	border-bottom: 1px solid #ddd;
 }
 
+#breadcrumb a {
+	color: white;
+}
+
 /*
 Passo 4
 Procedo con la "spalla sx" anche detta "menu"

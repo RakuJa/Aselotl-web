@@ -21,13 +21,19 @@
 			<?php 
 			if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
 			?>
-			
 				<a href='../php/add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
 				<a href='../php/my_fanart.php'>Le mie <span xml:lang="en" lang="en">fan art</span></a>
-			
+			<?php
+			} else {
+			?>
+				<a href='../php/login.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
+				<a href='../php/login.php'>Le mie <span xml:lang="en" lang="en">fan art</span></a>
 			<?php
 			}
+			$error="Devi accedere prima di poter vedere questa pagina<br />";
+			$_SESSION["error"] = $error;
 			?>
+			
 	</div>
 	<div id='searchbar'>
 	<form method="get" action="../php/fanart.php" id="search_keyword">
