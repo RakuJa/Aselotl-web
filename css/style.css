@@ -6,7 +6,7 @@
 
 
 html, body {
-	font-family: 'Arial', sans-serif; 
+	font-family: Helvetica, sans-serif; 
 	max-width: 1024px; 
 	margin: auto;
 	background-color: white;
@@ -411,6 +411,7 @@ CONTENT
 }
 
 #content ol li, #full_content ol li {
+	font-size:1.3em;
 	margin-left: 1.5em;
 }
 
