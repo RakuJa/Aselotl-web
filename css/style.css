@@ -1,16 +1,33 @@
-{
+/*
+E'buona norma includere sempre questa regola di stile
+*/
+/*
+Se avessi dato queste regole ad html o a body, avrei potuto riscontrare alcune
+incongruenze di stile con determinati browser (gli altri tag erediterebbero queste
+regole);
+In questo modo, la regola viene applicata a tutti i tag
+*/
+* {
 	padding: 0em;
 	margin: 0em;
 	font-family: 'Arial', sans-serif;
 }
 
 
-html, body {
-	font-family: Arial, sans-serif; 
-	max-width: 1024px; 
-	margin: auto;
+/*
+Passo 1
+Definire il font
+*/
+
+html, body { /*Il tag html va incluso per motivi di retrocompatibilita'*/
+	font-family: 'Arial', sans-serif; /*Definisco i vari font disponibili*/
+	max-width: 1024px; /*Massima larghezza dei contenuti*/
+	margin: auto; /*Imposto il calcolo del margin automatico*/
 	background-color: white;
 	color: black;
+	/*Implementazione del bordino grigio a dx e sx*/
+	/*background: #facbcd url(img/logo.png) top left fixed ;  ?????????????????????????*/
+	/*background-image: url(../img/logo.png);*/
 }
 
 html {
@@ -28,13 +45,20 @@ html {
 } 
 
 /*
+Passo 2
+Procediamo con l'header
+N.B. e'un header flessibile
+*/
+
+/*
 ===============
 SEZIONE HEADER
 ===============
 */
 
 #header {
-	padding: 0.5em;
+	padding: 0.5em; /*Pensato per adattarsi alla dimensione del carattere*/
+	/*text-align: center;*/
 	overflow: hidden;
 }
 
@@ -49,6 +73,7 @@ SEZIONE HEADER
 	padding: 0.5em;
 	width: auto;
 	border: none;
+
 }
 
 #header a {
@@ -102,9 +127,9 @@ SEZIONE HEADER
 	padding: 0.75em;
 }
 
-#header h1 {
+#header h1 {/*Indica tutti gli h1 contenuti nei div con id "header"*/
 	color: #C74B6E;
-	font-size: 2.5em;
+	font-size: 2.5em;/*N.B. tutte le dimensioni dei font vanno espresse in em per una questione di adattabilita*/
 	text-align: center;
 }
 
@@ -175,12 +200,17 @@ SEZIONE HEADER
 	}
 }
 
-#breadcrumb {
-	background-color: #C74B6E;
-	color: white;
-	padding: 0.5em 0em 0.5em 0.5em;
-	font-size: 0.9em;
-	font-weight: bold;
+/*
+Passo 3
+Procedo con la sezione "breadcrumb"
+*/
+
+#breadcrumb {/*Rappresenta la sezione contenente la dicitura 'ti trovi in:nome_pagina'*/
+	background-color: #C74B6E;/*Sfondo*/
+	color: white;/*Colore del testo*/
+	padding: 0.5em 0em 0.5em 0.5em;/*Aggiungo una leggera spaziatura attorno al testo, ovvero al contenuto del div contenente l'id specificato*/
+	font-size: 0.9em; /*Ingrandisco un minimo il font per la scritta bianca per aumentarne il contrasto e la leggibilita'*/
+	font-weight: bold; /*Setto il testo in grassetto per lo stesso motivo citato sopra*/
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 }
@@ -190,6 +220,15 @@ SEZIONE HEADER
 }
 
 /*
+Passo 4
+Procedo con la "spalla sx" anche detta "menu"
+*/
+/*
+Prima di tutto setto una serie di regole globali per tutti gli elementi inseriti all'interno
+della classe "menu"
+*/
+
+/*
 ======
 MENU
 ======
@@ -197,10 +236,10 @@ MENU
 #menu {
 	padding-top: 0.2em ;
 	padding-bottom: 0.2em;
-	float: left;
-	width: 20%;
+	float: left; /*Lo devo mantenere a sx*/
+	width: 20%; /*Lo si sta immaginando per un layout responsive, quindi adattabile*/
 	font-size: 1em;
-	overflow: hidden;
+	overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
 	text-align: center;
 	border-bottom: 1px solid #ddd;
 	outline-offset: -0.1px;
@@ -261,23 +300,31 @@ MENU
 @media screen and (max-width: 670px) {
 	#menu {
 		line-height: 1em;
-		width: 100%;
+		width: 100%; /*Lo si sta immaginando per un layout responsive, quindi adattabile*/
 		font-size: 1em;
-		overflow: hidden;
+		overflow: hidden; /*Elimina gli elementi che "sforano" dalla dimensione del box*/
 		text-align: center;
 		border-left: none;
 		border-bottom: none;
 	}
 }
 
+/*
+Do una regola alle liste non ordinate
+*/
 #menu ul {
-	list-style-type: none;
+	list-style-type: none;/*Nasconde i pallini nelle entry della lista*/
 }
 
 #menu ul li {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
+
+/*
+Passo 5
+Iinizio a considerare il corpo della pagina
+*/
 
 
 /*
@@ -558,6 +605,12 @@ CONTENT
 }
 
 /*
+Passo 6
+Prendo in considerazione il footer, o "piede", della pagina
+*/
+
+
+/*
 ========
 FOOTER
 ========
@@ -568,12 +621,13 @@ FOOTER
 	font-size: 0.9em;
 	text-align: center;
 	list-style-type: none;
-	background-color: #C74B6E;
-	color: white;
+	background-color: #C74B6E; /*Sfondo*/
+	color: white; /*Colore del testo*/
 	padding-top: 1em;
 	padding-bottom: 1em;
 	position: relative;
 	right: 0;bottom:0;left:0;
+	/*max-width: 1024px;*/
 	margin-left: auto;
     margin-right: auto;
 	border-top: 1px solid #ddd;
@@ -588,6 +642,7 @@ FOOTER
 }
 
 /*
+
 ======
 BUTTON
 ======
@@ -634,12 +689,13 @@ button:disabled{
 	height: 34px;
 }
 
+/* Hide default HTML checkbox */
 .switch input {
 	width: 0;
 	height: 0;
 }
 
-
+/* The slider */
 .slider {
 	position: absolute;
 	cursor: pointer;

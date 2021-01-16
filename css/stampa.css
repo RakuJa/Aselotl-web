@@ -1,5 +1,5 @@
 html{
-font-family: Times NewRoman, Times, serif;
+font-family: 'Times New Roman', Times, serif;
 font-size:12pt;
 }
 
@@ -44,8 +44,8 @@ display:none;
 display:none;
 }
 
-#content, .a{
-display none;
+#content a{
+display:none;
 }
 
 #skipNav{
