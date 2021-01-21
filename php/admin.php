@@ -11,16 +11,12 @@
 	if ($_SESSION['logged']==false || $_SESSION['PERMISSION']!=0) {
 		header("location: ../php/access_denied.php");
 	}
-    $page_head = readfile("../html/head.html"); ?>
+    $page_head = readfile("../html/head.html"); 
+    ?>
 	<title>Pannello amministratore</title>
 	<?php
     include 'header.php';
 	$page_body = readfile("../html/admin.html");
-?>
-
-<main id="content">
-    <h1 id="page_title">PANNELLO AMMINISTRATORE</h1>
-    <?php
         $tempmail = $_SESSION['EMAIL'];
         $sql = "SELECT EMAIL, PERMISSION FROM user WHERE EMAIL<>'$tempmail'";
         $files = $obj_connection->queryDB($sql);
