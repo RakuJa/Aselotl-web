@@ -3,7 +3,7 @@
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
-        $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
+        $error=$error."Errore di connessione al database";
         $no_error=false;
     }
 
