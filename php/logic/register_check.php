@@ -4,7 +4,7 @@
     require_once('debugger.php');
     require_once("reg_ex.php");
     if($_SESSION['logged']==true){
-        header('location:index.php');
+        header('location:../index.php');
         exit();
     }
     $email='';
@@ -81,7 +81,7 @@
         if($obj_connection->insertDB($query)){
             if ($obj_connection) $obj_connection->close_connection();
             $_SESSION["error"]="";
-            header('location: login.php');
+            header('location: ../login.php');
             exit();
         }else{  
             new Debugger("Errore nel inserimento dei dati");
@@ -91,6 +91,6 @@
     }
 
     $_SESSION["error"] = $error;
-    header("location: ../php/register.php");
+    header("location: ../register.php");
 
 ?>

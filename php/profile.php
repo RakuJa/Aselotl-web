@@ -6,7 +6,8 @@
     $page_head = readfile("../html/head.html"); ?>
 	<title>Profilo</title>
 	<?php
-    include 'header.php';
+	$page_theme = readfile("../html/toggle_theme.html");
+    include '../php/header.php';
 	$page_body = readfile("../html/profile.html");
 ?>
 
@@ -39,7 +40,7 @@
 	<?php
 		$email = $_SESSION["EMAIL"];
 		echo "<a href='edit_password.php?email=",  urlencode($email), "' class='leftbutton'>Modifica password </a>";
-		echo "<a href='delete_account.php?email=", urlencode($email), "' class='rightbutton'>Rimuovi profilo</a>";
+		echo "<a href='logic/delete_account.php?email=", urlencode($email), "' class='rightbutton'>Rimuovi profilo</a>";
 	?>
 </fieldset>
 <div id="clearing_element"></div>

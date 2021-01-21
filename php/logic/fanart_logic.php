@@ -6,13 +6,13 @@
         $error=$error."Errore di connessione al database";
         $no_error=false;
     }
-
+	//echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
     if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
-		echo'<a href="../php/add_fanart.php">Carica una <span xml:lang="en" lang="en">fan art</span></a>';
-		echo'<a href="../php/my_fanart.php">Le mie <span xml:lang="en" lang="en">fan art</span></a>';
+		echo"<a href='../php/add_fanart.php'>Carica una <span xml:lang='en' lang='en'>fan art</span></a>";
+		echo"<a href='../php/my_fanart.php'>Le mie <span xml:lang='en' lang='en'>fan art</span></a>";
 	} else {
-		echo'<a href="../php/login.php">Carica una <span xml:lang="en" lang="en">fan art</span></a>';
-		echo'<a href=../php/login.php">Le mie <span xml:lang="en" lang="en">fan art</span></a>';
+		echo"<a href='../php/login.php'>Carica una <span xml:lang='en' lang='en'>fan art</span></a>";
+		echo"<a href='../php/login.php'>Le mie <span xml:lang='en' lang='en'>fan art</span></a>";
 	}
 	$error="Devi accedere prima di poter vedere questa pagina<br />";
 	$_SESSION["error"] = $error;	

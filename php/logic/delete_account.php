@@ -6,8 +6,8 @@
 	$obj_connection = new DBConnection();
 	if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
-        $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
-        header("location: ../php/admin.php");
+        $error=$error."Errore di connessione al database";
+        header("location: ../admin.php");
         exit();
         $no_error=false;
     }
@@ -15,15 +15,15 @@
 	$email="";
 	if (!isset($_GET['email']) || $_SESSION['logged']==false || 
 		($_SESSION['PERMISSION']!=0 && $_SESSION['EMAIL'] != $_GET['email'])) {
-		header("location: ../php/access_denied.php");		
+		header("location: ../access_denied.php");		
 	}else {
 		$email = $_GET['email'];
 		$query = "DELETE FROM User WHERE EMAIL = '$email'";
 		$no_error = !$obj_connection->insertDB($query);
 		if ($_SESSION['PERMISSION']==0) {
-			header("location: ../php/admin.php");
+			header("location: ../admin.php");
 		}else {
-			header("location: ../php/logout.php");
+			header("location: ../logout.php");
 		}
 
 	}
