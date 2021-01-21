@@ -82,7 +82,7 @@
 				if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
 					echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
 				}
-				echo "<p><small> Immagine caricata da $mail </small></p>";
+				echo "<p class='small'>Immagine caricata da $mail</p>";
 			}
 		}
 		$nextpage = $page+1;

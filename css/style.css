@@ -442,8 +442,9 @@ CONTENT
 	text-align: center;
 }
 
-#content small, #full_content small {
+#content .small {
 	color: #C74B6E;
+	font-size: 0.9em;
 }
 
 #content a:visited, #full_content a:visited { 
