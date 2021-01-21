@@ -3,9 +3,8 @@
 	if ($_SESSION['logged']==false) {
 		header("location: ../php/access_denied.php");
 	}
-    $page_head = readfile("../html/head.html"); ?>
-	<title>Modifica password</title>
-	<?php
+    $page_head = readfile("../html/head.html");
+	echo "<title>Modifica password</title>";
 	$page_theme = readfile("../html/toggle_theme.html");
     include '../php/header.php';
     $email="";

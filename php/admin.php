@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $page_head = readfile("../html/head.html"); 
+    $page_head = readfile("../html/head.html");
+	echo "<title>Pannello amministratore</title>";
 	$page_theme = readfile("../html/toggle_theme.html");
     include "../php/header.php";
 	$page_body = readfile("../html/admin.html");

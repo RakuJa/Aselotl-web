@@ -1,5 +1,6 @@
 <?php  
-	session_start();
+	require_once("../php/logic/connessione.php");
+    require_once("../php/logic/debugger.php");
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
@@ -11,11 +12,8 @@
 		echo"<a href='../php/add_fanart.php'>Carica una <span xml:lang='en' lang='en'>fan art</span></a>";
 		echo"<a href='../php/my_fanart.php'>Le mie <span xml:lang='en' lang='en'>fan art</span></a>";
 	} else {
-		echo"<a href='../php/login.php'>Carica una <span xml:lang='en' lang='en'>fan art</span></a>";
-		echo"<a href='../php/login.php'>Le mie <span xml:lang='en' lang='en'>fan art</span></a>";
+		echo"<a href='../php/login.php'>Accedi per caricare una <span xml:lang='en' lang='en'>fan art</span></a>";
 	}
-	$error="Devi accedere prima di poter vedere questa pagina<br />";
-	$_SESSION["error"] = $error;	
 	$page_body= readfile("../html/searchbar.html");
 	
 	$keywords = "";
@@ -78,11 +76,11 @@
 				echo "<hr>";
 				echo "<br />";
 				echo "<figure>";
-				echo "<img src='$img'/>";
+				echo "<img src='$img' alt=''/>";
 				echo "<figcaption> $dsc </figcaption>";
 				echo "</figure>";
 				if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
-					echo "<a href='../php/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
+					echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
 				}
 				echo "<p><small> Immagine caricata da $mail </small></p>";
 			}
@@ -108,7 +106,4 @@
 			header("Location: http://$host$uri/".$extra);
 		}
 	}
-
-
-
 ?>

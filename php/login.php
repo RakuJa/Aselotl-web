@@ -1,8 +1,7 @@
 <?php
     session_start();
-    $page_header = readfile("../html/head.html"); ?>
-	<title>Accedi</title>
-	<?php
+    $page_header = readfile("../html/head.html");
+	echo "<title>Accedi</title>";
 	$page_theme = readfile("../html/toggle_theme.html");
     include '../php/header.php';
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {

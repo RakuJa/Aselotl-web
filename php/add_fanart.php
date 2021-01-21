@@ -1,8 +1,7 @@
 <?php
     session_start();
-    $page_head = readfile("../html/head.html"); ?>
-	<title>Aggiungi fan art</title>
-	<?php
+    $page_head = readfile("../html/head.html");
+	echo "<title>Aggiungi fan art</title>";
 	$page_theme = readfile("../html/toggle_theme.html");
     include 'header.php';
 	if ($_SESSION['logged']==true) {
