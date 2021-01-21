@@ -20,28 +20,18 @@
 	<h1 xml:lang="en" lang="en">FAN ART</h1>
 			<?php 
 			if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
-			?>
-				<a href='../php/add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
-				<a href='../php/my_fanart.php'>Le mie <span xml:lang="en" lang="en">fan art</span></a>
-			<?php
+				echo'<a href="../php/add_fanart.php">Carica una <span xml:lang="en" lang="en">fan art</span></a>';
+				echo'<a href="../php/my_fanart.php">Le mie <span xml:lang="en" lang="en">fan art</span></a>';
 			} else {
-			?>
-				<a href='../php/login.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
-				<a href='../php/login.php'>Le mie <span xml:lang="en" lang="en">fan art</span></a>
-			<?php
+				echo'<a href="../php/login.php">Carica una <span xml:lang="en" lang="en">fan art</span></a>';
+				echo'<a href=../php/login.php">Le mie <span xml:lang="en" lang="en">fan art</span></a>';
 			}
 			$error="Devi accedere prima di poter vedere questa pagina<br />";
 			$_SESSION["error"] = $error;
 			?>
 			
 	</div>
-	<div id='searchbar'>
-	<form method="get" action="../php/fanart.php" id="search_keyword">
-		<label for="keywords">Cerca immagine: </label>
-		<input type="text" id="keywords" name="keywords" placeholder="Inserisci termini da cercare..." title="Cerca"/>
-		<input type="submit" value="Cerca"/>
-	</form>
-	</div>
+	<?php $page_body= readfile("../html/searchbar.html");?>
 	<br/><br/><br/>
 	<?php
 		$keywords = "";
