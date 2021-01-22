@@ -25,13 +25,13 @@
 				$img = $files[$curr_image]['PATH'];
 				$dsc = $files[$curr_image]['DESCRIPTION'];
 				$img_name = str_replace('../img/fanart/', '', $img);
-				echo "<hr>";
 				echo "<br />";
 				echo "<figure>";
 				echo "<img src='$img' alt=''/>";
 				echo "<figcaption> $dsc </figcaption>";
 				echo "</figure>";
 				echo "<a href='../php/logic/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a></p><br /><br />";
+				echo "<hr><br />";
 			}
 		}
 		$nextpage = $page+1;

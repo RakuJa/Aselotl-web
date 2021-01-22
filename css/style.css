@@ -687,13 +687,11 @@ button:disabled{
 	height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
 	width: 0;
 	height: 0;
 }
 
-/* The slider */
 .slider {
 	position: absolute;
 	cursor: pointer;
@@ -702,8 +700,8 @@ button:disabled{
 	right: 0;
 	bottom: 0;
 	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: .3s;
+	transition: .3s;
 }
 
 .slider:before {
@@ -713,13 +711,16 @@ button:disabled{
 	width: 26px;
 	left: 4px;
 	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
+	background-color: #5C5C5C;
+	-webkit-transition: .3s;
+	transition: .3s;
+	background-image: url("../img/moon.png");
+	background-repeat:no-repeat;
+	background-position: 2.5px 2.5px;
 }
 
 input:checked + .slider {
-	background-color: #C74B6E;
+	background-color: #77263F;
 }
 
 input:focus + .slider {
@@ -730,6 +731,7 @@ input:checked + .slider:before {
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
 	transform: translateX(26px);
+	background-color: #C74B6E;
 }
 
 /*

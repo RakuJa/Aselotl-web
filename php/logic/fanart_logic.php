@@ -72,8 +72,7 @@
 				$img = $files[$curr_image]['PATH'];
 				$dsc = $files[$curr_image]['DESCRIPTION'];
 				$mail = $files[$curr_image]['EMAIL'];
-				$img_name = str_replace('../img/fanart/', '', $img);	
-				echo "<hr>";
+				$img_name = str_replace('../img/fanart/', '', $img);
 				echo "<br />";
 				echo "<figure>";
 				echo "<img src='$img' alt=''/>";
@@ -82,7 +81,8 @@
 				if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
 					echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
 				}
-				echo "<p class='small'>Immagine caricata da $mail</p>";
+				echo "<p class='small'>Immagine caricata da $mail</p><br />";
+				echo "<hr><br />";
 			}
 		}
 		$nextpage = $page+1;
