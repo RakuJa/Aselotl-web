@@ -73,6 +73,7 @@ SEZIONE HEADER
 	padding: 0.5em;
 	width: auto;
 	border: none;
+	text-decoration: none;
 
 }
 
@@ -82,7 +83,7 @@ SEZIONE HEADER
 	padding: 0.5em;
 	padding-left: 2em;
 	padding-right: 2em;
-	text-decoration: none;
+	text-decoration: underline;
 	font-size: 1em;
 	line-height: 2.5em;
 	margin-left: 0.5em;
@@ -93,7 +94,7 @@ SEZIONE HEADER
 }
 
 #header a.colored:visited {
-	color: #664BC7;
+	color: #7E68C3;
 }
 
 #header a.colored:hover {
@@ -247,7 +248,7 @@ MENU
 }
 
 #menu a {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #C74B6E;
 	text-align: center;
   	font-size: 1em;
@@ -280,7 +281,7 @@ MENU
 #menu a:visited {
 	text-align: center;
   	font-size: 1em;
-	color: #664BC7;
+	color: #7E68C3;
 	display: block;
 	padding-bottom: 0.5em;
 	border: solid #C74B6E;
@@ -369,7 +370,7 @@ CONTENT
 
 #content a {
 	color: #C74B6E;
-	text-decoration: none; 
+	text-decoration: underline; 
 }
 
 #content h1 {
@@ -448,14 +449,14 @@ CONTENT
 }
 
 #content a:visited, #full_content a:visited { 
-	color: #664BC7;
+	color: #7E68C3;
 }
 
 
 #content a:hover, #full_content a:hover { 
 	background: #C74B6E; 
 	color: #eee; 
-	text-decoration: none; 
+	text-decoration: underline; 
 }
 
 #content ol li, #full_content ol li {
@@ -491,7 +492,7 @@ CONTENT
 }
 
 #content .customlink a {
-	text-decoration: none;
+	text-decoration: underline;
 	text-align: center;
   	font-size: 1em;
 	color: #C74B6E;
@@ -508,7 +509,7 @@ CONTENT
 }
 
 #content .customlink a:visited {
-	color: #664BC7;
+	color: #7E68C3;
 }
 
 #content .customlink a:hover {
@@ -517,7 +518,7 @@ CONTENT
 }
 
 #content .leftbutton {
-	text-decoration: none;
+	text-decoration: underline;
 	text-align: center;
   	font-size: 1em;
 	color:  #C74B6E;
@@ -532,7 +533,7 @@ CONTENT
 }
 
 #content .rightbutton {
-	text-decoration: none;
+	text-decoration: underline;
 	text-align: center;
   	font-size: 1em;
 	color:  #C74B6E;
@@ -785,6 +786,7 @@ input[type="file"] {
 	box-sizing: border-box;
 	outline-offset: -0.1px;
 	cursor: pointer;
+	text-decoration: underline;
 }
 
 input[type=submit]{
