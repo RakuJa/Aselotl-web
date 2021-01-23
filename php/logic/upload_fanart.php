@@ -9,17 +9,17 @@
     $keywords = '';
     $error='';
     if($_SESSION['logged']==false){
-    new Debugger("User not logged in");
-    $_SESSION["errorImage"] = "User not logged in";
-    header('location: ../php/add_fanart.php');
-    exit();
+        new Debugger("User not logged in");
+        $_SESSION["errorImage"] = "Utente non ha effettuato l'accesso <br />";
+        header('location: ../php/add_fanart.php');
+        exit();
     }
     $no_error =isset($_POST['description']) || isset($_SESSION['EMAIL']) || isset($_POST['keywords']);
     if (!$no_error) {
-    new Debugger("Keyword, email or description missing. Fatal error");
-    $_SESSION["errorImage"] = "Keyword, email or description missing. Fatal error";
-    header('location: ../php/add_fanart.php');
-    exit();
+        new Debugger("Keyword, email or description missing. Fatal error");
+        $_SESSION["errorImage"] = "Keyword, email o descrizione mancanti. Fatal error <br />";
+        header('location: ../php/add_fanart.php');
+        exit();
     }
     $email = $_SESSION['EMAIL'];
     $description = $_POST['description'];
@@ -41,7 +41,7 @@
         if($uploadResult['error']==""){
         	new Debugger( "Nessun errore rilevato durante upload");
             if($uploadResult['path']=="") {
-                $error=$error."Pathing non trovato";
+                $error=$error."Pathing non trovato <br />";
                 new Debugger("Pathing non trovato");
                 $no_error=false;
             }else {
@@ -51,7 +51,7 @@
         }
         else{
         	new Debugger($uploadResult['error']);
-            $error=$error.$uploadResult['error'];
+            $error=$error.$uploadResult['error']."<br />";
         	new Debugger("Errore rilevato");
             $no_error=false;
         }
@@ -59,7 +59,7 @@
 
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
-        $error=$error."[Errore di connessione al database]";
+        $error=$error."[Errore di connessione al database] <br />";
         new Debugger("[Errore di connessione al database]");
         $no_error=false;
     }
@@ -75,7 +75,7 @@
         $query_error = !$obj_connection->insertDB($foto_query);
         if ($query_error) {
             unlink($filePath);
-            $_SESSION["errorImage"] = $error."errore nel inserimento nel db";
+            $_SESSION["errorImage"] = $error."errore nel inserimento nel db <br />";
             header("location: ../php/add_fanart.php");
             exit();
         }
@@ -84,35 +84,33 @@
         foreach ($array_kw as &$kw) {
             preg_replace('/\PL/u', '', $kw);
             $keyword_check_query = "SELECT * FROM keyword WHERE keyword = '$kw'";
-            if($query_rist=$obj_connection->connessione->query($keyword_check_query)){
-                $array_rist=$obj_connection->queryToArray($query_rist);
-                $count=0;
-                foreach ($array_rist as &$value) {
-                    $count=$count+1;
-                }
-                $data_odierna = date("Y-m-d");
-                if ($count==0) {
-                    $keyword_query ="INSERT INTO keyword(`KEYWORD`,`LAST_USED`) VALUES (\"$kw\",\"$data_odierna\")";
-                }else {
+            $query_rist=$obj_connection->queryDB($keyword_check_query);
+            $data_odierna = date("Y-m-d");
+            if (is_null($query_rist)) {
+                $keyword_query ="INSERT INTO keyword(`KEYWORD`,`LAST_USED`) VALUES (\"$kw\",\"$data_odierna\")";
+            }else {
+                if ($query_rist) {
                     $keyword_query ="UPDATE `keyword` SET `LAST_USED` = '$data_odierna' WHERE `keyword`.`KEYWORD` = '$kw'";
-                }
-                $query_error = !$obj_connection->insertDB($keyword_query);
-                if (!$query_error) {
-                    $query_error =
-                    $association_query = "INSERT INTO `fotokeyword` (`KEYWORD`,`PATH`) VALUES (\"$kw\",\"$filePath\")";
-                    $query_error = !$obj_connection->insertDB($association_query);
-                    if ($query_error) {
-                        new Debugger("ERRORE RILEVATO =====");
-                        new Debugger($kw);
-                        new Debugger($filePath);
-                        new Debugger("FINE ERRORE ========");
-                    }
+                }else {
+                    new Debugger("Errore nel realizzare la query");
+                    continue;
+                }                
+            }
+            $query_error = !$obj_connection->insertDB($keyword_query);
+            if (!$query_error) {
+                $query_error =
+                $association_query = "INSERT INTO `fotokeyword` (`KEYWORD`,`PATH`) VALUES (\"$kw\",\"$filePath\")";
+                $query_error = !$obj_connection->insertDB($association_query);
+                if ($query_error) {
+                    new Debugger("ERRORE RILEVATO =====");
+                    new Debugger($kw);
+                    new Debugger($filePath);
+                    new Debugger("FINE ERRORE ========");
                 }
             }
         }
         $_SESSION["errorImage"] = $error;
         header("location: ../fanart.php");
-        exit();
     }else {
         unlink($filePath);
         $_SESSION["errorImage"] = $error;
