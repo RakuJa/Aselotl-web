@@ -49,18 +49,17 @@
         if($connection_established){
             new Debugger("Connessione con il DB instaurata");
             $email=$obj_connection->escape_str(trim($email));
-            new debugger("Prima dell'hash");
+            new debugger("Prima del hash");
             $pwd = $obj_connection->escape_str(trim($pwd));
-            new debugger("Prima dell'hash");
+            new debugger("Dopo del hash");
             $hashed_pwd=hash("sha512",$pwd);
             new debugger($hashed_pwd);
             //$pwd = $obj_connection->escape_str(trim($pwd));
-            $query = "SELECT * FROM User WHERE EMAIL = '$email' AND PASSWORD = '$hashed_pwd'";
+            $query = "SELECT * FROM user WHERE EMAIL = '$email' AND PASSWORD = '$hashed_pwd'";
             $permission = 2;
-            if($query_rist=$obj_connection->connessione->query($query)){
-                $array_rist=$obj_connection->queryToArray($query_rist);
+            if($query_rist=$obj_connection->queryDB($query)){
                 $count=0;
-                foreach ($array_rist as &$value) {
+                foreach ($query_rist as &$value) {
                     $count=$count+1;
                     $permission = filter_var($value["PERMISSION"], FILTER_VALIDATE_BOOLEAN);
                 }
@@ -88,7 +87,8 @@
                     exit;
                 }
             }else {
-                $error="La query non è andata a buon fine<br />";
+                new Debugger("query andata male");
+                $error="La query non è andata a buon fine";
             }
             $obj_connection->close_connection();
 
@@ -98,7 +98,7 @@
         }
 
     }else {
-        $error = "Nessun dato trovato dentro url<br />";
+        $error = "Nessun dato trovato dentro url";
     }
 
     $_SESSION["error"] = $error;

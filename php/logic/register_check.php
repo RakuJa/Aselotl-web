@@ -33,7 +33,8 @@
         $error=$error."Errore di connessione al database <br />";
         $no_error=false;
     }
-    $email=$obj_connection->escape_str(trim($email));
+
+    $email=$obj_connection->escape_str(trim(htmlentities($email,ENT_QUOTES)));
     $pwd = $obj_connection->escape_str(trim($pwd));
     //controllo input
 	if((!filter_var($email, FILTER_VALIDATE_EMAIL)) && ($email != 'admin') && ($email != 'user')){
@@ -42,27 +43,23 @@
 		$no_error=false;
 	}
     new Debugger("Mail inserita: ".$email);
-    $query = "SELECT * FROM User WHERE EMAIL = '$email'";
-    $query_rist=$obj_connection->connessione->query($query);
-    if($query_rist){
-        $array_rist=$obj_connection->queryToArray($query_rist);
-        var_dump($query_rist);
-        $count=0;
-        foreach ($array_rist as &$value) {
-            $count=$count+1;
-        }
-        new Debugger($count);
-        if($count!=0){
-            new Debugger("Questa mail è già in uso");
-            $error=$error."Questa mail è già in uso <br />";
+    $query = "SELECT * FROM user WHERE EMAIL = '$email'";
+    $query_rist=$obj_connection->queryDB($query);
+    if(!$query_rist){
+        //entra se la query è scoppiata o se è null (quindi nessun valore)
+        if (!is_null($query_rist)) {
+            new Debugger("Errore nella esecuzione della query.");
+            $error=$error."Fatal Error. Query non eseguita. <br />";
             $no_error=false;
+        }else {
+            new Debugger("Mail non utilizzata");
         }
-    }
-    if(!$query_rist) {
-        new Debugger("Errore nella esecuzione della query");
-        $error=$error."Fatal Error. Query non eseguita <br />";
+    }else {
+        new Debugger("Questa mail è già in uso");
+        $error=$error."Questa mail è già in uso <br />";
         $no_error=false;
     }
+    new debugger("Stage 2");
     if($pwd!=$pwd2){
         new Debugger("Password e Ripeti Password non coincidono");
         $error=$error."Password e Ripeti Password non coincidono <br />";
@@ -73,24 +70,29 @@
         $error=$error."La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero <br />";
         $no_error=false;
     }
+    new debugger("checkpoint 3");
     if($no_error){
-        $email=$obj_connection->escape_str(trim(htmlentities($email)));
-        $hashed_pwd=hash("sha512",$obj_connection->escape_str(trim($pwd)));
+        new debugger("checkpoint 4");
+        $hashed_pwd=hash("sha512",$pwd);
         //check dati inseriti
-        $query = "INSERT INTO User (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
+        $query = "INSERT INTO user (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
+        new debugger("checkpoint 5");
         if($obj_connection->insertDB($query)){
+            new debugger("checkpoint 6");
             if ($obj_connection) $obj_connection->close_connection();
             $_SESSION["error"]="";
+            new Debugger("oro");
             header('location: ../login.php');
             exit();
         }else{  
+            new debugger("checkpoint 6");
             new Debugger("Errore nel inserimento dei dati");
             $error="Errore nell' inserimento dei dati <br />";
         }
         if ($obj_connection) $obj_connection->close_connection();
     }
-
+    new debugger($error);
     $_SESSION["error"] = $error;
-    header("location: ../register.php");
+    //header("location: ../register.php");
 
 ?>

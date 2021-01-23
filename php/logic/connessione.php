@@ -18,7 +18,7 @@
                 $this->connessione->close();
             }
         }
-        
+        //return null if empty, return false if query fails
         public function queryDB($query){
             if($queryResult = $this->connessione->query($query)){
                 $result=array();
@@ -30,6 +30,7 @@
                 if ($this->connessione) {
                     $this->connessione->close();
                 }
+                if ($result==false) {return NULL;}
                 return $result;
             }else{
                 return false;
@@ -37,6 +38,9 @@
         }
         
         public function insertDB($query){
+            var_dump($query);
+            var_dump($this->connessione);
+            var_dump($this->connessione->query($query));
             return $this->connessione->query($query);
         }
 
