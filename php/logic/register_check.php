@@ -31,6 +31,8 @@
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database <br />";
+        header('location:../register.php');
+        exit();
         $no_error=false;
     }
 

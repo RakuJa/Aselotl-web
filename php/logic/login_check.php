@@ -26,7 +26,7 @@
 
     new Debugger("Cookies checked");
 
-    $error='';
+    $error="";
 
     // se ci sono valori in _POST cerca di fare il login o stampa errore
 
@@ -83,23 +83,24 @@
             }else {
                 if (is_null($query_rist)) {
                     new Debugger("Le credenziali inserite non sono corrette");
-                    $error="Le credenziali inserite non sono corrette<br />";
+                    $error=$error."Le credenziali inserite non sono corrette<br />";
                 }else {
                     new Debugger("query andata male");
-                    $error="La query non è andata a buon fine<br />";
+                    $error=$error."La query non è andata a buon fine<br />";
                 }
             }
         }else{
             new Debugger("Connessione con il DB fallita");
-            $error=(new errore('DBConnection'))->printHTMLerror();
+            $error=$error."Connessione con il database fallita";
         }
 
     }else {
-        $error = "Nessun dato trovato dentro url";
+        $error = $error."Nessun dato trovato dentro url";
     }
 
     $_SESSION["error"] = $error;
     new Debugger($error);
 
     header("location: ../login.php");
+    exit();
 ?>
