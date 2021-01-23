@@ -32,25 +32,20 @@
 			new Debugger("UTENTE NORMALE");
 			$check = "SELECT * FROM foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
 			var_dump($check);
-			if($query_rist=$obj_connection->connessione->query($check)){
-                $array_rist=$obj_connection->queryToArray($query_rist);
-                $count=0;
-                foreach ($array_rist as &$value) {
-                    $count=$count+1;
-                }
-                new Debugger($count);
-                if($count==0){
+			$query_rist=$obj_connection->queryDB($check);
+			if($query_rist){
+				$no_error = $obj_connection->insertDB($query);
+			}else {
+				if(is_null($query_rist)){
 					new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
 					header("location: ../access_denied.php");
                 	$no_error = false;
                     $error="Stai cercando di rimuovere una foto non tua <br />";
-                }else {
-                	$no_error = $obj_connection->insertDB($query);
-                }
-			}else {
-				new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
-				header("location: ../access_denied.php");
-				$no_error = false;
+				}else {
+					new Debugger("Errore di query con il Database");
+					header("location: ../404.php");
+					$no_error = false;
+				}
 			}
 		}
 	}
