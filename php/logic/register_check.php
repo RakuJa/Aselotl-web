@@ -59,7 +59,6 @@
         $error=$error."Questa mail è già in uso <br />";
         $no_error=false;
     }
-    new debugger("Stage 2");
     if($pwd!=$pwd2){
         new Debugger("Password e Ripeti Password non coincidono");
         $error=$error."Password e Ripeti Password non coincidono <br />";
@@ -70,22 +69,17 @@
         $error=$error."La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola una minuscola e un numero <br />";
         $no_error=false;
     }
-    new debugger("checkpoint 3");
     if($no_error){
-        new debugger("checkpoint 4");
         $hashed_pwd=hash("sha512",$pwd);
         //check dati inseriti
         $query = "INSERT INTO user (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES ('$email','$hashed_pwd',1)";
-        new debugger("checkpoint 5");
         if($obj_connection->insertDB($query)){
-            new debugger("checkpoint 6");
             if ($obj_connection) $obj_connection->close_connection();
             $_SESSION["error"]="";
             new Debugger("oro");
             header('location: ../login.php');
             exit();
         }else{  
-            new debugger("checkpoint 6");
             new Debugger("Errore nel inserimento dei dati");
             $error="Errore nell' inserimento dei dati <br />";
         }
