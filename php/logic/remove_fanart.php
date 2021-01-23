@@ -20,7 +20,7 @@
 		$image = $_GET['image'];
 		$email = $_SESSION['EMAIL'];
 		$image = "../img/fanart/".$image;
-		$query = "DELETE FROM Foto WHERE foto.PATH = '$image'";
+		$query = "DELETE FROM foto WHERE foto.PATH = '$image'";
 		header("location: ../my_fanart.php");
 		if ($_SESSION['PERMISSION'] == 0) {
 			new Debugger("Admin loggato, mi fido");
@@ -30,7 +30,7 @@
 			}
 		}else {
 			new Debugger("UTENTE NORMALE");
-			$check = "SELECT * FROM Foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
+			$check = "SELECT * FROM foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
 			var_dump($check);
 			if($query_rist=$obj_connection->connessione->query($check)){
                 $array_rist=$obj_connection->queryToArray($query_rist);
