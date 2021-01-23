@@ -2,9 +2,9 @@
 
     class DBConnection{
         const HOST_DB ="localhost";
-        const USERNAME ="root";
-        const PASSWORD ="";
-        const DATABASE_NAME ="tecweb";
+        const USERNAME ="dgiachet";
+        const PASSWORD ="ounu6NaiCae4oath";
+        const DATABASE_NAME ="dgiachet";
         public $connessione = null;
         
         public function create_connection(){
