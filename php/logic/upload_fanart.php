@@ -35,26 +35,26 @@
     new Debugger("Gonna upload");
     new Debugger($_FILES['uploadImage']['size']);
     if($_FILES['uploadImage']['size'] != 0 && $_FILES['uploadImage']['error'] == 0){
-    new Debugger("Uploading");
-    $uploadResult = $gestImg->uploadImage($target_dir,"uploadImage");
-    new Debugger( "Fine upload ");
-    if($uploadResult['error']==""){
-    	new Debugger( "Nessun errore rilevato durante upload");
-        if($uploadResult['path']=="") {
-            $error=$error."Pathing non trovato";
-            new Debugger("Pathing non trovato");
+        new Debugger("Uploading");
+        $uploadResult = $gestImg->uploadImage($target_dir,"uploadImage");
+        new Debugger( "Fine upload ");
+        if($uploadResult['error']==""){
+        	new Debugger( "Nessun errore rilevato durante upload");
+            if($uploadResult['path']=="") {
+                $error=$error."Pathing non trovato";
+                new Debugger("Pathing non trovato");
+                $no_error=false;
+            }else {
+                new Debugger("Pathing trovato");
+                $filePath = $uploadResult['path'];
+            }	
+        }
+        else{
+        	new Debugger($uploadResult['error']);
+            $error=$error.$uploadResult['error'];
+        	new Debugger("Errore rilevato");
             $no_error=false;
-        }else {
-            new Debugger("Pathing trovato");
-            $filePath = $uploadResult['path'];
-        }	
-    }
-    else{
-    	new Debugger($uploadResult['error']);
-        $error=$error.$uploadResult['error'];
-    	new Debugger("Errore rilevato");
-        $no_error=false;
-    }
+        }
     }
 
     $obj_connection = new DBConnection();
@@ -62,7 +62,6 @@
         $error=$error."[Errore di connessione al database]";
         new Debugger("[Errore di connessione al database]");
         $no_error=false;
-        exit();
     }
 
     if ($no_error) {
@@ -114,9 +113,11 @@
         $_SESSION["errorImage"] = $error;
         header("location: ../fanart.php");
         exit();
+    }else {
+        unlink($filePath);
+        $_SESSION["errorImage"] = $error;
+        header("location: ../add_fanart.php");
     }
 
-    $_SESSION["errorImage"] = $error;
-
-    header("location: ../add_fanart.php");
+    
 ?>
