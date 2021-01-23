@@ -7,26 +7,26 @@
 	if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $no_error=false;
-        $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
-        header("location: ../php/admin.php");
+        $error=$error."Errore di connessione al database <br />";
+        header("location: ../admin.php");
         exit();
     }
 
 	$email="";
 	if (!isset($_GET['image']) || $_SESSION['logged']==false) {
-		header("location: ../php/access_denied.php");
+		header("location: ../access_denied.php");
 		exit();		
 	}else {
 		$image = $_GET['image'];
 		$email = $_SESSION['EMAIL'];
 		$image = "../img/fanart/".$image;
 		$query = "DELETE FROM Foto WHERE foto.PATH = '$image'";
-		header("location: ../php/my_fanart.php");
+		header("location: ../my_fanart.php");
 		if ($_SESSION['PERMISSION'] == 0) {
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
 			if (isset($_GET['adm']) && $_GET['adm']==0) {
-				header("location: ../php/fanart.php");
+				header("location: ../fanart.php");
 			}
 		}else {
 			new Debugger("UTENTE NORMALE");
@@ -41,16 +41,15 @@
                 new Debugger($count);
                 if($count==0){
 					new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
-					header("location: ../php/access_denied.php");
+					header("location: ../access_denied.php");
                 	$no_error = false;
-                    $error="<div class=\'msg_box error_box\'>Stai cercando di rimuovere una foto non tua</div>";
+                    $error="Stai cercando di rimuovere una foto non tua <br />";
                 }else {
-                	new Debugger("SEI TU FRA");
                 	$no_error = $obj_connection->insertDB($query);
                 }
 			}else {
 				new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
-				header("location: ../php/access_denied.php");
+				header("location: ../access_denied.php");
 				$no_error = false;
 			}
 		}
