@@ -34,7 +34,7 @@
     		}else {
     			new Debugger("preparo alla query");
 				$hashed_pwd=hash("sha512",$pwd);
-				$query = "UPDATE User SET PASSWORD = '$hashed_pwd' WHERE EMAIL = '$email'";
+				$query = "UPDATE user SET PASSWORD = '$hashed_pwd' WHERE EMAIL = '$email'";
 				$no_error = !$obj_connection->insertDB($query);
 				if ($_SESSION['PERMISSION']==0) {
 					header("location: ../php/admin.php");

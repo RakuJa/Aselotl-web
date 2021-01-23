@@ -18,7 +18,7 @@
 		header("location: ../access_denied.php");		
 	}else {
 		$email = $_GET['email'];
-		$query = "DELETE FROM User WHERE EMAIL = '$email'";
+		$query = "DELETE FROM user WHERE EMAIL = '$email'";
 		$no_error = !$obj_connection->insertDB($query);
 		if ($_SESSION['PERMISSION']==0) {
 			header("location: ../admin.php");
