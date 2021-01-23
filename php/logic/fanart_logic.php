@@ -26,10 +26,10 @@
     		preg_replace('/\PL/u', '', $kw);
     		if ($counter==0) {
 				$query = "
-					SELECT A0.PATH,A0.DESCRIPTION,A0.EMAIL FROM (
+					SELECT A0.IMGID,A0.DESCRIPTION,A0.EMAIL FROM (
 
-					SELECT A1.PATH, DESCRIPTION,EMAIL FROM foto AS A1, fotokeyword AS A2 WHERE
-						A1.PATH = A2.PATH AND KEYWORD = '$kw') AS A$counter " ;
+					SELECT A1.IMGID, DESCRIPTION,EMAIL FROM foto AS A1, fotokeyword AS A2 WHERE
+						A1.IMGID = A2.IMGID AND KEYWORD = '$kw') AS A$counter " ;
 			} else {
 				$query = $query." JOIN (SELECT * FROM fotokeyword WHERE KEYWORD = '$kw') AS A$counter ";
 			}
@@ -41,17 +41,17 @@
        		while ($i<$counter) {
        			if ($i==0) {
        				$x = $i+1;
-       				$query = $query." ON A$i.PATH = A$x.PATH ";
+       				$query = $query." ON A$i.IMGID = A$x.IMGID ";
        				$i = $i+2;
        			}else {
-       				$query = $query." = A$i.PATH ";
+       				$query = $query." = A$i.IMGID ";
        				$i = $i+1;
        			}
        		}
        	}
-       	$query = $query." ORDER BY A0.PATH DESC";
+       	$query = $query." ORDER BY A0.IMGID DESC";
 	}else {
-		$query = "SELECT * FROM foto ORDER BY PATH DESC";
+		$query = "SELECT * FROM foto ORDER BY IMGID DESC";
 	}
 	$files = $obj_connection->queryDB($query);
 	if ($files) {
@@ -69,18 +69,17 @@
 			}
 			for($i = 0; $i < $images_per_page; $i++) {
 				$curr_image = $page*$images_per_page+$i;
-				if(isset($files[$curr_image]['PATH'])) {
-					$img = $files[$curr_image]['PATH'];
+				if(isset($files[$curr_image]['IMGID'])) {
+					$img = $files[$curr_image]['IMGID'];
 					$dsc = $files[$curr_image]['DESCRIPTION'];
 					$mail = $files[$curr_image]['EMAIL'];
-					$img_name = str_replace('../img/fanart/', '', $img);
 					echo "<br />";
 					echo "<figure>";
-					echo "<img src='$img' alt=''/>";
+					echo "<img src='../img/fanart/$img' alt=''/>";
 					echo "<figcaption> $dsc </figcaption>";
 					echo "</figure>";
 					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
-						echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
+						echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img), "' class='rightbutton'>Rimuovi</a>";
 					}
 					echo "<p class='small'>Immagine caricata da $mail</p><br />";
 					echo "<hr><br />";
@@ -88,10 +87,10 @@
 			}
 			$nextpage = $page+1;
 			$prevpage = $page-1;
-			if(isset($files[$nextpage*$images_per_page]['PATH'])  ) {
+			if(isset($files[$nextpage*$images_per_page]['IMGID'])  ) {
 				echo "<a href='../php/fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina successiva</a>";
 			}
-			if(isset($files[$prevpage*$images_per_page]['PATH'])  ){
+			if(isset($files[$prevpage*$images_per_page]['IMGID'])  ){
 				echo "<a href='../php/fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
 			}
 			echo "<br/><br/>";
@@ -100,7 +99,7 @@
 			}
 		} else {
 			$page = 0;
-			if(isset($files[$page]['PATH'])){
+			if(isset($files[$page]['IMGID'])){
 				$host  = $_SERVER['HTTP_HOST'];
 				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 				$extra = '../php/fanart.php?page=0'."&keywords=".$keywords;

@@ -2,7 +2,7 @@
 	require_once('../php/logic/connessione.php');
     require_once('../php/logic/debugger.php');
 	$email = $_SESSION['EMAIL'];
-	$sql = "SELECT * FROM foto WHERE EMAIL='$email' ORDER BY PATH DESC";
+	$sql = "SELECT * FROM foto WHERE EMAIL='$email' ORDER BY IMGID DESC";
 	$files = $obj_connection->queryDB($sql);
 	if ($files) {
 		$lenght = count($files);
@@ -19,26 +19,25 @@
 			}
 			for($i = 0; $i < $images_per_page; $i++) {
 				$curr_image = $page*$images_per_page+$i;
-				if(isset($files[$curr_image]['PATH'])) {
-					$img = $files[$curr_image]['PATH'];
+				if(isset($files[$curr_image]['IMGID'])) {
+					$img = $files[$curr_image]['IMGID'];
 					$dsc = $files[$curr_image]['DESCRIPTION'];
-					$img_name = str_replace('../img/fanart/', '', $img);
 					echo "<br />";
 					echo "<figure>";
-					echo "<img src='$img' alt=''/>";
+					echo "<img src='../img/fanart/$img' alt=''/>";
 					echo "<figcaption> $dsc </figcaption>";
 					echo "</figure>";
-					echo "<a href='../php/logic/remove_fanart.php?image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a></p><br /><br />";
+					echo "<a href='../php/logic/remove_fanart.php?image=",urlencode($img), "' class='rightbutton'>Rimuovi</a></p><br /><br />";
 					echo "<hr><br />";
 				}
 			}
 			$nextpage = $page+1;
 			$prevpage = $page-1;
-			if(isset($files[$nextpage*$images_per_page]['PATH'])  )
+			if(isset($files[$nextpage*$images_per_page]['IMGID'])  )
 			{
 				echo "<a href='../php/my_fanart.php?page=$nextpage' class='rightbutton'>Pagina sucessiva</a>";
 			}
-			if(isset($files[$prevpage*$images_per_page]['PATH'])  )
+			if(isset($files[$prevpage*$images_per_page]['IMGID'])  )
 			{
 				echo "<a href='../php/my_fanart.php?page=$prevpage' class='leftbutton'>Pagina precedente</a>";
 			}
@@ -49,7 +48,7 @@
 		}
 		else {
 			$page = 0;
-			if(isset($files[$page]['PATH'])){
+			if(isset($files[$page]['IMGID'])){
 				$host  = $_SERVER['HTTP_HOST'];
 				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 				$extra = '../php/my_fanart.php?page=0';

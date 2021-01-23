@@ -27,7 +27,7 @@
 
 
     $target_dir = "../../img/fanart/";
-    $filePath = "";
+    $fileIMGID = "";
     new Debugger("start");
 
     $gestImg = new gestImg();
@@ -40,13 +40,13 @@
         new Debugger( "Fine upload ");
         if($uploadResult['error']==""){
         	new Debugger( "Nessun errore rilevato durante upload");
-            if($uploadResult['path']=="") {
-                $error=$error."Pathing non trovato <br />";
-                new Debugger("Pathing non trovato");
+            if($uploadResult['IMGID']=="") {
+                $error=$error."IMGIDing non trovato <br />";
+                new Debugger("IMGIDing non trovato");
                 $no_error=false;
             }else {
-                new Debugger("Pathing trovato");
-                $filePath = $uploadResult['path'];
+                new Debugger("IMGIDing trovato");
+                $fileIMGID = $uploadResult['IMGID'];
             }	
         }
         else{
@@ -55,7 +55,11 @@
         	new Debugger("Errore rilevato");
             $no_error=false;
         }
-    }
+    } else {
+		$no_error = false;
+		new Debugger(" Immagine vuota caricata, errore! <br />");
+        $error=$error. " Immagine vuota caricata, errore! <br />";
+	}
 
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
@@ -67,14 +71,18 @@
     if ($no_error) {
         $query_error = false;
         new Debugger("Query in preparazione");
-        new Debugger($filePath);
+        new Debugger($fileIMGID);
         new Debugger($description);
         new Debugger($email);
         new Debugger($keywords);
-        $foto_query = "INSERT INTO foto (`PATH`,`DESCRIPTION`,`EMAIL`) VALUES (\"$filePath\",\"$description\",\"$email\")";
+		$fileName = end(explode("/", $fileIMGID));
+		echo "SPAZIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ";
+		var_dump($fileName);
+		var_dump($fileIMGID);
+        $foto_query = "INSERT INTO foto (`IMGID`,`DESCRIPTION`,`EMAIL`) VALUES (\"$fileName\",\"$description\",\"$email\")";
         $query_error = !$obj_connection->insertDB($foto_query);
         if ($query_error) {
-            unlink($filePath);
+            unlink($fileIMGID);
             $_SESSION["errorImage"] = $error."errore nel inserimento nel db <br />";
             header("location: ../add_fanart.php");
             exit();
@@ -98,13 +106,12 @@
             }
             $query_error = !$obj_connection->insertDB($keyword_query);
             if (!$query_error) {
-                $query_error =
-                $association_query = "INSERT INTO `fotokeyword` (`KEYWORD`,`PATH`) VALUES (\"$kw\",\"$filePath\")";
+                $association_query = "INSERT INTO `fotokeyword` (`KEYWORD`,`IMGID`) VALUES (\"$kw\",\"$fileName\")";
                 $query_error = !$obj_connection->insertDB($association_query);
                 if ($query_error) {
                     new Debugger("ERRORE RILEVATO =====");
                     new Debugger($kw);
-                    new Debugger($filePath);
+                    new Debugger($fileName);
                     new Debugger("FINE ERRORE ========");
                 }
             }
@@ -112,7 +119,7 @@
         $_SESSION["errorImage"] = $error;
         header("location: ../fanart.php");
     }else {
-        unlink($filePath);
+        unlink($fileIMGID);
         $_SESSION["errorImage"] = $error;
         header("location: ../add_fanart.php");
     }
