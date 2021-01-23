@@ -54,56 +54,58 @@
 		$query = "SELECT * FROM foto ORDER BY PATH DESC";
 	}
 	$files = $obj_connection->queryDB($query);
-	$lenght = count($files);
-	$curr_page = 0;
-	$images_per_page = 2;
-	$totpages = ceil($lenght/$images_per_page);
-	if(isset($_GET['page'])) {
-		$page = $_GET['page'];
-		if ($page + 1 > $totpages || $page < 0)	{
-			$host  = $_SERVER['HTTP_HOST'];
-			$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-			$extra = '../php/fanart.php';
-			header("Location: http://$host$uri/".$extra);
-		}
-		for($i = 0; $i < $images_per_page; $i++) {
-			$curr_image = $page*$images_per_page+$i;
-			if(isset($files[$curr_image]['PATH'])) {
-				$img = $files[$curr_image]['PATH'];
-				$dsc = $files[$curr_image]['DESCRIPTION'];
-				$mail = $files[$curr_image]['EMAIL'];
-				$img_name = str_replace('../img/fanart/', '', $img);
-				echo "<br />";
-				echo "<figure>";
-				echo "<img src='$img' alt=''/>";
-				echo "<figcaption> $dsc </figcaption>";
-				echo "</figure>";
-				if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
-					echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
-				}
-				echo "<p class='small'>Immagine caricata da $mail</p><br />";
-				echo "<hr><br />";
+	if ($files) {
+		$lenght = count($files);
+		$curr_page = 0;
+		$images_per_page = 2;
+		$totpages = ceil($lenght/$images_per_page);
+		if(isset($_GET['page'])) {
+			$page = $_GET['page'];
+			if ($page + 1 > $totpages || $page < 0)	{
+				$host  = $_SERVER['HTTP_HOST'];
+				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+				$extra = '../php/fanart.php';
+				header("Location: http://$host$uri/".$extra);
 			}
-		}
-		$nextpage = $page+1;
-		$prevpage = $page-1;
-		if(isset($files[$nextpage*$images_per_page]['PATH'])  ) {
-			echo "<a href='../php/fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina successiva</a>";
-		}
-		if(isset($files[$prevpage*$images_per_page]['PATH'])  ){
-			echo "<a href='../php/fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
-		}
-		echo "<br/><br/>";
-		if ($totpages>1) {
-		echo "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
-		}
-	} else {
-		$page = 0;
-		if(isset($files[$page]['PATH'])){
-			$host  = $_SERVER['HTTP_HOST'];
-			$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-			$extra = '../php/fanart.php?page=0'."&keywords=".$keywords;
-			header("Location: http://$host$uri/".$extra);
+			for($i = 0; $i < $images_per_page; $i++) {
+				$curr_image = $page*$images_per_page+$i;
+				if(isset($files[$curr_image]['PATH'])) {
+					$img = $files[$curr_image]['PATH'];
+					$dsc = $files[$curr_image]['DESCRIPTION'];
+					$mail = $files[$curr_image]['EMAIL'];
+					$img_name = str_replace('../img/fanart/', '', $img);
+					echo "<br />";
+					echo "<figure>";
+					echo "<img src='$img' alt=''/>";
+					echo "<figcaption> $dsc </figcaption>";
+					echo "</figure>";
+					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
+						echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img_name), "' class='rightbutton'>Rimuovi</a>";
+					}
+					echo "<p class='small'>Immagine caricata da $mail</p><br />";
+					echo "<hr><br />";
+				}
+			}
+			$nextpage = $page+1;
+			$prevpage = $page-1;
+			if(isset($files[$nextpage*$images_per_page]['PATH'])  ) {
+				echo "<a href='../php/fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina successiva</a>";
+			}
+			if(isset($files[$prevpage*$images_per_page]['PATH'])  ){
+				echo "<a href='../php/fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
+			}
+			echo "<br/><br/>";
+			if ($totpages>1) {
+			echo "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
+			}
+		} else {
+			$page = 0;
+			if(isset($files[$page]['PATH'])){
+				$host  = $_SERVER['HTTP_HOST'];
+				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+				$extra = '../php/fanart.php?page=0'."&keywords=".$keywords;
+				header("Location: http://$host$uri/".$extra);
+			}
 		}
 	}
 ?>
