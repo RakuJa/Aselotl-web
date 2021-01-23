@@ -10,7 +10,9 @@
 	$page_body = readfile("../html/register_top.html");
 	if(isset($_SESSION["error"])){
 		$error = $_SESSION["error"];
-		echo "ERRORE:<br />$error<br /><br />";
+		if ($error!="") {
+			echo "ERRORE:<br />$error<br /><br />";
+		}
 	}
 	$page_body = readfile("../html/register_bottom.html");
     $page_footer = readfile("../html/footer.html");
