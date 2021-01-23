@@ -8,7 +8,7 @@
         new Debugger("[Errore di connessione al database]");
         $no_error=false;
         $error=$error."Errore di connessione al database <br />";
-        header("location: ../admin.php");
+        header("location: ../404.php");
         exit();
     }
 
