@@ -21,12 +21,12 @@
 		$email = $_SESSION['EMAIL'];
 		$image = "../../img/fanart/".$image;
 		$query = "DELETE FROM foto WHERE foto.PATH = '$image'";
-		//header("location: ../my_fanart.php");
+		header("location: ../my_fanart.php");
 		if ($_SESSION['PERMISSION'] == 0) {
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
 			if (isset($_GET['adm']) && $_GET['adm']==0) {
-				//header("location: ../fanart.php");
+				header("location: ../fanart.php");
 			}
 		}else {
 			new Debugger("UTENTE NORMALE");
@@ -41,7 +41,7 @@
                 new Debugger($count);
                 if($count==0){
 					new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
-					//header("location: ../access_denied.php");
+					header("location: ../access_denied.php");
                 	$no_error = false;
                     $error="Stai cercando di rimuovere una foto non tua <br />";
                 }else {
@@ -49,7 +49,7 @@
                 }
 			}else {
 				new Debugger("Non giocare con url. Non sei il benvenuto, immagine non tua");
-				//header("location: ../access_denied.php");
+				header("location: ../access_denied.php");
 				$no_error = false;
 			}
 		}
