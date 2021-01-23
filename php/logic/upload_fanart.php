@@ -55,6 +55,10 @@
         	new Debugger("Errore rilevato");
             $no_error=false;
         }
+    }else {
+        $no_error=false;
+        new Debugger(" Immagine vuota caricata, errore! <br />");
+        $error=$error. " Immagine vuota caricata, errore! <br />";
     }
 
     $obj_connection = new DBConnection();
