@@ -39,8 +39,8 @@
                 echo "<hr>";
                 echo "<div class='customlink'>";
                 echo "<h2> $email </h2>";
-                echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
-                echo "<a href='edit_password.php?email=", urlencode($email), "'>Modifica <span xml:lang='en' lang='en'> password </span> </a>";
+                echo "<a href='logic/delete_account.php?email=", urlencode($email), "'>Elimina</a>";
+                echo "<a href='logic/edit_password.php?email=", urlencode($email), "'>Modifica <span xml:lang='en' lang='en'> password </span> </a>";
                 echo "</div>";
                 echo "<p> Permessi: $perm</p>";
             }
