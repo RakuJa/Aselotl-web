@@ -37,9 +37,9 @@
 				$query = "UPDATE user SET PASSWORD = '$hashed_pwd' WHERE EMAIL = '$email'";
 				$no_error = !$obj_connection->insertDB($query);
 				if ($_SESSION['PERMISSION']==0) {
-					header("location: ../php/admin.php");
+					header("location: ../admin.php");
 				}else {
-					header("location: ../php/logout.php");
+					header("location: ../logout.php");
 				}
 			}
 		}
