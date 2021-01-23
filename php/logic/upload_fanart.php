@@ -11,14 +11,14 @@
     if($_SESSION['logged']==false){
         new Debugger("User not logged in");
         $_SESSION["errorImage"] = "Utente non ha effettuato l'accesso <br />";
-        header('location: ../php/add_fanart.php');
+        header('location: ../add_fanart.php');
         exit();
     }
     $no_error =isset($_POST['description']) || isset($_SESSION['EMAIL']) || isset($_POST['keywords']);
     if (!$no_error) {
         new Debugger("Keyword, email or description missing. Fatal error");
         $_SESSION["errorImage"] = "Keyword, email o descrizione mancanti. Fatal error <br />";
-        header('location: ../php/add_fanart.php');
+        header('location: ../add_fanart.php');
         exit();
     }
     $email = $_SESSION['EMAIL'];
@@ -76,7 +76,7 @@
         if ($query_error) {
             unlink($filePath);
             $_SESSION["errorImage"] = $error."errore nel inserimento nel db <br />";
-            header("location: ../php/add_fanart.php");
+            header("location: ../add_fanart.php");
             exit();
         }
         $association_query =""; 
