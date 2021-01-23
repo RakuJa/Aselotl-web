@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `foto` (
-  `PATH` varchar(256) NOT NULL,
+  `PATH` varchar(255) NOT NULL,
   `DESCRIPTION` text NOT NULL,
-  `EMAIL` varchar(320) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `EMAIL` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `foto`
@@ -51,8 +51,8 @@ INSERT INTO `foto` (`PATH`, `DESCRIPTION`, `EMAIL`) VALUES
 
 CREATE TABLE `fotokeyword` (
   `KEYWORD` varchar(40) NOT NULL,
-  `PATH` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `PATH` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `fotokeyword`
@@ -82,7 +82,7 @@ INSERT INTO `fotokeyword` (`KEYWORD`, `PATH`) VALUES
 CREATE TABLE `keyword` (
   `KEYWORD` varchar(40) NOT NULL,
   `LAST_USED` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `keyword`
@@ -104,10 +104,10 @@ INSERT INTO `keyword` (`KEYWORD`, `LAST_USED`) VALUES
 --
 
 CREATE TABLE `user` (
-  `EMAIL` varchar(320) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
   `PASSWORD` varchar(255) NOT NULL,
   `PERMISSION` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
