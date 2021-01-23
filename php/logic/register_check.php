@@ -75,7 +75,7 @@
         new debugger("checkpoint 4");
         $hashed_pwd=hash("sha512",$pwd);
         //check dati inseriti
-        $query = "INSERT INTO user (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES (\"$email\",\"$hashed_pwd\",1)";
+        $query = "INSERT INTO user (`EMAIL`,`PASSWORD`,`PERMISSION`) VALUES ('$email','$hashed_pwd',1)";
         new debugger("checkpoint 5");
         if($obj_connection->insertDB($query)){
             new debugger("checkpoint 6");
@@ -93,6 +93,6 @@
     }
     new debugger($error);
     $_SESSION["error"] = $error;
-    //header("location: ../register.php");
+    header("location: ../register.php");
 
 ?>

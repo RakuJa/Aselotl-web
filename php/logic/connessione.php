@@ -27,9 +27,6 @@
                         array_push($result,$row);
                     }
                 } 
-                if ($this->connessione) {
-                    $this->connessione->close();
-                }
                 if ($result==false) {return NULL;}
                 return $result;
             }else{
@@ -38,9 +35,6 @@
         }
         
         public function insertDB($query){
-            var_dump($query);
-            var_dump($this->connessione);
-            var_dump($this->connessione->query($query));
             return $this->connessione->query($query);
         }
 
