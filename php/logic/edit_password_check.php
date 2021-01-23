@@ -9,7 +9,7 @@
 	if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database<br />";
-        header("location: ../php/index.php");
+        header("location: ../index.php");
         exit();
         $no_error=false;
     }
@@ -17,7 +17,7 @@
 	if (!isset($_POST['email']) || $_SESSION['logged']==false || 
 		!isset($_POST['pwd']) || !isset($_POST['rpwd']) ||
 		($_SESSION['PERMISSION']!=0 && $_SESSION['EMAIL'] != $_POST['email'])) {
-		header("location: ../php/access_denied.php");		
+		header("location: ../access_denied.php");		
 	}else {
 		$email = $_POST['email'];
 		$pwd = $_POST['pwd'];
