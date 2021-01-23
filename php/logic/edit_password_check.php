@@ -39,7 +39,7 @@
 				if ($_SESSION['PERMISSION']==0) {
 					header("location: ../admin.php");
 				}else {
-					header("location: ../logout.php");
+					header("location: logout.php");
 				}
 			}
 		}
