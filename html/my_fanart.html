@@ -17,11 +17,12 @@
 	<div class='customlink'>
 	<h1>LE MIE <span xml:lang="en" lang="en">FAN ART</span></h1>
 		<div id='clear_top'></div>
-			<a href='../php/add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
+			<a href='add_fanart.php'>Carica una <span xml:lang="en" lang="en">fan art</span></a>
 	</div>
 	<div id='searchbar'>
-	<label for="search">Cerca immagine: </label>
-	<input type="text" id="search" name="search" placeholder="Inserisci le parole chiave dell'immagine interessata..." title="Cerca"/>
-	<input type="submit" value="Cerca" />
-	<br/><br/><br/><br/>
+		<form method="get" action="../php/my_fanart.php" id="search_keyword">
+		<label for="search">Cerca immagine: </label>
+		<input type="text" id="search" name="search" placeholder="Inserisci le parole chiave della immagine interessata..." title="Cerca"/>
+		<input type="submit" value="Cerca" />
+		</form>
 	</div>

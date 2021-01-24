@@ -831,6 +831,10 @@ fieldset {
 	padding: 1em;
 }
 
+.customlink textarea[id=email] {
+	background-color: grey;
+}
+
 @media screen and (max-width: 670px) {
 	fieldset {
 		width: 92%;

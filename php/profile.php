@@ -1,7 +1,7 @@
 <?php
     session_start();
 	if ($_SESSION['logged']==false) {
-		header("location: ../php/access_denied.php");
+		header("location: ../401.php");
 	}
     $page_head = readfile("../html/head.html");
 	echo "<title>Profilo</title>";

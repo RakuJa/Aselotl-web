@@ -5,7 +5,7 @@
 
     if($_SESSION['logged']==true){
         new Debugger("User already logged in");
-        header('location: ../index.php');
+        header('location: /dgiachet/');
         exit();
     }
     new Debugger("User not logged in");
@@ -77,7 +77,7 @@
                 }
 
                 $obj_connection->close_connection();    
-                header('location: ../index.php');
+                header('location: /dgiachet/');
                 exit;
 
             }else {
@@ -101,6 +101,6 @@
     $_SESSION["error"] = $error;
     new Debugger($error);
 
-    header("location: ../login.php");
+    header("location: /dgiachet/php/login.php");
     exit();
 ?>

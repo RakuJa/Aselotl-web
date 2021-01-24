@@ -8,7 +8,7 @@
         $no_error=false;
     }
 	if ($_SESSION['logged']==false || $_SESSION['PERMISSION']!=0) {
-		header("location: ../php/access_denied.php");
+		header("location: ../401.php");
 	}
 
     $tempmail = $_SESSION['EMAIL'];

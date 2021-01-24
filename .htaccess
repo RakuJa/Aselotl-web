@@ -1,2 +1,3 @@
-DirectoryIndex php/index.php
-ErrorDocument 404 /dgiachet/php/404.php
+DirectoryIndex index.php
+ErrorDocument 401 /dgiachet/401.php
+ErrorDocument 404 /dgiachet/404.php

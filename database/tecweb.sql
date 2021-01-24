@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `tecweb`
--- 
+--
 
 -- --------------------------------------------------------
 
@@ -28,20 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `foto` (
-  `IMGID` varchar(255) NOT NULL,
+  `PATH` varchar(256) NOT NULL,
   `DESCRIPTION` text NOT NULL,
-  `EMAIL` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `EMAIL` varchar(320) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `foto`
 --
 
-INSERT INTO `foto` (`IMGID`, `DESCRIPTION`, `EMAIL`) VALUES
-('1609802163.jpg', 'Disegno fatto a mano con tanto amore', 'admin'),
-('1609802181.jpg', 'Disegno digitale di un axolotl', 'admin'),
-('1609802222.jpg', 'Un axolotl strano', 'user'),
-('1609802260.jpg', 'Modello 3D di un axolotl', 'user');
+INSERT INTO `foto` (`PATH`, `DESCRIPTION`, `EMAIL`) VALUES
+('../img/fanart/1609802163.jpg', 'Disegno fatto a mano con tanto amore', 'admin'),
+('../img/fanart/1609802181.jpg', 'Disegno digitale di un axolotl', 'admin'),
+('../img/fanart/1609802222.jpg', 'Un axolotl strano', 'user'),
+('../img/fanart/1609802260.jpg', 'Modello 3D di un axolotl', 'user');
 
 -- --------------------------------------------------------
 
@@ -51,27 +51,27 @@ INSERT INTO `foto` (`IMGID`, `DESCRIPTION`, `EMAIL`) VALUES
 
 CREATE TABLE `fotokeyword` (
   `KEYWORD` varchar(40) NOT NULL,
-  `IMGID` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `PATH` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `fotokeyword`
 --
 
-INSERT INTO `fotokeyword` (`KEYWORD`, `IMGID`) VALUES
-('disegno', '1609802163.jpg'),
-('mano', '1609802163.jpg'),
-('axolotl', '1609802163.jpg'),
-('disegno', '1609802181.jpg'),
-('digitale', '1609802181.jpg'),
-('axolotl', '1609802181.jpg'),
-('disegno', '1609802222.jpg'),
-('mano', '1609802222.jpg'),
-('axolotl', '1609802222.jpg'),
-('strano', '1609802222.jpg'),
-('modello', '1609802260.jpg'),
-('3D', '1609802260.jpg'),
-('axolotl', '1609802260.jpg');
+INSERT INTO `fotokeyword` (`KEYWORD`, `PATH`) VALUES
+('disegno', '../img/fanart/1609802163.jpg'),
+('mano', '../img/fanart/1609802163.jpg'),
+('axolotl', '../img/fanart/1609802163.jpg'),
+('disegno', '../img/fanart/1609802181.jpg'),
+('digitale', '../img/fanart/1609802181.jpg'),
+('axolotl', '../img/fanart/1609802181.jpg'),
+('disegno', '../img/fanart/1609802222.jpg'),
+('mano', '../img/fanart/1609802222.jpg'),
+('axolotl', '../img/fanart/1609802222.jpg'),
+('strano', '../img/fanart/1609802222.jpg'),
+('modello', '../img/fanart/1609802260.jpg'),
+('3D', '../img/fanart/1609802260.jpg'),
+('axolotl', '../img/fanart/1609802260.jpg');
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ INSERT INTO `fotokeyword` (`KEYWORD`, `IMGID`) VALUES
 CREATE TABLE `keyword` (
   `KEYWORD` varchar(40) NOT NULL,
   `LAST_USED` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `keyword`
@@ -104,10 +104,10 @@ INSERT INTO `keyword` (`KEYWORD`, `LAST_USED`) VALUES
 --
 
 CREATE TABLE `user` (
-  `EMAIL` varchar(255) NOT NULL,
+  `EMAIL` varchar(320) NOT NULL,
   `PASSWORD` varchar(255) NOT NULL,
   `PERMISSION` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -127,7 +127,7 @@ INSERT INTO `user` (`EMAIL`, `PASSWORD`, `PERMISSION`) VALUES
 -- Indexes for table `foto`
 --
 ALTER TABLE `foto`
-  ADD PRIMARY KEY (`IMGID`),
+  ADD PRIMARY KEY (`PATH`),
   ADD KEY `EMAIL` (`EMAIL`);
 
 --
@@ -135,7 +135,7 @@ ALTER TABLE `foto`
 --
 ALTER TABLE `fotokeyword`
   ADD KEY `KEYWORD` (`KEYWORD`),
-  ADD KEY `IMGID` (`IMGID`);
+  ADD KEY `PATH` (`PATH`);
 
 --
 -- Indexes for table `keyword`
@@ -164,7 +164,7 @@ ALTER TABLE `foto`
 --
 ALTER TABLE `fotokeyword`
   ADD CONSTRAINT `keyword` FOREIGN KEY (`KEYWORD`) REFERENCES `keyword` (`KEYWORD`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `IMGID` FOREIGN KEY (`IMGID`) REFERENCES `foto` (`IMGID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `path` FOREIGN KEY (`PATH`) REFERENCES `foto` (`PATH`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

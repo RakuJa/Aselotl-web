@@ -15,9 +15,10 @@
 		echo"<a href='../php/login.php'>Accedi per caricare una <span xml:lang='en' lang='en'>fan art</span></a>";
 	}
 	$page_body= readfile("../html/searchbar.html");
-	
 	$keywords = "";
 	if (isset($_GET['keywords']) && $_GET['keywords']!="") {
+		echo "<a href='../php/fanart.php' class='rightbutton'>Annulla ricerca</a>";
+		echo "<br/><br/><br/><br/><br/><br/>";
 		$keywords = $_GET['keywords'];
 		$array_kw = explode(" ",$keywords);
 		$counter = 0;

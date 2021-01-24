@@ -17,7 +17,7 @@
 	if (!isset($_POST['email']) || $_SESSION['logged']==false || 
 		!isset($_POST['pwd']) || !isset($_POST['rpwd']) ||
 		($_SESSION['PERMISSION']!=0 && $_SESSION['EMAIL'] != $_POST['email'])) {
-		header("location: ../access_denied.php");		
+		header("location: ../../401.php");		
 	}else {
 		$email = $_POST['email'];
 		$pwd = $_POST['pwd'];

@@ -4,7 +4,7 @@
     require_once('debugger.php');
     require_once("reg_ex.php");
     if($_SESSION['logged']==true){
-        header('location:../index.php');
+        header('location: ../../index.php');
         exit();
     }
     $email='';
@@ -31,7 +31,7 @@
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database <br />";
-        header('location:../register.php');
+        header('location: ../register.php');
         exit();
         $no_error=false;
     }
