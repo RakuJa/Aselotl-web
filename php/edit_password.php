@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once("logic/re_place_holder.php");
 	if ($_SESSION['logged']==false) {
 		header("location: ../401.php");
 	}
@@ -13,8 +14,11 @@
     }else {
         $email=$_SESSION['EMAIL'];
     }
-	$page_body = readfile("../html/edit_password_top.html");
-	echo '<input type="text" required name="email" id="email" maxlength="50" class="full_width_input" readonly value="'.$email.'">';
-	$page_body = readfile("../html/edit_password_bottom.html");
+	if($email!=""){
+		$page_body = (new re_place_holder)->replace("../html/edit_password.html","%EMAIL%",$email);
+	}else{
+		$page_body = (new re_place_holder)->replace("../html/edit_password.html","%EMAIL%","");
+    }
+    echo $page_body;
 	$page_footer = readfile("../html/footer.html");
 ?>

@@ -18,6 +18,9 @@
 	<form action="../php/logic/upload_fanart.php" method="post" enctype="multipart/form-data">
 	<fieldset>
 	<legend>Inserisci dati:</legend><br />
+		<span id="error" class="error">
+			%ERROR%
+		</span>
 		<label for="description">Descrizione: </label><br />
 		<textarea required name="description" id="description" maxlength= "500" onkeyup="check_empty_art()"></textarea><br /><br />
 		<label for="keywords">Parole chiave: </label>

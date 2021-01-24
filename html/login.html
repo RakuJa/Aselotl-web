@@ -1,0 +1,52 @@
+<div id="breadcrumb">
+	<p>Ti trovi in: <a xml:lang="en" lang="en" href="../">Home</a> &gt; Accedi</p>
+</div>
+
+<div id="menu">
+	<ul>
+		<li xml:lang="en" lang="en"><a href="../">Home</a></li>
+		<li><a href="../php/famous.php">Personaggi famosi</a></li>
+		<li xml:lang="en" lang="en"><a href="../php/fanart.php">Fan art</a></li>
+		<li xml:lang="en" lang="en"><a href="../php/fun_facts.php">Fun facts</a></li>
+		<li><a href="../php/about_us.php">Chi siamo</a></li>
+		<li><a href="../php/rules.php">Regolamento</a></li>
+    </ul>
+</div>
+
+<main id="content">
+	<h1>ACCEDI</h1>
+		<form method="post" action="../php/logic/login_check.php" id="login_form" class="vertical_input_form">
+			<fieldset>
+				<legend>Inserisci dati:</legend><br />
+				<span id="error" class="error">
+					%ERROR%
+				</span>
+				<noscript>
+					<div class="msg_box warning_box">
+						ATTENZIONE: <span xml:lang="en" lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
+						NON ESSERE DISPONIBILI
+					</div>
+				</noscript> 
+								
+				<label for="email" xml:lang="en" lang="en">Email:</label>
+				<input type="text" required name="email" id="email" maxlength="50" onkeyup="remove_error()"/>
+	
+				<label for= "pwd" xml:lang="en" lang="en">Password:</label>
+				
+				<div class="right">
+				<input type="checkbox" onclick="show_pass()" id="show_password" name="show_password"/>
+				<label for="show_password">Mostra password</label>
+				</div>
+				
+				<input type="password" required name="pwd" id="pwd" maxlength= "50" onkeyup="remove_error()"/>
+	
+				<input type="checkbox" id="remember_me" name="remember_me"/>
+				<label for="remember_me">Ricordati di me</label>
+				
+				<!--<input type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" tabindex="4" />-->
+				<button type="submit" id="login_btn" class="btn" name="accedi" value="Accedi" aria-describedby="error">Login</button>
+	
+	
+				<a href="../php/register.php" class="right">Non sei ancora registrato? CLICCA QUI</a>  
+			</fieldset>
+	   </form>

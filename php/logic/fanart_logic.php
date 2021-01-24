@@ -6,19 +6,20 @@
         new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database";
         $no_error=false;
-    }
-	//echo "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
-    if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
-		echo"<a href='../php/add_fanart.php'>Carica una <span xml:lang='en' lang='en'>fan art</span></a>";
-		echo"<a href='../php/my_fanart.php'>Le mie <span xml:lang='en' lang='en'>fan art</span></a>";
-	} else {
-		echo"<a href='../php/login.php'>Accedi per caricare una <span xml:lang='en' lang='en'>fan art</span></a>";
 	}
-	$page_body= readfile("../html/searchbar.html");
+	$content="";
+	//$content .= "<a href='delete_account.php?email=", urlencode($email), "'>Elimina</a>";
+    if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
+		$content .="<a href='../php/add_fanart.php'>Carica una <span xml:lang='en' lang='en'>fan art</span></a>";
+		$content .="<a href='../php/my_fanart.php'>Le mie <span xml:lang='en' lang='en'>fan art</span></a>";
+	} else {
+		$content .="<a href='../php/login.php'>Accedi per caricare una <span xml:lang='en' lang='en'>fan art</span></a>";
+	}
+	$content .= file_get_contents("../html/searchbar.html");
 	$keywords = "";
 	if (isset($_GET['keywords']) && $_GET['keywords']!="") {
-		echo "<a href='../php/fanart.php' class='rightbutton'>Annulla ricerca</a>";
-		echo "<br/><br/><br/><br/><br/><br/>";
+		$content .= "<a href='../php/fanart.php' class='rightbutton'>Annulla ricerca</a>";
+		$content .= "<br/><br/><br/><br/><br/><br/>";
 		$keywords = $_GET['keywords'];
 		$array_kw = explode(" ",$keywords);
 		$counter = 0;
@@ -74,29 +75,29 @@
 					$img = $files[$curr_image]['IMGID'];
 					$dsc = $files[$curr_image]['DESCRIPTION'];
 					$mail = $files[$curr_image]['EMAIL'];
-					echo "<br />";
-					echo "<figure>";
-					echo "<img src='../img/fanart/$img' alt=''/>";
-					echo "<figcaption> $dsc </figcaption>";
-					echo "</figure>";
+					$content .= "<br />";
+					$content .= "<figure>";
+					$content .= "<img src='../img/fanart/$img' alt=''/>";
+					$content .= "<figcaption> $dsc </figcaption>";
+					$content .= "</figure>";
 					if (isset($_SESSION['PERMISSION']) && $_SESSION['PERMISSION'] == 0){
-						echo "<a href='../php/logic/remove_fanart.php?adm=0&image=",urlencode($img), "' class='rightbutton'>Rimuovi</a>";
+						$content .= "<a href='../php/logic/remove_fanart.php?adm=0&image=".urlencode($img). "' class='rightbutton'>Rimuovi</a>";
 					}
-					echo "<p class='small'>Immagine caricata da $mail</p><br />";
-					echo "<hr><br />";
+					$content .= "<p class='small'>Immagine caricata da $mail</p><br />";
+					$content .= "<hr><br />";
 				}
 			}
 			$nextpage = $page+1;
 			$prevpage = $page-1;
 			if(isset($files[$nextpage*$images_per_page]['IMGID'])  ) {
-				echo "<a href='../php/fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina successiva</a>";
+				$content .= "<a href='../php/fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina successiva</a>";
 			}
 			if(isset($files[$prevpage*$images_per_page]['IMGID'])  ){
-				echo "<a href='../php/fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
+				$content .= "<a href='../php/fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
 			}
-			echo "<br/><br/>";
+			$content .= "<br/><br/>";
 			if ($totpages>1) {
-			echo "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
+			$content .= "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
 			}
 		} else {
 			$page = 0;
@@ -108,4 +109,5 @@
 			}
 		}
 	}
+	echo $content;
 ?>
