@@ -1,7 +1,7 @@
 <?php
+	require_once("sessione.php");
 	require_once('connessione.php');
 	require_once('debugger.php');
-	require_once('sessione.php');
 	$no_error=True;
 	$obj_connection = new DBConnection();
 	if(!$obj_connection->create_connection()){

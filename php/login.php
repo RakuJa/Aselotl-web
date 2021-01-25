@@ -1,13 +1,12 @@
 <?php
-	session_start();
+	require_once("logic/sessione.php");
 	require_once("logic/re_place_holder.php");
 	require_once("logic/debugger.php");
-    $page_header = readfile("../html/head.html");
-	echo "<title>Accedi</title>";
-	$page_theme = readfile("../html/toggle_theme.html");
+	$page_head = (new re_place_holder)->replace("../html/head.html","%TITLE%","<title>Accedi</title>");
+	echo $page_head;
     include '../php/header.php';
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-		header("location: ../php/index.php");
+		header("location: /dgiachet/");
 	}
 	$error = "";
 	if(isset($_SESSION["error"])){

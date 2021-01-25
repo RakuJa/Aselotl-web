@@ -1,12 +1,11 @@
 <?php
-    session_start();
+    require_once("logic/sessione.php");
     require_once("logic/re_place_holder.php");
 	if ($_SESSION['logged']==false) {
 		header("location: ../401.php");
 	}
-    $page_head = readfile("../html/head.html");
-	echo "<title>Modifica password</title>";
-	$page_theme = readfile("../html/toggle_theme.html");
+	$page_head = (new re_place_holder)->replace("../html/head.html","%TITLE%","<title>Modifica password</title>");
+	echo $page_head;
     include '../php/header.php';
     $email="";
     if (isset($_GET['email'])) {

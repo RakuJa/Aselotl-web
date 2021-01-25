@@ -1,17 +1,27 @@
 <?php
+	require_once("sessione.php");
 	require_once('../php/logic/connessione.php');
-    require_once('../php/logic/debugger.php');
+	require_once('../php/logic/debugger.php');
+	require_once("logic/re_place_holder.php");
 	$obj_connection = new DBConnection();
+	$error = "";
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database";
         $no_error=false;
-    }
+	}
+	$email = $_SESSION['EMAIL'];
+	$content="";
+	$temp = file_get_contents("../html/searchbar.html");
+	$temp = (new re_place_holder)->page_replace($temp,"%LINK%","../php/my_fanart.php");
+	$temp = (new re_place_holder)->page_replace($temp,"%PLACEHOLDER%","Inserisci le parole chiave della immagine interessata...");
+	$content .= $temp;
 	$keywords = "";
 	if (isset($_GET['keywords']) && $_GET['keywords']!="") {
-		echo "<a href='../php/my_fanart.php' class='rightbutton'>Annulla ricerca</a>";
-		echo "<br/><br/><br/><br/><br/><br/>";
 		$keywords = $_GET['keywords'];
+		$content = (new re_place_holder)->page_replace($content,"%KEYWORDS%", $keywords);
+		$content .= "<a href='../php/my_fanart.php' class='rightbutton'>Annulla ricerca</a>";
+		$content .= "<br/><br/><br/><br/><br/><br/>";
 		$array_kw = explode(" ",$keywords);
 		$counter = 0;
 		$query = "";
@@ -21,7 +31,7 @@
 				$query = "
 					SELECT A0.IMGID,A0.DESCRIPTION,A0.EMAIL FROM (
 
-					SELECT A1.IMGID, DESCRIPTION,EMAIL FROM foto AS A1, fotokeyword AS A2 WHERE
+					SELECT A1.IMGID, DESCRIPTION, EMAIL FROM foto AS A1, fotokeyword AS A2 WHERE
 						A1.IMGID = A2.IMGID AND KEYWORD = '$kw') AS A$counter " ;
 			} else {
 				$query = $query." JOIN (SELECT * FROM fotokeyword WHERE KEYWORD = '$kw') AS A$counter ";
@@ -42,13 +52,12 @@
        			}
        		}
        	}
-       	$query = $query." ORDER BY A0.IMGID DESC";
+		   $query = $query."WHERE EMAIL = '$email' ORDER BY A0.IMGID DESC";
 	}else {
-		$query = "SELECT * FROM foto ORDER BY IMGID DESC";
+		$query = "SELECT * FROM foto WHERE EMAIL='$email' ORDER BY IMGID DESC";
+		$content = (new re_place_holder)->page_replace($content,"%KEYWORDS%", "");
 	}
-	$email = $_SESSION['EMAIL'];
-	$sql = "SELECT * FROM foto WHERE EMAIL='$email' ORDER BY IMGID DESC";
-	$files = $obj_connection->queryDB($sql);
+	$files = $obj_connection->queryDB($query);
 	if ($files) {
 		$lenght = count($files);
 		$curr_page = 0;
@@ -60,35 +69,35 @@
 				$host  = $_SERVER['HTTP_HOST'];
 				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 				$extra = '../php/my_fanart.php';
-				header("Location: http://$host$uri/$extra");;
+				header("Location: http://$host$uri/".$extra);
 			}
 			for($i = 0; $i < $images_per_page; $i++) {
 				$curr_image = $page*$images_per_page+$i;
 				if(isset($files[$curr_image]['IMGID'])) {
 					$img = $files[$curr_image]['IMGID'];
 					$dsc = $files[$curr_image]['DESCRIPTION'];
-					echo "<br />";
-					echo "<figure>";
-					echo "<img src='../img/fanart/$img' alt=''/>";
-					echo "<figcaption> $dsc </figcaption>";
-					echo "</figure>";
-					echo "<a href='../php/logic/remove_fanart.php?image=",urlencode($img), "' class='rightbutton'>Rimuovi</a></p><br /><br />";
-					echo "<hr><br />";
+					$content .= "<br />";
+					$content .= "<figure>";
+					$content .= "<img src='../img/fanart/$img' alt=''/>";
+					$content .= "<figcaption> $dsc </figcaption>";
+					$content .= "</figure>";
+					$content .= "<a href='../php/logic/remove_fanart.php?image=".urlencode($img). "' class='rightbutton'>Rimuovi</a></p><br /><br />";
+					$content .= "<hr><br />";
 				}
 			}
 			$nextpage = $page+1;
 			$prevpage = $page-1;
 			if(isset($files[$nextpage*$images_per_page]['IMGID'])  )
 			{
-				echo "<a href='../php/my_fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina sucessiva</a>";
+				$content .= "<a href='../php/my_fanart.php?page=$nextpage&keywords=$keywords' class='rightbutton'>Pagina sucessiva</a>";
 			}
 			if(isset($files[$prevpage*$images_per_page]['IMGID'])  )
 			{
-				echo "<a href='../php/my_fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
+				$content .= "<a href='../php/my_fanart.php?page=$prevpage&keywords=$keywords' class='leftbutton'>Pagina precedente</a>";
 			}
-			echo "<br/><br/>";
+			$content .= "<br/><br/>";
 			if ($totpages>1) {
-			echo "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
+			$content .= "<h2 class='pagenum'>$nextpage / $totpages</h2> ";
 			}
 		}
 		else {
@@ -96,9 +105,18 @@
 			if(isset($files[$page]['IMGID'])){
 				$host  = $_SERVER['HTTP_HOST'];
 				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-				$extra = '../php/my_fanart.php?page=0';
-				header("Location: http://$host$uri/$extra");
+				$extra = '../php/my_fanart.php?page=0'."&keywords=".$keywords;
+				header("Location: http://$host$uri/".$extra);
 			}
 		}
 	}
+	else {
+		if(is_null($files)) {
+			$content .= "<p>Nessuna <span xml:lang='en' lang='en'>fan art</span> trovata con queste parole chiave</p>";
+		}
+		else {
+			$content .= "<span id='error' class='error'>ERRORE: Connessione con il database fallita</span>";
+		}
+	}
+	echo $content;
 ?>

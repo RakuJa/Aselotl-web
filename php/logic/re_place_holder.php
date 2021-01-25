@@ -5,5 +5,10 @@ class re_place_holder{
         $page = str_replace($toreplace,$data,$page);
         return $page;
     }
+
+    public function page_replace($page, $toreplace, $data){
+        $page = str_replace($toreplace,$data,$page);
+        return $page;
+    }
 }
 ?>

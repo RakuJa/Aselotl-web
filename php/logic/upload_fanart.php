@@ -1,8 +1,8 @@
 <?php
+	require_once("logic/sessione.php");
     require_once('upload_handler.php');
     require_once('debugger.php');
     require_once('connessione.php');
-    require_once('sessione.php');
     $no_error = true;
     $email='';
     $description='';
@@ -41,11 +41,11 @@
         if($uploadResult['error']==""){
         	new Debugger( "Nessun errore rilevato durante upload");
             if($uploadResult['IMGID']=="") {
-                $error=$error."IMGIDing non trovato <br />";
-                new Debugger("IMGIDing non trovato");
+                $error=$error."IMGID non trovato <br />";
+                new Debugger("IMGID non trovato");
                 $no_error=false;
             }else {
-                new Debugger("IMGIDing trovato");
+                new Debugger("IMGID trovato");
                 $fileIMGID = $uploadResult['IMGID'];
             }	
         }
@@ -57,13 +57,13 @@
         }
     } else {
 		$no_error = false;
-		new Debugger(" Immagine vuota caricata, errore! <br />");
-        $error=$error. " Immagine vuota caricata, errore! <br />";
+		new Debugger(" Immagine caricata vuota <br />");
+        $error=$error. " Immagine caricata vuota <br />";
 	}
 
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
-        $error=$error."[Errore di connessione al database] <br />";
+        $error=$error."Errore di connessione al database <br />";
         new Debugger("[Errore di connessione al database]");
         $no_error=false;
     }
@@ -76,9 +76,6 @@
         new Debugger($email);
         new Debugger($keywords);
 		$fileName = end(explode("/", $fileIMGID));
-		echo "SPAZIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ";
-		var_dump($fileName);
-		var_dump($fileIMGID);
         $foto_query = "INSERT INTO foto (`IMGID`,`DESCRIPTION`,`EMAIL`) VALUES (\"$fileName\",\"$description\",\"$email\")";
         $query_error = !$obj_connection->insertDB($foto_query);
         if ($query_error) {
@@ -123,6 +120,4 @@
         $_SESSION["errorImage"] = $error;
         header("location: ../add_fanart.php");
     }
-
-    
 ?>

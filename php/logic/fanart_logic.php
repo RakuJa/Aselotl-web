@@ -1,9 +1,12 @@
-<?php  
+<?php
+	require_once("sessione.php");
 	require_once("../php/logic/connessione.php");
-    require_once("../php/logic/debugger.php");
-    $obj_connection = new DBConnection();
+	require_once("../php/logic/debugger.php");
+	require_once("logic/re_place_holder.php");
+	$obj_connection = new DBConnection();
+	$error="";
     if(!$obj_connection->create_connection()){
-        new Debugger("[Errore di connessione al database]");
+		new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database";
         $no_error=false;
 	}
@@ -15,12 +18,17 @@
 	} else {
 		$content .="<a href='../php/login.php'>Accedi per caricare una <span xml:lang='en' lang='en'>fan art</span></a>";
 	}
-	$content .= file_get_contents("../html/searchbar.html");
+	$content .= "</div>";
+	$temp = file_get_contents("../html/searchbar.html");
+	$temp = (new re_place_holder)->page_replace($temp,"%LINK%","../php/fanart.php");
+	$temp = (new re_place_holder)->page_replace($temp,"%PLACEHOLDER%","Inserisci le parole chiave della immagine interessata...");
+	$content .= $temp;
 	$keywords = "";
 	if (isset($_GET['keywords']) && $_GET['keywords']!="") {
+		$keywords = $_GET['keywords'];
+		$content = (new re_place_holder)->page_replace($content,"%KEYWORDS%", $keywords);
 		$content .= "<a href='../php/fanart.php' class='rightbutton'>Annulla ricerca</a>";
 		$content .= "<br/><br/><br/><br/><br/><br/>";
-		$keywords = $_GET['keywords'];
 		$array_kw = explode(" ",$keywords);
 		$counter = 0;
 		$query = "";
@@ -54,6 +62,7 @@
        	$query = $query." ORDER BY A0.IMGID DESC";
 	}else {
 		$query = "SELECT * FROM foto ORDER BY IMGID DESC";
+		$content = (new re_place_holder)->page_replace($content,"%KEYWORDS%", "");
 	}
 	$files = $obj_connection->queryDB($query);
 	if ($files) {
@@ -107,6 +116,14 @@
 				$extra = '../php/fanart.php?page=0'."&keywords=".$keywords;
 				header("Location: http://$host$uri/".$extra);
 			}
+		}
+	}
+	else {
+		if(is_null($files)) {
+			$content .= "<p>Nessuna <span xml:lang='en' lang='en'>fan art</span> trovata con queste parole chiave</p>";
+		}
+		else {
+			$content .= "<span id='error' class='error'>ERRORE: Connessione con il database fallita</span>";
 		}
 	}
 	echo $content;

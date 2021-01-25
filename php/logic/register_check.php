@@ -12,6 +12,7 @@
     $pwd2='';
     $no_error=true;
     $error="";
+    $_SESSION['success'] = false;
     if(isset($_POST['email'])){
         $email=$_POST['email'];
     }
@@ -79,7 +80,8 @@
             if ($obj_connection) $obj_connection->close_connection();
             $_SESSION["error"]="";
             new Debugger("oro");
-            header('location: ../login.php');
+            $_SESSION['success'] = true;
+            header('location: ../register.php');
             exit();
         }else{  
             new Debugger("Errore nel inserimento dei dati");

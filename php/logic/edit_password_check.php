@@ -1,7 +1,7 @@
 <?php
+	require_once("sessione.php");
 	require_once('connessione.php');
 	require_once('debugger.php');
-	require_once('sessione.php');
 	require_once("reg_ex.php");
 	$no_error=true;
 	$error="";

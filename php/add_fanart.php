@@ -1,9 +1,8 @@
 <?php
-	session_start();
+	require_once("logic/sessione.php");
 	require_once("logic/re_place_holder.php");
-    $page_head = readfile("../html/head.html");
-	echo "<title>Aggiungi fan art</title>";
-	$page_theme = readfile("../html/toggle_theme.html");
+	$page_head = (new re_place_holder)->replace("../html/head.html","%TITLE%","<title>Aggiungi fan art</title>");
+	echo $page_head;
     include 'header.php';
 	$errorImage = "";
 	if($_SESSION['logged'] == false){

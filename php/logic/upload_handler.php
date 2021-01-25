@@ -18,8 +18,8 @@ class gestImg{
 			$uploadOk = 0;
 		}
 		// Check file size
-		if ($_FILES[$input_name]["size"] > 5000000) {//5MB
-			$error= $error."[Il file è troppo grande carica un file di dimensione minore di 500kB]";
+		if ($_FILES[$input_name]["size"] > 2000000) {//2MB
+			$error= $error."[Il file è troppo grande carica un file di dimensione minore di 2MB]";
 			$uploadOk = 0;
 		}
 		// Allow certain file formats
