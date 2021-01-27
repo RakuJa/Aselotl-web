@@ -6,7 +6,7 @@
 	echo $page_head;
     include '../php/header.php';
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-		header("location: /dgiachet/");
+		header("location: index.php");
 	}
 	$error = "";
 	if(isset($_SESSION["error"])){

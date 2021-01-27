@@ -18,12 +18,7 @@
 		<form method="post" action="../php/logic/register_check.php" id="register_form" class="vertical_input_form">
 			<fieldset>
 			<legend>Inserisci dati:</legend><br />
-			<span id="error" class="error">
-				%ERROR%
-			</span>
-			<span class="success">
-				%SUCCESS%
-			</span>
+			%MESSAGE%
 			<noscript>
 				<div class="msg_box warning_box">
 					ATTENZIONE: <span xml:lang="en" lang="en">JAVASCRIPT</span> NON E' ATTIVO, ALCUNE FUNZIONALITA' POTREBBERO 
@@ -48,7 +43,7 @@
 			<input type="password" required name="rpwd" id="rpwd" maxlength= "50" onkeyup="confirm_pwd(), check_all(), remove_error()"/>
 			<span id="message2"></span><br /><br />
 			
-			<button type="submit" disabled id="register_btn" class="btn" name="Registrati" value="Registrati" aria-describedby="error">Registrati</button>
+			<button type="submit" disabled id="register_btn" class="btn" name="Registrati" value="Registrati" aria-describedby="message">Registrati</button>
 
 			<a href="../php/login.php" class="right">Sei già registrato? CLICCA QUI</a>  
 		</fieldset>

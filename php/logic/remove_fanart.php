@@ -8,13 +8,13 @@
         new Debugger("[Errore di connessione al database]");
         $no_error=false;
         $error=$error."Errore di connessione al database <br />";
-        header("location: ../../404.php");
+        header("location: ../404.php");
         exit();
     }
 
 	$email="";
 	if (!isset($_GET['image']) || $_SESSION['logged']==false) {
-		header("location: ../../401.php");
+		header("location: ../401.php");
 		exit();		
 	}else {
 		$image = ltrim($_GET['image'],'\.\.\/'); 

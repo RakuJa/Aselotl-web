@@ -5,16 +5,9 @@
     require_once('debugger.php');
     if($_SESSION['logged']==true){
         new Debugger("User already logged in");
-        if($_SESSION['prev_prev_page'] == 'index.php' || $_SESSION['prev_prev_page'] == 'dgiachet') {
-			header("location: ".$protocol.$_SERVER['HTTP_HOST']."/dgiachet/");
-		} else {
-			header("location: ".$protocol.$_SERVER['HTTP_HOST']."/dgiachet/php/".$_SESSION['prev_prev_page']); 
-		}
+		header("location: ../".$_SESSION['prev_page']); 
         exit();
     }
-	var_dump($_SESSION['prev_prev_page']);
-	var_dump($_SESSION['prev_page']);
-	var_dump($_SESSION['current_page']);
     new Debugger("User not logged in");
 
     if(isset($_COOKIE['user_email'])){
@@ -83,12 +76,8 @@
                 }
 
                 $obj_connection->close_connection();
-                if($_SESSION['prev_prev_page'] == 'index.php' || $_SESSION['prev_prev_page'] == 'dgiachet') {
-					header("location: ".$protocol.$_SERVER['HTTP_HOST']."/dgiachet/");
-				} else {
-					header("location: ".$protocol.$_SERVER['HTTP_HOST']."/dgiachet/php/".$_SESSION['prev_prev_page']);
-				}
-			exit();
+				header("location: ../".$_SESSION['prev_page']);
+			    exit();
             }else {
                 if (is_null($query_rist)) {
                     new Debugger("Le credenziali inserite non sono corrette");
@@ -100,15 +89,15 @@
             }
         }else{
             new Debugger("Connessione con il DB fallita");
-            $error=$error."Connessione con il database fallita";
+            $error=$error."Connessione con il database fallita<br />";
         }
 
     }else {
-        $error = $error."Nessun dato trovato dentro url";
+        $error = $error."Nessun dato trovato dentro l'url<br />";
     }
 
     $_SESSION["error"] = $error;
     new Debugger($error);
 
-    header("location: /dgiachet/php/login.php");
+    header("location: ../login.php");
 ?>

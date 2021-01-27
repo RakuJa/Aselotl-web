@@ -7,7 +7,7 @@
 	$error = "";
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
-        $error=$error."Errore di connessione al database";
+        $error=$error."Errore di connessione al database<br />";
         $no_error=false;
 	}
 	$email = $_SESSION['EMAIL'];

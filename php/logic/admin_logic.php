@@ -5,11 +5,11 @@
     $obj_connection = new DBConnection();
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
-        $error=$error."<div class=\"msg_box error_box\">Errore di connessione al database</div>";
+        $error=$error."Errore di connessione al database <br />";
         $no_error=false;
     }
 	if ($_SESSION['logged']==false || $_SESSION['PERMISSION']!=0) {
-		header("location: ../401.php");
+		header("location: 401.php");
 	}
 
     $content = "";

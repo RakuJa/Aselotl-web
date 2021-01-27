@@ -1,5 +1,5 @@
 <?php
-	require_once("logic/sessione.php");
+	require_once("sessione.php");
     require_once('upload_handler.php');
     require_once('debugger.php');
     require_once('connessione.php');
@@ -58,7 +58,7 @@
     } else {
 		$no_error = false;
 		new Debugger(" Immagine caricata vuota <br />");
-        $error=$error. " Immagine caricata vuota <br />";
+        $error=$error. "Immagine caricata vuota <br />";
 	}
 
     $obj_connection = new DBConnection();
@@ -80,7 +80,7 @@
         $query_error = !$obj_connection->insertDB($foto_query);
         if ($query_error) {
             unlink($fileIMGID);
-            $_SESSION["errorImage"] = $error."errore nel inserimento nel db <br />";
+            $_SESSION["errorImage"] = $error."Errore nell'inserimento dei dati nel db <br />";
             header("location: ../add_fanart.php");
             exit();
         }
@@ -113,9 +113,16 @@
                 }
             }
         }
-        $_SESSION["errorImage"] = $error;
-        header("location: ../fanart.php");
-    }else {
+		$_SESSION["errorImage"] = "";
+		$temp = array_shift(explode("?", $_SESSION['prev_prev_page']));
+		if($temp == 'my_fanart.php') {
+			header("location: ../my_fanart.php");
+		} else if($temp == 'fanart.php') {
+			header("location: ../fanart.php");
+		} else {
+			header("location: ../index.php");
+		}
+    } else {
         unlink($fileIMGID);
         $_SESSION["errorImage"] = $error;
         header("location: ../add_fanart.php");

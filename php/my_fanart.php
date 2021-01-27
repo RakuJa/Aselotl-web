@@ -1,7 +1,7 @@
 <?php
     require_once("logic/sessione.php");
 	if (!isset($_SESSION['logged']) || $_SESSION['logged']==false) {
-		header("location: ../401.php");
+		header("location: 401.php");
 	}
 	require_once("logic/re_place_holder.php");
 	$page_head = (new re_place_holder)->replace("../html/head.html","%TITLE%","<title xml:lang='en' lang='en'>Le mie fan art</title>");
