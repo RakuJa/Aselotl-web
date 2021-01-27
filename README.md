@@ -22,3 +22,9 @@ Per importare il database utilizzando phpmydmin l'operazione è semplice, innanz
 | Francesco De Marchi | Senior Fullstack Dev | PHP, HTML5, CSS, JS               | 3000€     |
 | Antonio Osele       | Senior Frontend Dev  | PHP, HTML5, CSS, JS               | 2500€     |
 | Vittorio Schiavon   | Intern               | CSS, HTML5                        | 100€      |
+
+
+
+
+
+Per la corretta installazione su server modificare opportunamente il contenuto di .htacces e connessione.php
