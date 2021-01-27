@@ -4,7 +4,7 @@
     require_once('debugger.php');
     require_once("reg_ex.php");
     if($_SESSION['logged']==true){
-        header('location:../index.php');
+        header('location: ../../index.php');
         exit();
     }
     $email='';
@@ -12,6 +12,7 @@
     $pwd2='';
     $no_error=true;
     $error="";
+    $_SESSION['success'] = false;
     if(isset($_POST['email'])){
         $email=$_POST['email'];
     }
@@ -31,7 +32,7 @@
     if(!$obj_connection->create_connection()){
         new Debugger("[Errore di connessione al database]");
         $error=$error."Errore di connessione al database <br />";
-        header('location:../register.php');
+        header('location: ../register.php');
         exit();
         $no_error=false;
     }
@@ -79,7 +80,8 @@
             if ($obj_connection) $obj_connection->close_connection();
             $_SESSION["error"]="";
             new Debugger("oro");
-            header('location: ../login.php');
+            $_SESSION['success'] = true;
+            header('location: ../register.php');
             exit();
         }else{  
             new Debugger("Errore nel inserimento dei dati");

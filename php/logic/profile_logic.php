@@ -1,4 +1,5 @@
 <?php
+	require_once("sessione.php");
 	$email = $_SESSION['EMAIL'];
 	echo "<textarea id='email' readonly>$email</textarea>"; 
 	echo "<br /><label for='user'>Tipo di utenza: </label>";

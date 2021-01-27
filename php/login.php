@@ -1,20 +1,23 @@
 <?php
-    session_start();
-    $page_header = readfile("../html/head.html");
-	echo "<title>Accedi</title>";
-	$page_theme = readfile("../html/toggle_theme.html");
+	require_once("logic/sessione.php");
+	require_once("logic/re_place_holder.php");
+	require_once("logic/debugger.php");
+	$page_head = (new re_place_holder)->replace("../html/head.html","%TITLE%","<title>Accedi</title>");
+	echo $page_head;
     include '../php/header.php';
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-		header("location: ../php/index.php");
+		header("location: index.php");
 	}
-	$page_body = readfile("../html/login_top.html");
+	$error = "";
 	if(isset($_SESSION["error"])){
 		$error = $_SESSION["error"];
-		if ($error!="") {
-			echo "ERRORE:<br />$error<br /><br />";
-		}
 	}
-	$page_body = readfile("../html/login_bottom.html");
+	if($error!=""){
+		$page_body = (new re_place_holder)->replace("../html/login.html","%ERROR%","ERRORE:<br />$error<br /><br />");
+	}else{
+		$page_body = (new re_place_holder)->replace("../html/login.html","%ERROR%","");
+	}
+	echo $page_body;
     $page_footer = readfile("../html/footer.html");
     unset($_SESSION["error"]);
 ?>

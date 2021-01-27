@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    $page_head = readfile("../html/head.html");
-	echo "<title>Pannello amministratore</title>";
-	$page_theme = readfile("../html/toggle_theme.html");
+    require_once("logic/sessione.php");
+	require_once("logic/re_place_holder.php");
+	$page_head = (new re_place_holder)->replace("../html/head.html","%TITLE%","<title>Pannello amministratore</title>");
+	echo $page_head;
     include "../php/header.php";
 	$page_body = readfile("../html/admin.html");
     include "../php/logic/admin_logic.php";

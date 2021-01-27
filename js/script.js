@@ -71,14 +71,14 @@ function check_email() {
 	var valid_email = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if((email.value.match(valid_email)) || (email.value == 'admin') || (email.value == 'user'))
 		{
-		document.getElementById('message0').style.color = 'green';
-		document.getElementById('message0').innerHTML = 'Email valida';
+		//.getElementById('message0').style.color = 'green';
+		document.getElementById('message0').innerHTML = "<span class='success'>Email valida</span>";
 		return true;
 	}
 	else
 	{
-		document.getElementById('message0').style.color = '#EB0000';
-		document.getElementById('message0').innerHTML = 'Email non valida';
+		//document.getElementById('message0').style.color = '#EB0000';
+		document.getElementById('message0').innerHTML = "<span class='error'>Email non valida</span>";
 		return false;
 	}
 }
@@ -88,14 +88,14 @@ function check_pwd() {
 	var valid_pwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$/;
 	if(pwd.value.match(valid_pwd) || pwd.value == 'admin' || pwd.value == 'user') 
 		{
-		document.getElementById('message1').style.color = 'green';
-		document.getElementById('message1').innerHTML = 'Password valida</br>';
+		//document.getElementById('message1').style.color = 'green';
+		document.getElementById('message1').innerHTML = "<span class='success'>Password valida</span></br>";
 		return true;
 	}
 	else
 	{
-		document.getElementById('message1').style.color = '#EB0000';
-		document.getElementById('message1').innerHTML = 'La password  deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero';
+		//document.getElementById('message1').style.color = '#EB0000';
+		document.getElementById('message1').innerHTML = "<span class='error'>La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola e un numero</span>";
 		return false;
 	}
 }
@@ -105,14 +105,14 @@ function confirm_pwd() {
 	var rpwd = document.getElementById('rpwd');
 	if(pwd.value == rpwd.value && pwd.value != "" && rpwd.value != "") 
 		{
-		document.getElementById('message2').style.color = 'green';
-		document.getElementById('message2').innerHTML = 'Le password corrispondono';
+		//document.getElementById('message2').style.color = 'green';
+		document.getElementById('message2').innerHTML = "<span class='success'>Le password corrispondono</span>";
 		return true;
 	}
 	else
 	{
-		document.getElementById('message2').style.color = '#EB0000';
-		document.getElementById('message2').innerHTML = 'Le password non corrispondono';
+		//document.getElementById('message2').style.color = '#EB0000';
+		document.getElementById('message2').innerHTML = "<span class='error'>Le password non corrispondono</span>";
 		return false;
 	}
 }
@@ -159,8 +159,8 @@ function check_empty_art() {
 	var file = document.getElementById('uploadImage');
 	if((description.value == '') || (keywords.value == '') || (file.files.length == 0))	{
 		button.disabled = true;
-		document.getElementById('message').style.color = '#EB0000';
-		document.getElementById('message').innerHTML = 'I campi descrizione, parole chiave ed immagine non possono essere vuoti';
+		//document.getElementById('message').style.color = '#EB0000';
+		document.getElementById('message').innerHTML = "<span class='error'>I campi descrizione, parole chiave ed immagine non possono essere vuoti</span>";
 	}
 	else {
 		button.disabled = false;
@@ -169,14 +169,29 @@ function check_empty_art() {
 	}
 }
 
+function check_empty_img() {
+	var button = document.getElementById('submit');
+	var file = document.getElementById('uploadImage');
+	if(file.files[0].size == 0)	{
+		file.value = "";
+		button.disabled = true;
+		//document.getElementById('message').style.color = '#EB0000';
+		document.getElementById('message').innerHTML = "<span class='error'>File vuoto</span>";
+	}
+	else {
+		button.disabled = false;
+		document.getElementById('message').innerHTML = '';
+	}
+}
+
 function check_size() {
 	var button = document.getElementById('submit');
 	var file = document.getElementById('uploadImage');
-	if(file.files[0].size > 5000000)	{
+	if(file.files[0].size > 2000000)	{
 		file.value = "";
 		button.disabled = true;
-		document.getElementById('message').style.color = '#EB0000';
-		document.getElementById('message').innerHTML = 'File troppo grande (massimo 5MB)';
+		//document.getElementById('message').style.color = '#EB0000';
+		document.getElementById('message').innerHTML = "<span class='error'>File troppo grande (massimo 2MB)</span>";
 	}
 	else {
 		button.disabled = false;

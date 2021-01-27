@@ -1,25 +1,33 @@
-<?php 
-	$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-	$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-	$host  = $_SERVER['HTTP_HOST'];
+<?php
+	require_once("logic/sessione.php");
+	require_once("logic/re_place_holder.php");
+	$content = "";
+	$temp = file_get_contents(__DIR__. "/../html/header.html");
+	if($_SESSION['current_page'] == 'index.php'){
+		$temp = (new re_place_holder)->page_replace($temp,"%LOGO%","<div xml:lang='en' lang='en' class='logo'><img id='logo' src='../img/logo_small.png' alt='' /> Axolotl Society </div>");
+	}else{
+		$temp = (new re_place_holder)->page_replace($temp,"%LOGO%","<a href='index.php' xml:lang='en' lang='en' class='logo'><img id='logo' src='../img/logo_small.png' alt='' /> Axolotl Society</a>");
+	}
 	if (isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-		if($url == "$protocol$host/php/profile.php") {
-			echo'<p> Profilo </p>';
-		} else {
-			echo'<a href="../php/profile.php" class="colored"> Profilo </a>';
-		}
-	echo'<a href="../php/logic/logout.php" xml:lang="en" lang="en" class="colored">Logout</a>';
+		if($_SESSION['current_page'] == 'profile.php') {
+				$temp = (new re_place_holder)->page_replace($temp,"%PROFILO_LOGIN%","<p> Profilo </p>");
+			} else {
+				$temp = (new re_place_holder)->page_replace($temp,"%PROFILO_LOGIN%","<a href='profile.php' class='colored'> Profilo </a>");
+			}
+		$temp = (new re_place_holder)->page_replace($temp,"%LOGOUT_REGISTRATI%","<a href='logic/logout.php' xml:lang='en' lang='en' class='colored'>Logout</a>");
 	} else {
-		if($url == "$protocol$host/php/login.php") {
-			echo'<p> Accedi </p>';
+		if($_SESSION['current_page'] == 'login.php') {
+			$temp = (new re_place_holder)->page_replace($temp,"%PROFILO_LOGIN%","<p> Accedi </p>");
 		} else {
-			echo'<a href="../php/login.php" class="colored"> Accedi </a>';
+			$temp = (new re_place_holder)->page_replace($temp,"%PROFILO_LOGIN%","<a href='login.php' class='colored'> Accedi </a>");
 		}
-		if($url == "$protocol$host/php/register.php") {
-			echo'<p> Registrati </p>';
+		if($_SESSION['current_page'] == 'register.php') {
+			$temp = (new re_place_holder)->page_replace($temp,"%LOGOUT_REGISTRATI%","<p> Registrati </p>");
 		} else {
-			echo'<a href="../php/register.php" class="colored"> Registrati </a>';
+			$temp = (new re_place_holder)->page_replace($temp,"%LOGOUT_REGISTRATI%","<a href='register.php' class='colored'> Registrati </a>");
 		}
 	}
-	echo'</div> </div>';
+	$content .= $temp;
+	echo($content);
+	
 ?>

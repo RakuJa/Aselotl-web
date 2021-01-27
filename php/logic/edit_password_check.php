@@ -1,8 +1,9 @@
 <?php
+	require_once("sessione.php");
 	require_once('connessione.php');
 	require_once('debugger.php');
-	require_once('sessione.php');
 	require_once("reg_ex.php");
+	$_SESSION['success'] = false;
 	$no_error=true;
 	$error="";
 	$obj_connection = new DBConnection();
@@ -17,7 +18,7 @@
 	if (!isset($_POST['email']) || $_SESSION['logged']==false || 
 		!isset($_POST['pwd']) || !isset($_POST['rpwd']) ||
 		($_SESSION['PERMISSION']!=0 && $_SESSION['EMAIL'] != $_POST['email'])) {
-		header("location: ../access_denied.php");		
+		header("location: ../401.php");		
 	}else {
 		$email = $_POST['email'];
 		$pwd = $_POST['pwd'];
@@ -37,9 +38,11 @@
 				$query = "UPDATE user SET PASSWORD = '$hashed_pwd' WHERE EMAIL = '$email'";
 				$no_error = !$obj_connection->insertDB($query);
 				if ($_SESSION['PERMISSION']==0) {
-					header("location: ../admin.php");
+					header("location: ../".$_SESSION['prev_prev_page']);
+					$_SESSION['success'] = true;
 				}else {
-					header("location: logout.php");
+					header("location: ../profile.php");
+					$_SESSION['success'] = true;
 				}
 			}
 		}

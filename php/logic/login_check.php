@@ -1,11 +1,11 @@
 <?php
+	$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+	require_once("sessione.php");
     require_once('connessione.php');
     require_once('debugger.php');
-    require_once('sessione.php');
-
     if($_SESSION['logged']==true){
         new Debugger("User already logged in");
-        header('location: ../index.php');
+		header("location: ../".$_SESSION['prev_page']); 
         exit();
     }
     new Debugger("User not logged in");
@@ -54,7 +54,6 @@
             new debugger("Dopo del hash");
             $hashed_pwd=hash("sha512",$pwd);
             new debugger($hashed_pwd);
-            //$pwd = $obj_connection->escape_str(trim($pwd));
             $query = "SELECT * FROM user WHERE EMAIL = '$email' AND PASSWORD = '$hashed_pwd'";
             $permission = 2;
             $query_rist=$obj_connection->queryDB($query);
@@ -76,10 +75,9 @@
                     new Debugger("Logged for a short while");
                 }
 
-                $obj_connection->close_connection();    
-                header('location: ../index.php');
-                exit;
-
+                $obj_connection->close_connection();
+				header("location: ../".$_SESSION['prev_page']);
+			    exit();
             }else {
                 if (is_null($query_rist)) {
                     new Debugger("Le credenziali inserite non sono corrette");
@@ -91,16 +89,15 @@
             }
         }else{
             new Debugger("Connessione con il DB fallita");
-            $error=$error."Connessione con il database fallita";
+            $error=$error."Connessione con il database fallita<br />";
         }
 
     }else {
-        $error = $error."Nessun dato trovato dentro url";
+        $error = $error."Nessun dato trovato dentro l'url<br />";
     }
 
     $_SESSION["error"] = $error;
     new Debugger($error);
 
     header("location: ../login.php");
-    exit();
 ?>

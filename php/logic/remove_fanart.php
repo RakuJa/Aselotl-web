@@ -1,7 +1,7 @@
 <?php
+	require_once("sessione.php");
 	require_once('connessione.php');
 	require_once('debugger.php');
-	require_once('sessione.php');
 	$no_error=True;
 	$obj_connection = new DBConnection();
 	if(!$obj_connection->create_connection()){
@@ -14,14 +14,16 @@
 
 	$email="";
 	if (!isset($_GET['image']) || $_SESSION['logged']==false) {
-		header("location: ../access_denied.php");
+		header("location: ../401.php");
 		exit();		
 	}else {
 		$image = ltrim($_GET['image'],'\.\.\/'); 
 		$email = $_SESSION['EMAIL'];
 		$image = "../../img/fanart/".$image;
-		$query = "DELETE FROM foto WHERE foto.PATH = '$image'";
+		$imagedb = $_GET['image'];
+		$query = "DELETE FROM foto WHERE foto.IMGID = '$imagedb'";
 		header("location: ../my_fanart.php");
+		var_dump($query);
 		if ($_SESSION['PERMISSION'] == 0) {
 			new Debugger("Admin loggato, mi fido");
 			$no_error = $obj_connection->insertDB($query);
@@ -30,7 +32,7 @@
 			}
 		}else {
 			new Debugger("UTENTE NORMALE");
-			$check = "SELECT * FROM foto WHERE foto.PATH = '$image' AND EMAIL= '$email'";
+			$check = "SELECT * FROM foto WHERE foto.IMGID = '$imagedb' AND EMAIL= '$email'";
 			var_dump($check);
 			$query_rist=$obj_connection->queryDB($check);
 			if($query_rist){

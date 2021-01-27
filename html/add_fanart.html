@@ -1,5 +1,5 @@
 <div id="breadcrumb">
-	<p>Ti trovi in: <a xml:lang="en" lang="en" href="../php/index.php">Home</a> &gt; <a href="../php/profile.php">Profilo</a> &gt; Aggiungi <span xml:lang="en" lang="en">fan art</span></p>
+	<p>Ti trovi in: <a xml:lang="en" lang="en" href="../">Home</a> &gt; <a href="../php/profile.php">Profilo</a> &gt; Aggiungi <span xml:lang="en" lang="en">fan art</span></p>
 </div>
 
 <div id="menu">
@@ -18,12 +18,15 @@
 	<form action="../php/logic/upload_fanart.php" method="post" enctype="multipart/form-data">
 	<fieldset>
 	<legend>Inserisci dati:</legend><br />
+		<span id="error" class="error">
+			%ERROR%
+		</span>
 		<label for="description">Descrizione: </label><br />
 		<textarea required name="description" id="description" maxlength= "500" onkeyup="check_empty_art()"></textarea><br /><br />
 		<label for="keywords">Parole chiave: </label>
 		<input type="text" required name="keywords" id="keywords" maxlength= "500" onkeyup="check_empty_art()"/><br /><br />
 		<label for="uploadImage" class="custom-file-upload">Seleziona nuova <span xml:lang="en" lang="en">fan art</span></label>
-		<input type="file" required name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_size(), show_file_name()"/>
+		<input type="file" required name="uploadImage" id="uploadImage" accept="image/*" onchange="check_empty_art(), check_empty_img(), check_size(), show_file_name()"/>
 		<span id="file-selected">Nessuna immagine selezionata</span>
 		<input type="submit" id="submit" disabled name="submit" value="Carica immagine"/><br />
 		<span id="message"></span><br />

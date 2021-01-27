@@ -1,0 +1,3 @@
+DirectoryIndex /dgiachet/php/index.php
+ErrorDocument 401 /dgiachet/php/401.php
+ErrorDocument 404 /dgiachet/php/404.php
